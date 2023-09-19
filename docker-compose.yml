@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  segment-middleware:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    container_name: ${DOCKER_SERVICE_CONTAINER_NAME}
+    image: ${DOCKER_SERVICE_IMAGE_NAME}
+    restart: always
+    ports:
+      - ${DOCKER_SERVICE_PORT}:${DOCKER_SERVICE_PORT}

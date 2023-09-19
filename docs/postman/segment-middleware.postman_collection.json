@@ -1,0 +1,514 @@
+{
+	"info": {
+		"_postman_id": "72e86d69-741c-4119-9782-59a4a6a43cfd",
+		"name": "segment-middleware",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10313594"
+	},
+	"item": [
+		{
+			"name": "accounts",
+			"item": [
+				{
+					"name": "count",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{API_KEY_HEADER_VALUE}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "{{API_KEY_HEADER_NAME}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/accounts/count",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"accounts",
+								"count"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "test1@test.test",
+									"disabled": true
+								},
+								{
+									"key": "username",
+									"value": "TestUsername1",
+									"disabled": true
+								},
+								{
+									"key": "firstName",
+									"value": "Test",
+									"disabled": true
+								},
+								{
+									"key": "lastName",
+									"value": "Test",
+									"disabled": true
+								},
+								{
+									"key": "isConfirmed",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "isBlocked",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "createdOnMin",
+									"value": "2023-01-01T09:00:00.316Z",
+									"disabled": true
+								},
+								{
+									"key": "createdOnMax",
+									"value": "2024-01-01T09:00:00.316Z",
+									"disabled": true
+								},
+								{
+									"key": "updatedOnMin",
+									"value": "2023-01-01T09:00:00.316Z",
+									"disabled": true
+								},
+								{
+									"key": "updatedOnMax",
+									"value": "2024-01-01T09:00:00.316Z",
+									"disabled": true
+								},
+								{
+									"key": "role",
+									"value": "USER",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find many",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{API_KEY_HEADER_VALUE}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "{{API_KEY_HEADER_NAME}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/accounts",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"accounts"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Integer number, between 0 and 2147483647",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "Integer and positive number, between 1 and 50",
+									"disabled": true
+								},
+								{
+									"key": "sortField",
+									"value": "email",
+									"description": "It can be email, username, firstName, lastName, createdOn, or updatedOn",
+									"disabled": true
+								},
+								{
+									"key": "sortDirection",
+									"value": "desc",
+									"description": "It can be asc, or desc",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "test1@test.test",
+									"description": "Like filter, it must be a string of min 1 and max 256 characters",
+									"disabled": true
+								},
+								{
+									"key": "username",
+									"value": "TestUsername1",
+									"description": "Like filter, it must be a string of min 1 and max 256 characters",
+									"disabled": true
+								},
+								{
+									"key": "firstName",
+									"value": "Test",
+									"description": "Like filter, it must be a string of min 1 and max 256 characters",
+									"disabled": true
+								},
+								{
+									"key": "lastName",
+									"value": "Test",
+									"description": "Like filter, it must be a string of min 1 and max 256 characters",
+									"disabled": true
+								},
+								{
+									"key": "isConfirmed",
+									"value": "true",
+									"description": "Boolean value, like true, TRUE, 1, false, FALSE, or 0",
+									"disabled": true
+								},
+								{
+									"key": "isBlocked",
+									"value": "false",
+									"description": "Boolean value, like true, TRUE, 1, false, FALSE, or 0",
+									"disabled": true
+								},
+								{
+									"key": "createdOnMin",
+									"value": "0",
+									"description": "Timestamp in numeric format, min 0 and max 9223372036854775807",
+									"disabled": true
+								},
+								{
+									"key": "createdOnMax",
+									"value": "9223372036854775807",
+									"description": "Timestamp in numeric format, min 0 and max 9223372036854775807",
+									"disabled": true
+								},
+								{
+									"key": "updatedOnMin",
+									"value": "0",
+									"description": "Timestamp in numeric format, min 0 and max 9223372036854775807",
+									"disabled": true
+								},
+								{
+									"key": "updatedOnMax",
+									"value": "9223372036854775807",
+									"description": "Timestamp in numeric format, min 0 and max 9223372036854775807",
+									"disabled": true
+								},
+								{
+									"key": "role",
+									"value": "USER",
+									"description": "It can be USER, or ADMIN",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find one",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{API_KEY_HEADER_VALUE}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "{{API_KEY_HEADER_NAME}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/accounts/:id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"accounts",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "ea608bc6-1fc9-459f-a26d-aba637c51952"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create one",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{API_KEY_HEADER_VALUE}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "{{API_KEY_HEADER_NAME}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"test7@test.test\",\r\n    \"username\": \"TestUsername7\",\r\n    \"firstName\": \"Test\",\r\n    \"lastName\": \"Test\",\r\n    \"password\": \"Password12!\",\r\n    \"isConfirmed\": false,\r\n    \"isBlocked\": false,\r\n    \"role\": \"USER\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/accounts",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update one",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{API_KEY_HEADER_VALUE}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "{{API_KEY_HEADER_NAME}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"test7@test.test\",\r\n    \"username\": \"TestUsername7\",\r\n    \"firstName\": \"Test\",\r\n    \"lastName\": \"Test\",\r\n    \"password\": \"Password12!\",\r\n    \"isConfirmed\": true,\r\n    \"isBlocked\": false,\r\n    \"role\": \"USER\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/accounts/:id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"accounts",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "ea608bc6-1fc9-459f-a26d-aba637c51952"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete one",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{API_KEY_HEADER_VALUE}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "{{API_KEY_HEADER_NAME}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/accounts/:id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"accounts",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "8cbea2f9-e920-4551-8d7c-76a1efbc1edb"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "access",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"identifier\": \"test2@test.test\",\r\n    \"password\": \"Password12!\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/access/login",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"access",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"test5@test.test\",\r\n    \"username\": \"TestUsername5\",\r\n    \"firstName\": \"Test\",\r\n    \"lastName\": \"Test\",\r\n    \"password\": \"Password12!\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/access/registration",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"access",
+								"registration"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "healtcheck",
+			"item": [
+				{
+					"name": "status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/healthcheck/status",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"healthcheck",
+								"status"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

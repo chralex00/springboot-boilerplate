@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SegmentMiddlewareApplication<segment-middleware>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.zeniapp.segmentmiddleware.SegmentMiddlewareApplication",
+            "projectName": "segment-middleware",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
