@@ -1,4 +1,4 @@
-package com.zeniapp.segmentmiddleware.guards;
+package com.zeniapp.segmentmiddleware.utils;
 
 import java.util.Collection;
 import org.springframework.security.authentication.AbstractAuthenticationToken;

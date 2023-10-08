@@ -1,6 +1,6 @@
 server.port=8081
 
-service.version=v0.0.1-rc.1
+service.version=tobemodified
 service.name=segment-middleware
 
 security.api-key-http-header-name=tobemodified

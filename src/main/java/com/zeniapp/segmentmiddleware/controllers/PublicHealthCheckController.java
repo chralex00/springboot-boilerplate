@@ -15,7 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RestController
 @RequestMapping("/api/v1/healthcheck")
-public class HealthCheckController {
+public class PublicHealthCheckController {
     @Autowired
     private Configs configs;
 
@@ -29,8 +29,8 @@ public class HealthCheckController {
             return new ResponseEntity<HealtCheckStatusDto>(healtCheckStatusDto, HttpStatus.OK);
         }
         catch (Exception exception) {
-            HealthCheckController.log.error("error occurred returning the health check");
-            HealthCheckController.log.error("error message is " + exception.getMessage());
+            PublicHealthCheckController.log.error("error occurred returning the health check");
+            PublicHealthCheckController.log.error("error message is " + exception.getMessage());
 
             ErrorResponseDto internalServerErrorDto = new ErrorResponseDto();
             internalServerErrorDto.setError(true);

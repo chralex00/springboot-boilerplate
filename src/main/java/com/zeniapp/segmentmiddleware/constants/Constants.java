@@ -4,7 +4,7 @@ public class Constants {
     // Numeric Limits
     public static final int MIN_OFFSET_VALUE = 0;
     public static final int MAX_OFFSET_VALUE = Integer.MAX_VALUE;
-    public static final int MIN_LIMIT_VALUE = 0;
+    public static final int MIN_LIMIT_VALUE = 1;
     public static final int MAX_LIMIT_VALUE = 50;
     public static final int STRING_FILTER_MIN_LENGTH = 1;
     public static final int STRING_FILTER_MAX_LENGTH = 256;

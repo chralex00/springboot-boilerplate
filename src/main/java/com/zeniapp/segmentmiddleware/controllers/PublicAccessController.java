@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.zeniapp.segmentmiddleware.configs.Configs;
-import com.zeniapp.segmentmiddleware.dtos.AccountDto;
 import com.zeniapp.segmentmiddleware.dtos.CreateAccountDto;
 import com.zeniapp.segmentmiddleware.dtos.ErrorResponseDto;
 import com.zeniapp.segmentmiddleware.dtos.JwtDto;
@@ -29,7 +28,6 @@ import com.zeniapp.segmentmiddleware.entities.Account;
 import com.zeniapp.segmentmiddleware.enums.AccountRole;
 import com.zeniapp.segmentmiddleware.exceptions.AccountBlockedException;
 import com.zeniapp.segmentmiddleware.exceptions.DuplicateFieldsException;
-import com.zeniapp.segmentmiddleware.exceptions.ResourceNotFoundException;
 import com.zeniapp.segmentmiddleware.exceptions.WrongCredentialsException;
 import com.zeniapp.segmentmiddleware.exceptions.WrongPayloadException;
 import com.zeniapp.segmentmiddleware.services.AccountService;
@@ -41,7 +39,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RestController
 @RequestMapping("/api/v1/access")
-public class AccessController {
+public class PublicAccessController {
     @Autowired
     private Configs configs;
 
@@ -62,7 +60,7 @@ public class AccessController {
                 throw new WrongPayloadException(errorMessages);
             }
 
-            Account accountByIdentifier = this.accountService.findByIdentifier(loginDto.getIdentifier()).orElseThrow(ResourceNotFoundException::new);
+            Account accountByIdentifier = this.accountService.findByIdentifier(loginDto.getIdentifier()).orElseThrow(WrongCredentialsException::new);
 
             String passwordWithSecret = loginDto.getPassword() + this.configs.getSecurityPasswordHashingSecret();
             
@@ -96,13 +94,9 @@ public class AccessController {
         catch (WrongCredentialsException wrongCredentialsException) {
             return new ResponseEntity<ErrorResponseDto>(wrongCredentialsException.getErrorResponseDto(), HttpStatus.BAD_REQUEST);
         }
-        catch (ResourceNotFoundException resourceNotFoundException) {
-
-            return new ResponseEntity<ErrorResponseDto>(resourceNotFoundException.getErrorResponseDto(), HttpStatus.NOT_FOUND);
-        }
         catch (Exception exception) {
-            AccessController.log.error("error occurred during the login");
-            AccessController.log.error("error message is " + exception.getMessage());
+            PublicAccessController.log.error("error occurred during the login");
+            PublicAccessController.log.error("error message is " + exception.getMessage());
 
             ErrorResponseDto errorResponseDto = new ErrorResponseDto();
             errorResponseDto.setError(true);
@@ -137,20 +131,19 @@ public class AccessController {
             String encodedPassword = this.argon2PasswordEncoder.encode(passwordWithSecret);
             accountToCreate.setPassword(encodedPassword);
             
-            Account createdAccount = this.accountService.save(this.modelMapper.map(accountToCreate, Account.class));
+            this.accountService.save(this.modelMapper.map(accountToCreate, Account.class));
 
-            AccountDto accountDto = this.modelMapper.map(createdAccount, AccountDto.class);
-            return new ResponseEntity<AccountDto>(accountDto, HttpStatus.CREATED);
+            return new ResponseEntity<Object>(null, HttpStatus.CREATED);
         }
         catch (WrongPayloadException wrongPayloadException) {
             return new ResponseEntity<ErrorResponseDto>(wrongPayloadException.getErrorResponseDto(), HttpStatus.BAD_REQUEST);
         }
         catch (DuplicateFieldsException duplicateFieldsException) {
-            return new ResponseEntity<ErrorResponseDto>(duplicateFieldsException.getErrorResponseDto(), HttpStatus.NOT_FOUND);
+            return new ResponseEntity<ErrorResponseDto>(duplicateFieldsException.getErrorResponseDto(), HttpStatus.CONFLICT);
         }
         catch (Exception exception) {
-            AccessController.log.error("error occurred during the account registration");
-            AccessController.log.error("error message is " + exception.getMessage());
+            PublicAccessController.log.error("error occurred during the account registration");
+            PublicAccessController.log.error("error message is " + exception.getMessage());
             return new ResponseEntity<ErrorResponseDto>(AccountUtils.getInternalServerError(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

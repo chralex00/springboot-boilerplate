@@ -18,6 +18,8 @@ import com.zeniapp.segmentmiddleware.dtos.ErrorResponseDto;
 import com.zeniapp.segmentmiddleware.enums.AccountRole;
 import com.zeniapp.segmentmiddleware.exceptions.InvalidApiKeyException;
 import com.zeniapp.segmentmiddleware.exceptions.UnauthorizedException;
+import com.zeniapp.segmentmiddleware.utils.ApiKeyAuthentication;
+import com.zeniapp.segmentmiddleware.utils.JwtAuthentication;
 import com.zeniapp.segmentmiddleware.utils.JwtUtils;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.SignatureException;
@@ -34,7 +36,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthGuard extends OncePerRequestFilter {
+public class AdminAuthGuard extends OncePerRequestFilter {
     @Getter
     private String apiKeyHeaderName;
 
@@ -46,8 +48,8 @@ public class AuthGuard extends OncePerRequestFilter {
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
-        RequestMatcher matcher = new NegatedRequestMatcher(new AntPathRequestMatcher("/api/v1/accounts/**"));
-        return matcher.matches(request);
+        RequestMatcher adminAccountPathMatcher = new NegatedRequestMatcher(new AntPathRequestMatcher("/api/v1/admin/accounts/**"));
+        return adminAccountPathMatcher.matches(request);
     }
 
     @Override
@@ -66,7 +68,7 @@ public class AuthGuard extends OncePerRequestFilter {
                     throw new UnauthorizedException();
                 }
 
-                claims.forEach((key, value) -> request.setAttribute(jwt, response));
+                claims.forEach((key, value) -> request.setAttribute(key, value));
 
                 Authentication authentication = new JwtAuthentication(jwt, AuthorityUtils.NO_AUTHORITIES);
                 SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -83,8 +85,8 @@ public class AuthGuard extends OncePerRequestFilter {
             }
         }
         catch (Exception exception) {
-            AuthGuard.log.error("error occurred during the API authentication and authorization");
-            AuthGuard.log.error("error message is " + exception.getMessage());
+            AdminAuthGuard.log.error("error occurred during the API authentication and authorization");
+            AdminAuthGuard.log.error("error message is " + exception.getMessage());
 
             Integer httpStatus;
             ErrorResponseDto body;

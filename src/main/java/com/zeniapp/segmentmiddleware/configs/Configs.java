@@ -10,12 +10,18 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
-import com.zeniapp.segmentmiddleware.guards.AuthGuard;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import com.zeniapp.segmentmiddleware.guards.AdminAuthGuard;
+import com.zeniapp.segmentmiddleware.guards.UserAuthGuard;
+
 import lombok.Getter;
 
 @Configuration
 @EnableWebSecurity
-public class Configs {
+public class Configs implements WebMvcConfigurer {
     @Value("${server.port:0}")
     @Getter
     private Integer serverPort;
@@ -87,7 +93,7 @@ public class Configs {
     @Value("${spring.jpa.database-platform:}")
     @Getter
     private String springJpaDatabasePlatform;
-
+    
     public List<String> checkAppVars() {
         List<String> errorMessages = new ArrayList<String>();
 
@@ -194,17 +200,37 @@ public class Configs {
     }
 
     @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(Arrays.asList("*"));
+        configuration.setAllowedMethods(Arrays.asList("*"));
+        configuration.setAllowedHeaders(Arrays.asList("*"));
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+
+        return source;
+    }
+
+
+    @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
             .csrf((csrf) -> csrf.disable())
+            .cors((cors) -> cors.configurationSource(this.corsConfigurationSource()))
             .authorizeHttpRequests(
                 (requests) -> requests
-                    .requestMatchers("/api/v1/accounts/**").authenticated()
+                    .requestMatchers("/api/v1/admin/accounts/**").authenticated()
+                    .requestMatchers("/api/v1/user/accounts/**").authenticated()
                     .requestMatchers("/api/v1/access/**").permitAll()
                     .requestMatchers("/api/v1/healthcheck/**").permitAll()
             )
             .addFilterBefore(
-                new AuthGuard(this.securityApiKeyHttpHeaderName, this.securityApiKeyHttpHeaderValue, this.securityJwtGenerationSecret),
+                new AdminAuthGuard(this.securityApiKeyHttpHeaderName, this.securityApiKeyHttpHeaderValue, this.securityJwtGenerationSecret),
+                BasicAuthenticationFilter.class
+            )
+            .addFilterBefore(
+                new UserAuthGuard(this.securityJwtGenerationSecret),
                 BasicAuthenticationFilter.class
             );
 

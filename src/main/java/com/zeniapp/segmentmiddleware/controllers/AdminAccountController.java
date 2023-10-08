@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,8 +38,8 @@ import com.zeniapp.segmentmiddleware.utils.AccountUtils;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/v1/accounts")
-public class AccountController {
+@RequestMapping("/api/v1/admin/accounts")
+public class AdminAccountController {
     @Autowired
     private Configs configs;
 
@@ -84,8 +85,8 @@ public class AccountController {
             return new ResponseEntity<ErrorResponseDto>(wrongPayloadException.getErrorResponseDto(), HttpStatus.BAD_REQUEST);
         }
         catch (Exception exception) {
-            AccountController.log.error("error occurred counting the accounts");
-            AccountController.log.error("error message is " + exception.getMessage());
+            AdminAccountController.log.error("error occurred counting the accounts");
+            AdminAccountController.log.error("error message is " + exception.getMessage());
             return new ResponseEntity<ErrorResponseDto>(AccountUtils.getInternalServerError(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -115,11 +116,11 @@ public class AccountController {
             return new ResponseEntity<ErrorResponseDto>(wrongPayloadException.getErrorResponseDto(), HttpStatus.BAD_REQUEST);
         }
         catch (DuplicateFieldsException duplicateFieldsException) {
-            return new ResponseEntity<ErrorResponseDto>(duplicateFieldsException.getErrorResponseDto(), HttpStatus.NOT_FOUND);
+            return new ResponseEntity<ErrorResponseDto>(duplicateFieldsException.getErrorResponseDto(), HttpStatus.CONFLICT);
         }
         catch (Exception exception) {
-            AccountController.log.error("error occurred creating the account");
-            AccountController.log.error("error message is " + exception.getMessage());
+            AdminAccountController.log.error("error occurred creating the account");
+            AdminAccountController.log.error("error message is " + exception.getMessage());
             return new ResponseEntity<ErrorResponseDto>(AccountUtils.getInternalServerError(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -137,8 +138,8 @@ public class AccountController {
             return new ResponseEntity<ErrorResponseDto>(resourceNotFoundException.getErrorResponseDto(), HttpStatus.NOT_FOUND);
         }
         catch (Exception exception) {
-            AccountController.log.error("error occurred retrieving the account");
-            AccountController.log.error("error message is " + exception.getMessage());
+            AdminAccountController.log.error("error occurred retrieving the account");
+            AdminAccountController.log.error("error message is " + exception.getMessage());
             return new ResponseEntity<ErrorResponseDto>(AccountUtils.getInternalServerError(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -184,8 +185,8 @@ public class AccountController {
             return new ResponseEntity<ErrorResponseDto>(wrongPayloadException.getErrorResponseDto(), HttpStatus.BAD_REQUEST);
         }
         catch (Exception exception) {
-            AccountController.log.error("error occurred retrieving the accounts");
-            AccountController.log.error("error message is " + exception.getMessage());
+            AdminAccountController.log.error("error occurred retrieving the accounts");
+            AdminAccountController.log.error("error message is " + exception.getMessage());
             return new ResponseEntity<ErrorResponseDto>(AccountUtils.getInternalServerError(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -205,10 +206,10 @@ public class AccountController {
             accountFound.setUsername(updateAccountDto.getUsername());
             accountFound.setFirstName(updateAccountDto.getFirstName());
             accountFound.setLastName(updateAccountDto.getLastName());
-            accountFound.setIsConfirmed(updateAccountDto.getIsConfirmed());
-            accountFound.setIsBlocked(updateAccountDto.getIsBlocked());
+            accountFound.setIsConfirmed(Objects.requireNonNullElse(updateAccountDto.getIsConfirmed(), accountFound.getIsConfirmed()));
+            accountFound.setIsBlocked(Objects.requireNonNullElse(updateAccountDto.getIsBlocked(), accountFound.getIsBlocked()));
             accountFound.setUpdatedOn(new Timestamp(new Date().getTime()));
-            accountFound.setRole(updateAccountDto.getRole());
+            accountFound.setRole(Objects.requireNonNullElse(updateAccountDto.getRole(), accountFound.getRole()));
 
             if (updateAccountDto.getPassword() != null && updateAccountDto.getPassword().length() > 0) {
                 String passwordWithSecret = updateAccountDto.getPassword() + this.configs.getSecurityPasswordHashingSecret();
@@ -232,8 +233,8 @@ public class AccountController {
             return new ResponseEntity<ErrorResponseDto>(duplicateFieldsException.getErrorResponseDto(), HttpStatus.NOT_FOUND);
         }
         catch (Exception exception) {
-            AccountController.log.error("error occurred updating the account");
-            AccountController.log.error("error message is " + exception.getMessage());
+            AdminAccountController.log.error("error occurred updating the account");
+            AdminAccountController.log.error("error message is " + exception.getMessage());
             return new ResponseEntity<ErrorResponseDto>(AccountUtils.getInternalServerError(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -255,8 +256,8 @@ public class AccountController {
             return new ResponseEntity<ErrorResponseDto>(resourceNotFoundException.getErrorResponseDto(), HttpStatus.NOT_FOUND);
         }
         catch (Exception exception) {
-            AccountController.log.error("error occurred during the account retrieving");
-            AccountController.log.error("error message is " + exception.getMessage());
+            AdminAccountController.log.error("error occurred during the account retrieving");
+            AdminAccountController.log.error("error message is " + exception.getMessage());
             return new ResponseEntity<ErrorResponseDto>(AccountUtils.getInternalServerError(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
