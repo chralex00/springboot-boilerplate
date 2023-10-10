@@ -1,7 +1,12 @@
-FROM openjdk:19-jdk-alpine
+FROM maven:3.8.7-openjdk-18 as build
+ENV MAVEN_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1"
+WORKDIR /app
+COPY pom.xml .
+RUN mvn dependency:go-offline
+COPY ./ ./
+RUN mvn clean install -D maven.test.skip=true && ls -l
 
-ARG JAR_FILE=target/segment-middleware.jar
-
-ADD ${JAR_FILE} app.jar
-
-ENTRYPOINT ["java","-jar","/app.jar"]
+FROM openjdk:19-alpine3.16 as prod
+WORKDIR /app
+COPY --from=build /app/target/segment-middleware.jar /app
+ENTRYPOINT ["java","-jar","./segment-middleware.jar"]
