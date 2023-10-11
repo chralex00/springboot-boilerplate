@@ -75,10 +75,6 @@ public class AccountUtils {
 
     public static void manageDuplicateFields(List<Account> accountsByEmailOrUsername, String email, String username) throws DuplicateFieldsException {
         if (!accountsByEmailOrUsername.isEmpty()) {
-            ErrorResponseDto errorResponseDto = new ErrorResponseDto();
-            errorResponseDto.setError(true);
-            errorResponseDto.setName(HttpStatus.CONFLICT.getReasonPhrase());
-
             List<String> errorMessages = new ArrayList<String>();
             
             for (Account accountByEmailOrUsername : accountsByEmailOrUsername) {
@@ -90,8 +86,6 @@ public class AccountUtils {
                     errorMessages.add("username already taken");
                 }
             }
-
-            errorResponseDto.setMessages(errorMessages);
 
             throw new DuplicateFieldsException(errorMessages);
         }

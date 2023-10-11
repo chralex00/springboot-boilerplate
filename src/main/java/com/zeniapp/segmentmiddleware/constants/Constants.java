@@ -10,6 +10,8 @@ public class Constants {
     public static final int STRING_FILTER_MAX_LENGTH = 256;
     public static final long MIN_TIMESTAMP_VALUE = 0;
     public static final long MAX_TIMESTAMP_VALUE = Long.MAX_VALUE;
+    public static final int MIN_API_COUNTER_VALUE = 0;
+    public static final int MAX_API_COUNTER_VALUE = Integer.MAX_VALUE;
 
     // Length Limits
     public static final int EMAIL_MIN_LENGTH = 5;
@@ -34,6 +36,7 @@ public class Constants {
     public static final String FIRST_NAME_REGEXP = "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$";
     public static final String LAST_NAME_REGEXP = "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$";
     public static final String PASSWORD_REGEXP = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]*$";
-    public static final String ACCOUNT_SORT_FIELDS_REGEXP = "^(email|username|firstName|lastName|createdOn|updatedOn)$";
     public static final String ROLE_REGEXP = "^(USER|ADMIN)$";
+    public static final String ACCOUNT_SORT_FIELDS_REGEXP = "^(email|username|firstName|lastName|createdOn|updatedOn)$";
+    public static final String SESSION_SORT_FIELDS_REGEXP = "^(apiCounter|createdOn|lastActivityOn)$";
 }

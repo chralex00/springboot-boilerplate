@@ -510,6 +510,352 @@
 			]
 		},
 		{
+			"name": "sessions",
+			"item": [
+				{
+					"name": "admin",
+					"item": [
+						{
+							"name": "count",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/admin/sessions/count",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"sessions",
+										"count"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "test1@test.test",
+											"disabled": true
+										},
+										{
+											"key": "username",
+											"value": "TestUsername1",
+											"disabled": true
+										},
+										{
+											"key": "createdOnMin",
+											"value": "2023-01-01T09:00:00.316Z",
+											"disabled": true
+										},
+										{
+											"key": "createdOnMax",
+											"value": "2024-01-01T09:00:00.316Z",
+											"disabled": true
+										},
+										{
+											"key": "lastActivityOnMin",
+											"value": "2023-01-01T09:00:00.316Z",
+											"disabled": true
+										},
+										{
+											"key": "lastActivityOnMax",
+											"value": "2024-01-01T09:00:00.316Z",
+											"disabled": true
+										},
+										{
+											"key": "apiCounterMin",
+											"value": "0",
+											"disabled": true
+										},
+										{
+											"key": "apiCounterMax",
+											"value": "100",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find many",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/admin/sessions",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"sessions"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "0",
+											"description": "Integer number, between 0 and 2147483647",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"description": "Integer and positive number, between 1 and 50",
+											"disabled": true
+										},
+										{
+											"key": "sortField",
+											"value": "apiCounter",
+											"description": "It can be apiCounter, createdOn, or lastActivityOn",
+											"disabled": true
+										},
+										{
+											"key": "sortDirection",
+											"value": "desc",
+											"description": "It can be asc, or desc",
+											"disabled": true
+										},
+										{
+											"key": "email",
+											"value": "christian.alessandro.atzeni",
+											"description": "Like filter, it must be a string of min 1 and max 256 characters",
+											"disabled": true
+										},
+										{
+											"key": "username",
+											"value": "chralex00",
+											"description": "Like filter, it must be a string of min 1 and max 256 characters",
+											"disabled": true
+										},
+										{
+											"key": "createdOnMin",
+											"value": "0",
+											"description": "Timestamp in numeric format, min 0 and max 9223372036854775807",
+											"disabled": true
+										},
+										{
+											"key": "createdOnMax",
+											"value": "9223372036854775807",
+											"description": "Timestamp in numeric format, min 0 and max 9223372036854775807",
+											"disabled": true
+										},
+										{
+											"key": "lastActivityOnMin",
+											"value": "0",
+											"description": "Timestamp in numeric format, min 0 and max 9223372036854775807",
+											"disabled": true
+										},
+										{
+											"key": "lastActivityOnMax",
+											"value": "9223372036854775807",
+											"description": "Timestamp in numeric format, min 0 and max 9223372036854775807",
+											"disabled": true
+										},
+										{
+											"key": "apiCounterMin",
+											"value": "0",
+											"description": "Integer number, between 0 and 2147483647",
+											"disabled": true
+										},
+										{
+											"key": "apiCounterMax",
+											"value": "100",
+											"description": "Integer number, between 0 and 2147483647",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/admin/sessions/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"sessions",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "4fbda30d-d119-4584-80bd-b496b99d7a59"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"identifier\": \"chralex00\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/admin/sessions",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"sessions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/admin/sessions/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"sessions",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "4fbda30d-d119-4584-80bd-b496b99d7a59"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
 			"name": "access",
 			"item": [
 				{

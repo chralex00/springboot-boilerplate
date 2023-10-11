@@ -14,7 +14,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class AccountQueryParamsDto {
+public class SessionQueryParamsDto {
     @Getter
     @Setter
     @Min(value = Constants.MIN_OFFSET_VALUE, message = "offset must be greater than, or equal to " + Constants.MIN_OFFSET_VALUE)
@@ -29,13 +29,25 @@ public class AccountQueryParamsDto {
 
     @Getter
     @Setter
-    @Pattern(regexp = Constants.ACCOUNT_SORT_FIELDS_REGEXP, message = "sortField must respect to the following pattern: " + Constants.ACCOUNT_SORT_FIELDS_REGEXP)
+    @Pattern(regexp = Constants.SESSION_SORT_FIELDS_REGEXP, message = "sortField must respect to the following pattern: " + Constants.SESSION_SORT_FIELDS_REGEXP)
     private String sortField;
 
     @Getter
     @Setter
     @Pattern(regexp = Constants.SQL_ORDER_BY_REGEXP, message = "sortDirection must respect to the following pattern: " + Constants.SQL_ORDER_BY_REGEXP)
     private String sortDirection;
+
+    @Getter
+    @Setter
+    @Min(value = Constants.MIN_API_COUNTER_VALUE, message = "apiCounterMin must be greater than, or equal to " + Constants.MIN_API_COUNTER_VALUE)
+    @Max(value = Constants.MAX_API_COUNTER_VALUE, message = "apiCounterMin must be lower than, or equal to " + Constants.MAX_API_COUNTER_VALUE)
+    private Integer apiCounterMin;
+
+    @Getter
+    @Setter
+    @Min(value = Constants.MIN_API_COUNTER_VALUE, message = "apiCounterMax must be greater than, or equal to " + Constants.MIN_API_COUNTER_VALUE)
+    @Max(value = Constants.MAX_API_COUNTER_VALUE, message = "apiCounterMax must be lower than, or equal to " + Constants.MAX_API_COUNTER_VALUE)
+    private Integer apiCounterMax;
     
     @Getter
     @Setter
@@ -57,32 +69,6 @@ public class AccountQueryParamsDto {
 
     @Getter
     @Setter
-    @Size(
-        min = Constants.STRING_FILTER_MIN_LENGTH,
-        max = Constants.STRING_FILTER_MAX_LENGTH,
-        message = "firstName must have between " + Constants.STRING_FILTER_MIN_LENGTH + " and " + Constants.STRING_FILTER_MAX_LENGTH + " characters"
-    )
-    private String firstName;
-
-    @Getter
-    @Setter
-    @Size(
-        min = Constants.STRING_FILTER_MIN_LENGTH,
-        max = Constants.STRING_FILTER_MAX_LENGTH,
-        message = "lastName must have between " + Constants.STRING_FILTER_MIN_LENGTH + " and " + Constants.STRING_FILTER_MAX_LENGTH + " characters"
-    )
-    private String lastName;
-
-    @Getter
-    @Setter
-    private Boolean isConfirmed;
-    
-    @Getter
-    @Setter
-    private Boolean isBlocked;
-
-    @Getter
-    @Setter
     @Min(value = 0, message = "createdOnMin must be greater than, or equal to " + Constants.MIN_TIMESTAMP_VALUE)
     @Max(value = Long.MAX_VALUE, message = "createdOnMin must be greater than, or equal to " + Constants.MAX_TIMESTAMP_VALUE)
     private Long createdOnMin;
@@ -95,23 +81,13 @@ public class AccountQueryParamsDto {
 
     @Getter
     @Setter
-    @Min(value = 0, message = "updatedOnMin must be greater than, or equal to " + Constants.MIN_TIMESTAMP_VALUE)
-    @Max(value = Long.MAX_VALUE, message = "updatedOnMin must be greater than, or equal to " + Constants.MAX_TIMESTAMP_VALUE)
-    private Long updatedOnMin;
+    @Min(value = 0, message = "lastActivityOnMin must be greater than, or equal to " + Constants.MIN_TIMESTAMP_VALUE)
+    @Max(value = Long.MAX_VALUE, message = "lastActivityOnMin must be greater than, or equal to " + Constants.MAX_TIMESTAMP_VALUE)
+    private Long lastActivityOnMin;
 
     @Getter
     @Setter
-    @Min(value = 0, message = "updatedOnMax must be greater than, or equal to " + Constants.MIN_TIMESTAMP_VALUE)
-    @Max(value = Long.MAX_VALUE, message = "updatedOnMax must be greater than, or equal to " + Constants.MAX_TIMESTAMP_VALUE)
-    private Long updatedOnMax;
-
-    @Setter
-    @Getter
-    @Size(
-        min = Constants.STRING_FILTER_MIN_LENGTH,
-        max = Constants.STRING_FILTER_MAX_LENGTH,
-        message = "role must have between " + Constants.STRING_FILTER_MIN_LENGTH + " and " + Constants.STRING_FILTER_MAX_LENGTH + " characters"
-    )
-    @Pattern(regexp = Constants.ROLE_REGEXP, message = "role must respect to the following pattern: " + Constants.ROLE_REGEXP)
-    private String role;
+    @Min(value = 0, message = "lastActivityOnMax must be greater than, or equal to " + Constants.MIN_TIMESTAMP_VALUE)
+    @Max(value = Long.MAX_VALUE, message = "lastActivityOnMax must be greater than, or equal to " + Constants.MAX_TIMESTAMP_VALUE)
+    private Long lastActivityOnMax;
 }

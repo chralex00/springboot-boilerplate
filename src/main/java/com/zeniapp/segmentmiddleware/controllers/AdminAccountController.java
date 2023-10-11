@@ -256,7 +256,7 @@ public class AdminAccountController {
             return new ResponseEntity<ErrorResponseDto>(resourceNotFoundException.getErrorResponseDto(), HttpStatus.NOT_FOUND);
         }
         catch (Exception exception) {
-            AdminAccountController.log.error("error occurred during the account retrieving");
+            AdminAccountController.log.error("error occurred during the account deletion");
             AdminAccountController.log.error("error message is " + exception.getMessage());
             return new ResponseEntity<ErrorResponseDto>(AccountUtils.getInternalServerError(), HttpStatus.INTERNAL_SERVER_ERROR);
         }

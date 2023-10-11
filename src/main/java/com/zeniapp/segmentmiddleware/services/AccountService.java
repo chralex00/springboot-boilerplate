@@ -8,7 +8,6 @@ import com.zeniapp.segmentmiddleware.daos.AccountDao;
 import com.zeniapp.segmentmiddleware.dtos.AccountQueryParamsDto;
 import com.zeniapp.segmentmiddleware.entities.Account;
 import com.zeniapp.segmentmiddleware.utils.AccountUtils;
-
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.CriteriaBuilder;
