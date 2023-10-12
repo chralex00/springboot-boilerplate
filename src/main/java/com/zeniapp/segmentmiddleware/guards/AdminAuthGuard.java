@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Map;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.Authentication;
@@ -15,12 +16,15 @@ import org.springframework.security.web.util.matcher.RequestMatcher;
 import org.springframework.web.filter.OncePerRequestFilter;
 import com.google.gson.Gson;
 import com.zeniapp.segmentmiddleware.dtos.ErrorResponseDto;
+import com.zeniapp.segmentmiddleware.entities.Session;
 import com.zeniapp.segmentmiddleware.enums.AccountRole;
 import com.zeniapp.segmentmiddleware.exceptions.InvalidApiKeyException;
 import com.zeniapp.segmentmiddleware.exceptions.UnauthorizedException;
+import com.zeniapp.segmentmiddleware.services.SessionService;
 import com.zeniapp.segmentmiddleware.utils.ApiKeyAuthentication;
 import com.zeniapp.segmentmiddleware.utils.JwtAuthentication;
 import com.zeniapp.segmentmiddleware.utils.JwtUtils;
+import com.zeniapp.segmentmiddleware.utils.SessionUtils;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.SignatureException;
 import jakarta.servlet.FilterChain;
@@ -46,6 +50,12 @@ public class AdminAuthGuard extends OncePerRequestFilter {
     @Getter
     private String jwtSecret;
 
+    @Getter
+    private Long jwtDuration;
+
+    @Autowired
+    private SessionService sessionService;
+
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
         RequestMatcher adminPathMatcher = new NegatedRequestMatcher(new AntPathRequestMatcher("/api/v1/admin/**"));
@@ -58,17 +68,20 @@ public class AdminAuthGuard extends OncePerRequestFilter {
             String jwt = request.getHeader("Authorization");
 
             if (jwt != null && jwt.length() > 0) {
-                Map<String, Object> claims = JwtUtils.decodeJwt(jwt, this.jwtSecret, new String[] {
-                    "accountId", "username", "email", "role"
-                });
+                Map<String, Object> claims = JwtUtils.decodeJwt(jwt, this.jwtSecret, new String[] { "sessionId" });
 
-                String role = (String) claims.get("role");
+                String sessionId = (String) claims.get("sessionId");
+
+                Session session = SessionUtils.checkSession(this.sessionService, sessionId, this.jwtDuration);
+
+                String role = session.getAccount().getRole();
                 
                 if (!role.equals(AccountRole.ADMIN.toString())) {
                     throw new UnauthorizedException();
                 }
 
                 claims.forEach((key, value) -> request.setAttribute(key, value));
+                request.setAttribute("accountId", session.getAccount().getId());
 
                 Authentication authentication = new JwtAuthentication(jwt, AuthorityUtils.NO_AUTHORITIES);
                 SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -105,7 +118,7 @@ public class AdminAuthGuard extends OncePerRequestFilter {
                 ErrorResponseDto errorResponseDto = new ErrorResponseDto();
                 errorResponseDto.setError(true);
                 errorResponseDto.setName(HttpStatus.FORBIDDEN.getReasonPhrase());
-                errorResponseDto.setMessages(Arrays.asList(new String[] { "jwt expired" }));
+                errorResponseDto.setMessages(Arrays.asList(new String[] { "session expired" }));
 
                 body = errorResponseDto;
             }

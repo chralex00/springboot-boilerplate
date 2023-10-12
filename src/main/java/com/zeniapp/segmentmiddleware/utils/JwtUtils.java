@@ -31,7 +31,7 @@ public class JwtUtils {
 
         Date expiration = decodedJwt.getBody().getExpiration();
 
-        if (new Date().after(expiration)){
+        if (expiration != null && new Date().after(expiration)){
             throw new ExpiredJwtException(decodedJwt.getHeader(), null, "Session expired");
         }
 

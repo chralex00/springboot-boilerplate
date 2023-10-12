@@ -314,7 +314,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"email\": \"test6@test.test\",\r\n    \"username\": \"TestUsername6\",\r\n    \"firstName\": \"Test\",\r\n    \"lastName\": \"Test\",\r\n    \"password\": \"Password12!\",\r\n    \"isConfirmed\": false,\r\n    \"isBlocked\": false,\r\n    \"role\": \"USER\"\r\n}\r\n",
+									"raw": "{\r\n    \"email\": \"test6@test.test\",\r\n    \"username\": \"JemmaJ00\",\r\n    \"firstName\": \"Test\",\r\n    \"lastName\": \"Test\",\r\n    \"password\": \"Password12!\",\r\n    \"isConfirmed\": false,\r\n    \"isBlocked\": false,\r\n    \"role\": \"USER\"\r\n}\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -865,7 +865,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"identifier\": \"brunetto.gemma@gmail.com\",\r\n    \"password\": \"Password12!\"\r\n}\r\n",
+							"raw": "{\r\n    \"identifier\": \"test@test.test\",\r\n    \"password\": \"Password12!\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"

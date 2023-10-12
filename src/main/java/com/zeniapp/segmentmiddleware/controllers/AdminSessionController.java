@@ -2,8 +2,6 @@ package com.zeniapp.segmentmiddleware.controllers;
 
 import jakarta.validation.Valid;
 import java.sql.Timestamp;
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -104,24 +102,18 @@ public class AdminSessionController {
 
             SessionUtils.manageDuplicateFields(sessionByAccountId, createSessionDto.getIdentifier());
 
-            Map<String, String> claims = new HashMap<String, String>();
-            claims.put("accountId", accountByIdentifier.getId());
-            claims.put("username", accountByIdentifier.getUsername());
-            claims.put("email", accountByIdentifier.getEmail());
-            claims.put("role", accountByIdentifier.getRole());
-            
-            Instant expirationInstant = Instant.now().plus(this.configs.getSecurityJwtGenerationDuration(), ChronoUnit.MILLIS);
-            Date expiration = Date.from(expirationInstant);
-            String jwt = JwtUtils.generateJwt("user", expiration, claims, this.configs.getSecurityJwtGenerationSecret());
-
             Session sessionToCreate = new Session();
             sessionToCreate.setAccount(accountByIdentifier);
             sessionToCreate.setApiCounter(0);
-            sessionToCreate.setJwt(jwt);
             sessionToCreate.setCreatedOn(new Timestamp(new Date().getTime()));
             sessionToCreate.setLastActivityOn(new Timestamp(new Date().getTime()));
-
+            
             Session createdSession = this.sessionService.save(sessionToCreate);
+
+            Map<String, String> claims = new HashMap<String, String>();
+            claims.put("sessionId", createdSession.getId());
+            
+            JwtUtils.generateJwt("user", null, claims, this.configs.getSecurityJwtGenerationSecret());
             
             SessionDto sessionDto = this.modelMapper.map(createdSession, SessionDto.class);
             sessionDto.setUsername(accountByIdentifier.getUsername());

@@ -3,6 +3,7 @@ package com.zeniapp.segmentmiddleware.configs;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,7 +17,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import com.zeniapp.segmentmiddleware.guards.AdminAuthGuard;
 import com.zeniapp.segmentmiddleware.guards.UserAuthGuard;
-
+import com.zeniapp.segmentmiddleware.services.SessionService;
 import lombok.Getter;
 
 @Configuration
@@ -212,6 +213,8 @@ public class Configs implements WebMvcConfigurer {
         return source;
     }
 
+    @Autowired
+    private SessionService sessionService;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -227,11 +230,11 @@ public class Configs implements WebMvcConfigurer {
                     .requestMatchers("/api/v1/healthcheck/**").permitAll()
             )
             .addFilterBefore(
-                new AdminAuthGuard(this.securityApiKeyHttpHeaderName, this.securityApiKeyHttpHeaderValue, this.securityJwtGenerationSecret),
+                new AdminAuthGuard(this.securityApiKeyHttpHeaderName, this.securityApiKeyHttpHeaderValue, this.securityJwtGenerationSecret, this.securityJwtGenerationDuration, this.sessionService),
                 BasicAuthenticationFilter.class
             )
             .addFilterBefore(
-                new UserAuthGuard(this.securityJwtGenerationSecret),
+                new UserAuthGuard(this.securityJwtGenerationSecret, this.securityJwtGenerationDuration, this.sessionService),
                 BasicAuthenticationFilter.class
             );
 

@@ -1,12 +1,12 @@
 package com.zeniapp.segmentmiddleware.controllers;
 
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
+import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,12 +25,15 @@ import com.zeniapp.segmentmiddleware.dtos.JwtDto;
 import com.zeniapp.segmentmiddleware.dtos.LoginDto;
 import com.zeniapp.segmentmiddleware.dtos.RegistrationDto;
 import com.zeniapp.segmentmiddleware.entities.Account;
+import com.zeniapp.segmentmiddleware.entities.Session;
 import com.zeniapp.segmentmiddleware.enums.AccountRole;
 import com.zeniapp.segmentmiddleware.exceptions.AccountBlockedException;
 import com.zeniapp.segmentmiddleware.exceptions.DuplicateFieldsException;
+import com.zeniapp.segmentmiddleware.exceptions.ResourceNotFoundException;
 import com.zeniapp.segmentmiddleware.exceptions.WrongCredentialsException;
 import com.zeniapp.segmentmiddleware.exceptions.WrongPayloadException;
 import com.zeniapp.segmentmiddleware.services.AccountService;
+import com.zeniapp.segmentmiddleware.services.SessionService;
 import com.zeniapp.segmentmiddleware.utils.AccountUtils;
 import com.zeniapp.segmentmiddleware.utils.JwtUtils;
 import jakarta.validation.Valid;
@@ -45,6 +48,9 @@ public class PublicAccessController {
 
     @Autowired
     private AccountService accountService;
+
+    @Autowired
+    private SessionService sessionService;
 
     @Autowired
     private Argon2PasswordEncoder argon2PasswordEncoder;
@@ -72,18 +78,29 @@ public class PublicAccessController {
                 throw new AccountBlockedException();
             }
 
+            Optional<Session> sessionByAccountId = this.sessionService.findByAccountId(accountByIdentifier.getId());
+            
+            if (sessionByAccountId.isPresent()) {
+                this.sessionService.deleteOne(sessionByAccountId.get().getId());
+            }
+
+            Session sessionToCreate = new Session();
+            sessionToCreate.setAccount(accountByIdentifier);
+            sessionToCreate.setApiCounter(0);
+            sessionToCreate.setCreatedOn(new Timestamp(new Date().getTime()));
+            sessionToCreate.setLastActivityOn(new Timestamp(new Date().getTime()));
+
+            Session sessionCreated = this.sessionService.save(sessionToCreate);
+
             Map<String, String> claims = new HashMap<String, String>();
-            claims.put("accountId", accountByIdentifier.getId());
-            claims.put("username", accountByIdentifier.getUsername());
-            claims.put("email", accountByIdentifier.getEmail());
-            claims.put("role", accountByIdentifier.getRole());
+            claims.put("sessionId", sessionCreated.getId());
 
-            Instant expirationInstant = Instant.now().plus(this.configs.getSecurityJwtGenerationDuration(), ChronoUnit.MILLIS);
-            Date expiration = Date.from(expirationInstant);
-
-            String jwt = JwtUtils.generateJwt("user", expiration, claims, this.configs.getSecurityJwtGenerationSecret());
+            String jwt = JwtUtils.generateJwt("user", null, claims, this.configs.getSecurityJwtGenerationSecret());
 
             return new ResponseEntity<JwtDto>(new JwtDto(jwt), HttpStatus.OK);
+        }
+        catch (ResourceNotFoundException resourceNotFoundException) {
+            return new ResponseEntity<ErrorResponseDto>(resourceNotFoundException.getErrorResponseDto(), HttpStatus.NOT_FOUND);
         }
         catch (AccountBlockedException accountBlockedException) {
             return new ResponseEntity<ErrorResponseDto>(accountBlockedException.getErrorResponseDto(), HttpStatus.BAD_REQUEST);

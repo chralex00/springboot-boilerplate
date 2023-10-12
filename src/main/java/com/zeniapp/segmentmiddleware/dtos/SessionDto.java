@@ -21,10 +21,6 @@ public class SessionDto {
 
     @Setter
     @Getter
-    private String jwt;
-
-    @Setter
-    @Getter
     private Integer apiCounter;
 
     @Setter

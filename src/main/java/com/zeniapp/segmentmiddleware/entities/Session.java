@@ -3,7 +3,6 @@ package com.zeniapp.segmentmiddleware.entities;
 import java.sql.Timestamp;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,20 +25,15 @@ import lombok.ToString;
 public class Session {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "id", columnDefinition = "VARCHAR(64)", updatable = false)
+    @Column(name = "id", columnDefinition = "VARCHAR(64)", updatable = true)
     @Setter
     @Getter
     private String id;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "account_id", referencedColumnName = "id")
     @Getter @Setter
     private Account account;
-
-    @Column(name = "jwt", columnDefinition = "VARCHAR(512)", updatable = true)
-    @Setter
-    @Getter
-    private String jwt;
 
     @Column(name = "api_counter", columnDefinition = "INT", updatable = true)
     @Setter

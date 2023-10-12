@@ -1,11 +1,12 @@
 package com.zeniapp.segmentmiddleware.utils;
 
 import java.util.Set;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
@@ -14,7 +15,10 @@ import com.zeniapp.segmentmiddleware.dtos.ErrorResponseDto;
 import com.zeniapp.segmentmiddleware.dtos.SessionQueryParamsDto;
 import com.zeniapp.segmentmiddleware.entities.Session;
 import com.zeniapp.segmentmiddleware.exceptions.DuplicateFieldsException;
+import com.zeniapp.segmentmiddleware.exceptions.UnauthorizedException;
 import com.zeniapp.segmentmiddleware.exceptions.WrongPayloadException;
+import com.zeniapp.segmentmiddleware.services.SessionService;
+import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
@@ -22,6 +26,32 @@ import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 
 public class SessionUtils {
+    public static Session checkSession(SessionService sessionService, String sessionId, Long jwtDuration) throws ExpiredJwtException, UnauthorizedException, Exception {
+        if (sessionId == null) {
+            throw new UnauthorizedException();
+        }
+
+        Session session = sessionService.findOne(sessionId).orElseThrow(UnauthorizedException::new);
+
+        Date expirationDate = new Date(session.getLastActivityOn().getTime() + jwtDuration);
+
+        if (new Date().after(expirationDate)) {
+            sessionService.deleteOne(session.getId());
+            throw new ExpiredJwtException(null, null, "Session expired");
+        }
+
+        if (session.getAccount() == null) {
+            throw new UnauthorizedException();
+        }
+
+        Integer newApiCounter = (session.getApiCounter() < 1_000_000_000) ? session.getApiCounter() + 1 : session.getApiCounter();
+
+        session.setApiCounter(newApiCounter);
+        session.setLastActivityOn(new Timestamp(new Date().getTime()));
+
+        return sessionService.save(session);
+    }
+
     public static List<Predicate> getPredicatesBySessionQyeryParamsDto(CriteriaBuilder criteriaBuilder, Root<Session> root, SessionQueryParamsDto sessionQueryParamsDto) throws DuplicateFieldsException {
         List<Predicate> predicates = new ArrayList<Predicate>();
 
