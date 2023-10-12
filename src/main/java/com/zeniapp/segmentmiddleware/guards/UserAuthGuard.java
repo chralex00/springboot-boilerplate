@@ -18,12 +18,13 @@ import com.google.gson.Gson;
 import com.zeniapp.segmentmiddleware.dtos.ErrorResponseDto;
 import com.zeniapp.segmentmiddleware.entities.Session;
 import com.zeniapp.segmentmiddleware.enums.AccountRole;
+import com.zeniapp.segmentmiddleware.exceptions.AccountBlockedException;
+import com.zeniapp.segmentmiddleware.exceptions.SessionExpiredException;
 import com.zeniapp.segmentmiddleware.exceptions.UnauthorizedException;
 import com.zeniapp.segmentmiddleware.services.SessionService;
 import com.zeniapp.segmentmiddleware.utils.JwtAuthentication;
 import com.zeniapp.segmentmiddleware.utils.JwtUtils;
 import com.zeniapp.segmentmiddleware.utils.SessionUtils;
-import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.SignatureException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -87,15 +88,13 @@ public class UserAuthGuard extends OncePerRequestFilter {
                 httpStatus = HttpServletResponse.SC_UNAUTHORIZED;
                 body = ((UnauthorizedException) exception).getErrorResponseDto();
             }
-            else if (exception instanceof ExpiredJwtException) {
+            else if (exception instanceof AccountBlockedException) {
+                httpStatus = HttpServletResponse.SC_BAD_REQUEST;
+                body = ((AccountBlockedException) exception).getErrorResponseDto();
+            }
+            else if (exception instanceof SessionExpiredException) {
                 httpStatus = HttpServletResponse.SC_FORBIDDEN;
-
-                ErrorResponseDto errorResponseDto = new ErrorResponseDto();
-                errorResponseDto.setError(true);
-                errorResponseDto.setName(HttpStatus.FORBIDDEN.getReasonPhrase());
-                errorResponseDto.setMessages(Arrays.asList(new String[] { "session expired" }));
-
-                body = errorResponseDto;
+                body = ((SessionExpiredException) exception).getErrorResponseDto();
             }
             else if (exception instanceof SignatureException) {
                 httpStatus = HttpServletResponse.SC_FORBIDDEN;

@@ -14,11 +14,12 @@ import com.zeniapp.segmentmiddleware.dtos.CreateSessionDto;
 import com.zeniapp.segmentmiddleware.dtos.ErrorResponseDto;
 import com.zeniapp.segmentmiddleware.dtos.SessionQueryParamsDto;
 import com.zeniapp.segmentmiddleware.entities.Session;
+import com.zeniapp.segmentmiddleware.exceptions.AccountBlockedException;
 import com.zeniapp.segmentmiddleware.exceptions.DuplicateFieldsException;
+import com.zeniapp.segmentmiddleware.exceptions.SessionExpiredException;
 import com.zeniapp.segmentmiddleware.exceptions.UnauthorizedException;
 import com.zeniapp.segmentmiddleware.exceptions.WrongPayloadException;
 import com.zeniapp.segmentmiddleware.services.SessionService;
-import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
@@ -26,7 +27,7 @@ import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 
 public class SessionUtils {
-    public static Session checkSession(SessionService sessionService, String sessionId, Long jwtDuration) throws ExpiredJwtException, UnauthorizedException, Exception {
+    public static Session checkSession(SessionService sessionService, String sessionId, Long jwtDuration) throws SessionExpiredException, UnauthorizedException, Exception {
         if (sessionId == null) {
             throw new UnauthorizedException();
         }
@@ -37,11 +38,17 @@ public class SessionUtils {
 
         if (new Date().after(expirationDate)) {
             sessionService.deleteOne(session.getId());
-            throw new ExpiredJwtException(null, null, "Session expired");
+            throw new SessionExpiredException();
         }
 
         if (session.getAccount() == null) {
+            sessionService.deleteOne(session.getId());
             throw new UnauthorizedException();
+        }
+
+        if (session.getAccount().getIsBlocked()) {
+            sessionService.deleteOne(session.getId());
+            throw new AccountBlockedException();
         }
 
         Integer newApiCounter = (session.getApiCounter() < 1_000_000_000) ? session.getApiCounter() + 1 : session.getApiCounter();
