@@ -79,12 +79,13 @@ public class PublicAccessController {
                 throw new AccountBlockedException();
             }
 
-            Optional<Session> sessionByAccountId = this.sessionService.findByAccountId(accountByIdentifier.getId());
+            Optional<Session> sessionByAccountIdOptional = this.sessionService.findByAccountId(accountByIdentifier.getId());
             Integer apiCounter = 0;
             
-            if (sessionByAccountId.isPresent()) {
-                apiCounter = sessionByAccountId.get().getApiCounter();
-                this.sessionService.deleteOne(sessionByAccountId.get().getId());
+            if (sessionByAccountIdOptional.isPresent()) {
+                Session sessionByAccountId = sessionByAccountIdOptional.get();
+                apiCounter = (sessionByAccountId.getApiCounter() < 1_000_000_000) ? sessionByAccountId.getApiCounter() + 1 : sessionByAccountId.getApiCounter();
+                this.sessionService.deleteOne(sessionByAccountId.getId());
             }
 
             Session sessionToCreate = new Session();
