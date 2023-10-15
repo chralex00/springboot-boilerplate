@@ -886,6 +886,39 @@
 					"response": []
 				},
 				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"identifier\": \"test@test.test\",\r\n    \"password\": \"Password12!\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/access/logout",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"access",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "registration",
 					"request": {
 						"method": "POST",

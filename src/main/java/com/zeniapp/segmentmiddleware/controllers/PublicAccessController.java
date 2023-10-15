@@ -16,6 +16,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.zeniapp.segmentmiddleware.configs.Configs;
@@ -79,14 +80,16 @@ public class PublicAccessController {
             }
 
             Optional<Session> sessionByAccountId = this.sessionService.findByAccountId(accountByIdentifier.getId());
+            Integer apiCounter = 0;
             
             if (sessionByAccountId.isPresent()) {
+                apiCounter = sessionByAccountId.get().getApiCounter();
                 this.sessionService.deleteOne(sessionByAccountId.get().getId());
             }
 
             Session sessionToCreate = new Session();
             sessionToCreate.setAccount(accountByIdentifier);
-            sessionToCreate.setApiCounter(0);
+            sessionToCreate.setApiCounter(apiCounter);
             sessionToCreate.setCreatedOn(new Timestamp(new Date().getTime()));
             sessionToCreate.setLastActivityOn(new Timestamp(new Date().getTime()));
 
@@ -113,6 +116,30 @@ public class PublicAccessController {
         }
         catch (Exception exception) {
             PublicAccessController.log.error("error occurred during the login");
+            PublicAccessController.log.error("error message is " + exception.getMessage());
+
+            ErrorResponseDto errorResponseDto = new ErrorResponseDto();
+            errorResponseDto.setError(true);
+            errorResponseDto.setName(HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase());
+            errorResponseDto.setMessages(Arrays.asList(new String[] { "generic error occurred" }));
+
+            return new ResponseEntity<ErrorResponseDto>(errorResponseDto, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<?> logout(@RequestHeader(name = "Authorization") String jwt) {
+        try {
+            Map<String, Object> claims = JwtUtils.decodeJwt(jwt, this.configs.getSecurityJwtGenerationSecret(), new String[] { "sessionId" });
+
+            String sessionId = (String) claims.get("sessionId");
+
+            this.sessionService.deleteOne(sessionId);
+
+            return new ResponseEntity<Object>(null, HttpStatus.OK);
+        }
+        catch (Exception exception) {
+            PublicAccessController.log.error("error occurred during the logout");
             PublicAccessController.log.error("error message is " + exception.getMessage());
 
             ErrorResponseDto errorResponseDto = new ErrorResponseDto();
