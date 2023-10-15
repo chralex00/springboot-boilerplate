@@ -35,7 +35,7 @@ public class Session {
     @Getter @Setter
     private Account account;
 
-    @Column(name = "api_counter", columnDefinition = "INT", updatable = true)
+    @Column(name = "api_counter", columnDefinition = "BIGINT", updatable = true)
     @Setter
     @Getter
     private Integer apiCounter;
