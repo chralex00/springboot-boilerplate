@@ -7,6 +7,8 @@ down_dev:
 	docker-compose -f docker-compose-development.yml down
 	docker rmi mysql:5.7
 	docker rmi phpmyadmin/phpmyadmin
+	docker rmi mongo
+	docker rmi mongo-express
 
 build:
 	docker build -t ${DOCKER_SERVICE_IMAGE_NAME} .

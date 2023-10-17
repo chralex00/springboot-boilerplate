@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.zeniapp</groupId>
 	<artifactId>segment-middleware</artifactId>
-	<version>v0.1.0-rc.6</version>
+	<version>v0.2.0-rc.1</version>
 	<name>segment-middleware</name>
 	<description>A middleware for the Segment app.</description>				
 	<parent>
@@ -26,7 +26,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+			<version>3.1.4</version>
+		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>

@@ -37,9 +37,25 @@ cp src/main/resources/application.properties.example src/main/resources/applicat
 to create a new `application.properties` file and set the configurations.
 
 To run the Dockerized middleware, it is necessary to create a .env file with the following env variables:
--  `DOCKER_SERVICE_CONTAINER_NAME`: the name of the docker container, like segment-middleware.
--  `DOCKER_SERVICE_IMAGE_NAME`: the name of the docker image, like segment-middleware.
--  `DOCKER_SERVICE_PORT`: the listening port of the docker container, like 8091, or 8092. It must be the same of the `server.port` property, present in the `application.properties` file.
+- `DOCKER_SERVICE_CONTAINER_NAME`: the name of the docker container, like segment-middleware.
+- `DOCKER_SERVICE_IMAGE_NAME`: the name of the docker image, like segment-middleware.
+- `DOCKER_SERVICE_PORT`: the listening port of the docker container, like 8091, or 8092. It must be the same of the `server.port` property, present in the `application.properties` file.
+- `DOCKER_MYSQL_ROOT_PASSWORD`: the root password of MySQL.
+- `DOCKER_MYSQL_DATABASE`: the MySQL database name.
+- `DOCKER_MYSQL_USER`: the  username to access the MySQL database.
+- `DOCKER_MYSQL_PASSWORD`: the password to access the MySQL database.
+- `DOCKER_MYSQL_EXPOSED_PORT`: the listening port of MySQL reachable outside the docker container.
+- `DOCKER_PHPMYADMIN_PORT`: the listening port of PHPMyAdmin reachable outside the docker container.
+- `DOCKER_MONGO_INITDB_ROOT_USERNAME`: the root username of MongoDB.
+- `DOCKER_MONGO_INITDB_ROOT_PASSWORD`: the root password of MongoDB.
+- `DOCKER_MONGO_INITDB_DATABASE`: the MongoDB database name.
+- `DOCKER_MONGO_EXPOSED_PORT`: the listening port of MongoDB reachable outside the docker container.
+- `DOCKER_MONGO_EXPRESS_ADMIN_AUTH_USERNAME`: the root username to access the MongDB database.
+- `DOCKER_MONGO_EXPRESS_ADMIN_AUTH_PASSWORD`: the root password to access the MongDB database.
+- `DOCKER_MONGO_EXPRESS_BASIC_AUTH_USERNAME`: the basic username to access the MongDB database.
+- `DOCKER_MONGO_EXPRESS_BASIC_AUTH_PASSWORD`: the basic password to access the MongDB database.
+- `DOCKER_MONGO_EXPRESS_EXPOSED_PORT`: the listening port of Mongo Express reachable outside the docker container.
+
 To easily create the .env file, run the following command:
 ```bash
 cp .env_example .env

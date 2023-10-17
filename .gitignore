@@ -8,6 +8,7 @@ target/
 
 ### Docker Volumes ###
 mysqlData/
+mongoData/
 
 ### STS ###
 .apt_generated
