@@ -25,10 +25,17 @@ The `application.properties` file must contain the following application propert
 - `security.jwt-generation.duration`: the JWT duration, expressed in milliseconds, like 54000000 (15 minutes).
 - `spring.jpa.hibernate.ddl-auto`: the data schema update stratagy. See https://docs.spring.io/spring-boot/docs/1.1.0.M1/reference/html/howto-database-initialization.html for more information. It is strongly recommended to use the value none when the software is in production.
 - `spring.datasource.url`: the URL of the MySQL DBMS including host, port and database name.
-- `spring.datasource.username`: the database user's userename.
-- `spring.datasource.password`: the database user's password.
+- `spring.datasource.username`: the MySQL user's userename.
+- `spring.datasource.password`: the MySQL user's password.
 - `spring.datasource.driver-class-name`: the fully qualified package name of the mysql driver Java class.
 - `spring.jpa.database-platform`: specify the database dialect, like MySQLDialect.
+- `spring.data.mongodb.auto-index-creation`: to enable the auto index creaton when starting the middleware. Not recommended in production.
+- `spring.data.mongodb.authentication-database`: the authentication type, for example admin.
+- `spring.data.mongodb.username`: the MongoDB user's userename.
+- `spring.data.mongodb.password`: the MongoDB user's password
+- `spring.data.mongodb.database`: the MongoDB database name.
+- `spring.data.mongodb.port`: the MongoDB listening port, like 27017, or 27018.
+- `spring.data.mongodb.host`: the MongoDB host, like 127.0.0.1.
 
 An `application.properties` template is stored at the same directory in the `application.properties.example` file, so run:
 ```bash

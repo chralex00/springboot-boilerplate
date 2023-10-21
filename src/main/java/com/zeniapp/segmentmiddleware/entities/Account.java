@@ -23,17 +23,17 @@ import lombok.ToString;
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "id", columnDefinition = "VARCHAR(64)", updatable = false)
+    @Column(name = "id", columnDefinition = "VARCHAR(64)", updatable = false, unique = true)
     @Setter
     @Getter
     private String id;
 
-    @Column(name = "email", columnDefinition = "VARCHAR(256)", updatable = true)
+    @Column(name = "email", columnDefinition = "VARCHAR(256)", updatable = true, unique = true)
     @Setter
     @Getter
     private String email;
 
-    @Column(name = "username", columnDefinition = "VARCHAR(64)", updatable = true)
+    @Column(name = "username", columnDefinition = "VARCHAR(64)", updatable = true, unique = true)
     @Setter
     @Getter
     private String username;

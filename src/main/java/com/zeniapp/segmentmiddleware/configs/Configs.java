@@ -224,8 +224,9 @@ public class Configs implements WebMvcConfigurer {
             .authorizeHttpRequests(
                 (requests) -> requests
                     .requestMatchers("/api/v1/admin/accounts/**").authenticated()
-                    .requestMatchers("/api/v1/user/accounts/**").authenticated()
                     .requestMatchers("/api/v1/admin/sessions/**").authenticated()
+                    .requestMatchers("/api/v1/admin/activities/**").authenticated()
+                    .requestMatchers("/api/v1/user/accounts/**").authenticated()
                     .requestMatchers("/api/v1/access/**").permitAll()
                     .requestMatchers("/api/v1/healthcheck/**").permitAll()
             )

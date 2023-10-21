@@ -7,8 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import com.zeniapp.segmentmiddleware.entities.Account;
 
 public interface AccountDao extends JpaRepository<Account, String> {
-    public Long countByIsDeletedFalse();
-
     @Query(value = "SELECT * FROM accounts WHERE (accounts.email = :email OR accounts.username = :username) LIMIT 2", nativeQuery = true)
     public List<Account> findByEmailOrUsername(String email, String username);
 

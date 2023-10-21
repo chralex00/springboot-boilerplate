@@ -25,13 +25,13 @@ import lombok.ToString;
 public class Session {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "id", columnDefinition = "VARCHAR(64)", updatable = true)
+    @Column(name = "id", columnDefinition = "VARCHAR(64)", updatable = true, unique = true)
     @Setter
     @Getter
     private String id;
 
     @OneToOne
-    @JoinColumn(name = "account_id", referencedColumnName = "id")
+    @JoinColumn(name = "account_id", referencedColumnName = "id", unique = true)
     @Getter @Setter
     private Account account;
 
