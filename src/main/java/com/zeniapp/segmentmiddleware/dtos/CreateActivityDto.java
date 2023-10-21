@@ -62,7 +62,7 @@ public class CreateActivityDto {
     @Getter
     @Setter
     @NotNull(message = "tags cannot be null")
-    @Size(max = Constants.TAGS_MAX_LENGTH, message = "tags must have max " + Constants.TAGS_MAX_LENGTH + " exercise ID")
+    @Size(max = Constants.TAGS_MAX_LENGTH, message = "tags must have max " + Constants.TAGS_MAX_LENGTH + " elements")
     private List<
         @Size(
             min = Constants.STRING_FILTER_MIN_LENGTH,

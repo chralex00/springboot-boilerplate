@@ -22,7 +22,7 @@ public class ActivityUtils {
         Query query = new Query();
 
         if (activityQueryParamsDto.getName() != null) {
-            query.addCriteria(Criteria.where("name").regex(activityQueryParamsDto.getName()));
+            query.addCriteria(Criteria.where("name").regex(activityQueryParamsDto.getName(), "i"));
         }
 
         if (activityQueryParamsDto.getType() != null) {

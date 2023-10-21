@@ -83,8 +83,11 @@ public class AdminActivityController {
             Optional<Activity> activityByName = this.activityService.findByName(createActivityDto.getName());
 
             ActivityUtils.manageDuplicateFields(activityByName);
-            
-            Activity createdActivity = this.activityService.save(this.modelMapper.map(createActivityDto, Activity.class));
+
+            Activity activityToCreate = this.modelMapper.map(createActivityDto, Activity.class);
+            // to do - set main exercises
+
+            Activity createdActivity = this.activityService.save(activityToCreate);
 
             return new ResponseEntity<ActivityDto>(this.modelMapper.map(createdActivity, ActivityDto.class), HttpStatus.CREATED);
         }
@@ -175,7 +178,7 @@ public class AdminActivityController {
             activityFound.setDescription(updateActivityDto.getDescription());
             activityFound.setTags(updateActivityDto.getTags());
             activityFound.setMets(updateActivityDto.getMets());
-            activityFound.setMainExercises(null); // to do
+            activityFound.setMainExercises(null); // to do - check if the exercises exists
             activityFound.setIsPublished(updateActivityDto.getIsPublished());
             activityFound.setIsDeleted(updateActivityDto.getIsDeleted());
 
