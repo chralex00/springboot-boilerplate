@@ -50,7 +50,7 @@ public class ActivityService {
 
     public Optional<Activity> findOne(String id) throws Exception {
         try {
-            return this.activityDao.findById(id);
+            return this.activityDao.findByIdAndIsDeletedFalse(id);
         }
         catch (Exception exception) {
             ActivityService.log.error("error occurred retrieving the activity");

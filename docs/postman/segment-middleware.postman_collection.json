@@ -856,6 +856,390 @@
 			]
 		},
 		{
+			"name": "activities",
+			"item": [
+				{
+					"name": "admin",
+					"item": [
+						{
+							"name": "count",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/admin/activities/count",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"activities",
+										"count"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Bodybuilding",
+											"description": "String between 1 and 256 characters",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "DISCIPLINE",
+											"description": "It can be QUOTIDIAN, SPORT, DISCIPLINE, WORK, or OTHER",
+											"disabled": true
+										},
+										{
+											"key": "tags",
+											"value": "Anaerobic,Lift,Strength",
+											"description": "List of strings, max 15 tags",
+											"disabled": true
+										},
+										{
+											"key": "mainExercises",
+											"value": "65339b5f4e7cf6c45f014fa0,65339b5f4e7cf6c45f014fa1,65339b5f4e7cf6c45f014fa2",
+											"description": "List of IDs, max 15 exercise IDs",
+											"disabled": true
+										},
+										{
+											"key": "metsMin",
+											"value": "0",
+											"description": "Integer number between 0 and 50",
+											"disabled": true
+										},
+										{
+											"key": "metsMax",
+											"value": "20",
+											"description": "Integer number between 0 and 50",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find many",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/admin/activities",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"activities"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "0",
+											"description": "Integer number, between 0 and 2147483647",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"description": "Integer and positive number, between 1 and 50",
+											"disabled": true
+										},
+										{
+											"key": "sortField",
+											"value": "name",
+											"description": "It can be name, type, or mets",
+											"disabled": true
+										},
+										{
+											"key": "sortDirection",
+											"value": "desc",
+											"description": "It can be asc, or desc",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "Bodybuilding",
+											"description": "String between 1 and 256 characters",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "DISCIPLINE",
+											"description": "It can be QUOTIDIAN, SPORT, DISCIPLINE, WORK, or OTHER",
+											"disabled": true
+										},
+										{
+											"key": "tags",
+											"value": "Anaerobic,Lift,Strength",
+											"description": "List of strings, max 15 tags",
+											"disabled": true
+										},
+										{
+											"key": "mainExercises",
+											"value": "65339b5f4e7cf6c45f014fa0,65339b5f4e7cf6c45f014fa1,65339b5f4e7cf6c45f014fa2",
+											"description": "List of IDs, max 15 exercise IDs",
+											"disabled": true
+										},
+										{
+											"key": "metsMin",
+											"value": "0",
+											"description": "Integer number between 0 and 50",
+											"disabled": true
+										},
+										{
+											"key": "metsMax",
+											"value": "20",
+											"description": "Integer number between 0 and 50",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/admin/activities/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"activities",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "65340f43577f8b6aa8a2a467"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Powerlifting\",\r\n    \"description\": \"An anae,robic activity to increase muscle mass and especially strength.\",\r\n    \"type\": \"SPORT\",\r\n    \"tags\": [],\r\n    \"mets\": 6,\r\n    \"mainExercises\": [],\r\n    \"isPublished\": true,\r\n    \"isDeleted\": false\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/admin/activities",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"activities"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Bodybuilding\",\r\n    \"description\": \"An anae,robic activity to increase muscle mass and strength.\",\r\n    \"type\": \"DISCIPLINE\",\r\n    \"tags\": [],\r\n    \"mets\": 6,\r\n    \"mainExercises\": [],\r\n    \"isPublished\": true,\r\n    \"isDeleted\": false\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/admin/activities/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"activities",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "65340f43577f8b6aa8a2a467"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/admin/activities/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"activities",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1f7a507f-0258-4e13-b7e2-4c3e7350c3d7"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
 			"name": "access",
 			"item": [
 				{
@@ -925,7 +1309,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"test8@test.test\",\r\n    \"username\": \"TestUsername8\",\r\n    \"firstName\": \"Test\",\r\n    \"lastName\": \"Test\",\r\n    \"password\": \"Password12!\"\r\n}\r\n",
+							"raw": "{\r\n    \"email\": \"test@test.test\",\r\n    \"username\": \"Test\",\r\n    \"firstName\": \"Test\",\r\n    \"lastName\": \"Test\",\r\n    \"password\": \"Password12!\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
