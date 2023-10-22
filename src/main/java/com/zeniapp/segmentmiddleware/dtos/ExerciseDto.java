@@ -1,9 +1,5 @@
-package com.zeniapp.segmentmiddleware.entities;
+package com.zeniapp.segmentmiddleware.dtos;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,16 +10,13 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Document(collection = "exercises")
-public class Exercise {
-    @Id
+public class ExerciseDto {
     @Getter
     @Setter
     private String id;
     
     @Getter
     @Setter
-    @Indexed(unique = true)
     private String name;
   
     @Getter
@@ -46,31 +39,23 @@ public class Exercise {
     @Setter
     private String type;
     
-    @DBRef
     @Getter
     @Setter
-    private List<Muscle> agonistMuscles; // max 5 muscles
+    private List<Object> agonistMuscles; // to do\
 
-    @DBRef
     @Getter
     @Setter
-    private List<Muscle> antagonistMuscles; // max 5 muscles
+    private List<Object> antagonistMuscles; // to do
     
-    @DBRef
     @Getter
     @Setter
-    private List<Muscle> synergisticMuscles; // max 5 muscles
+    private List<Object> synergisticMuscles; // to do
     
-    @DBRef
     @Getter
     @Setter
-    private List<Muscle> fixatorMuscles; // max 5 muscles
+    private List<Object> fixatorMuscles; // to do
     
     @Getter
     @Setter
     private Boolean isPublished;
-
-    @Getter
-    @Setter
-    private Boolean isDeleted;
 }

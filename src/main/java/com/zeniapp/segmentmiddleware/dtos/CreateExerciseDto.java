@@ -87,23 +87,51 @@ public class CreateExerciseDto {
     
     @Getter
     @Setter
-    // to do
-    private List<String> agonistMuscles; // max 5 muscles
+    @NotNull(message = "agonistMuscles cannot be null")
+    @Size(max = Constants.AGONIST_MUSCLES_MAX_LENGTH, message = "agonistMuscles must have max " + Constants.AGONIST_MUSCLES_MAX_LENGTH + " muscle ID")
+    private List<
+        @Size(
+            min = Constants.STRING_FILTER_MIN_LENGTH,
+            max = Constants.STRING_FILTER_MAX_LENGTH,
+            message = "muscle ID must have between " + Constants.STRING_FILTER_MIN_LENGTH + " and " + Constants.STRING_FILTER_MAX_LENGTH + " characters"
+        )
+    String> agonistMuscles;// max 5 muscles
 
     @Getter
     @Setter
-    // to do
-    private List<String> antagonistMuscles; // max 5 muscles
+    @NotNull(message = "antagonistMuscles cannot be null")
+    @Size(max = Constants.ANTAGONIST_MUSCLES_MAX_LENGTH, message = "antagonistMuscles must have max " + Constants.ANTAGONIST_MUSCLES_MAX_LENGTH + " muscle ID")
+    private List<
+        @Size(
+            min = Constants.STRING_FILTER_MIN_LENGTH,
+            max = Constants.STRING_FILTER_MAX_LENGTH,
+            message = "muscle ID must have between " + Constants.STRING_FILTER_MIN_LENGTH + " and " + Constants.STRING_FILTER_MAX_LENGTH + " characters"
+        )
+    String> antagonistMuscles;// max 5 muscles
     
     @Getter
     @Setter
-    // to do
-    private List<String> synergisticMuscles; // max 5 muscles
+    @NotNull(message = "synergisticMuscles cannot be null")
+    @Size(max = Constants.SYNERGISTIC_MUSCLES_MAX_LENGTH, message = "synergisticMuscles must have max " + Constants.SYNERGISTIC_MUSCLES_MAX_LENGTH + " muscle ID")
+    private List<
+        @Size(
+            min = Constants.STRING_FILTER_MIN_LENGTH,
+            max = Constants.STRING_FILTER_MAX_LENGTH,
+            message = "muscle ID must have between " + Constants.STRING_FILTER_MIN_LENGTH + " and " + Constants.STRING_FILTER_MAX_LENGTH + " characters"
+        )
+    String> synergisticMuscles;// max 5 muscles
     
     @Getter
     @Setter
-    // to do
-    private List<String> fixatorMuscles; // max 5 muscles
+    @NotNull(message = "fixatorMuscles cannot be null")
+    @Size(max = Constants.FIXATOR_MUSCLES_MAX_LENGTH, message = "fixatorMuscles must have max " + Constants.FIXATOR_MUSCLES_MAX_LENGTH + " muscle ID")
+    private List<
+        @Size(
+            min = Constants.STRING_FILTER_MIN_LENGTH,
+            max = Constants.STRING_FILTER_MAX_LENGTH,
+            message = "muscle ID must have between " + Constants.STRING_FILTER_MIN_LENGTH + " and " + Constants.STRING_FILTER_MAX_LENGTH + " characters"
+        )
+    String> fixatorMuscles;// max 5 muscles
     
     @Getter
     @Setter

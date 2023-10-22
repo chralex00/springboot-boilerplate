@@ -64,7 +64,7 @@ public class ActivityQueryParamsDto {
         @Size(
             min = Constants.STRING_FILTER_MIN_LENGTH,
             max = Constants.STRING_FILTER_MAX_LENGTH,
-            message = "tags must have between " + Constants.STRING_FILTER_MIN_LENGTH + " and " + Constants.STRING_FILTER_MAX_LENGTH + " characters"
+            message = "tag must have between " + Constants.STRING_FILTER_MIN_LENGTH + " and " + Constants.STRING_FILTER_MAX_LENGTH + " characters"
         )
     String> tags;
 
@@ -75,7 +75,7 @@ public class ActivityQueryParamsDto {
         @Size(
             min = Constants.STRING_FILTER_MIN_LENGTH,
             max = Constants.STRING_FILTER_MAX_LENGTH,
-            message = "type must have between " + Constants.STRING_FILTER_MIN_LENGTH + " and " + Constants.STRING_FILTER_MAX_LENGTH + " characters"
+            message = "exercise ID must have between " + Constants.STRING_FILTER_MIN_LENGTH + " and " + Constants.STRING_FILTER_MAX_LENGTH + " characters"
         )
     String> mainExercises;
 

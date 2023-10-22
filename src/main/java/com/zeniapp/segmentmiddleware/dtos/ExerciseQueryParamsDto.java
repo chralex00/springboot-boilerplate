@@ -79,21 +79,45 @@ public class ExerciseQueryParamsDto {
 
     @Getter
     @Setter
-    // to do
-    private List<String> agonistMuscles;
+    @Size(max = Constants.AGONIST_MUSCLES_MAX_LENGTH, message = "agonistMuscles must have max " + Constants.AGONIST_MUSCLES_MAX_LENGTH + " muscle ID")
+    private List<
+        @Size(
+            min = Constants.STRING_FILTER_MIN_LENGTH,
+            max = Constants.STRING_FILTER_MAX_LENGTH,
+            message = "muscle ID must have between " + Constants.STRING_FILTER_MIN_LENGTH + " and " + Constants.STRING_FILTER_MAX_LENGTH + " characters"
+        )
+    String> agonistMuscles;
 
     @Getter
     @Setter
-    // to do
-    private List<String> antagonistMuscles;
+    @Size(max = Constants.ANTAGONIST_MUSCLES_MAX_LENGTH, message = "antagonistMuscles must have max " + Constants.ANTAGONIST_MUSCLES_MAX_LENGTH + " muscle ID")
+    private List<
+        @Size(
+            min = Constants.STRING_FILTER_MIN_LENGTH,
+            max = Constants.STRING_FILTER_MAX_LENGTH,
+            message = "muscle ID must have between " + Constants.STRING_FILTER_MIN_LENGTH + " and " + Constants.STRING_FILTER_MAX_LENGTH + " characters"
+        )
+    String> antagonistMuscles;
 
     @Getter
     @Setter
-    // to do
-    private List<String> synergisticMuscles;
+    @Size(max = Constants.SYNERGISTIC_MUSCLES_MAX_LENGTH, message = "synergisticMuscles must have max " + Constants.SYNERGISTIC_MUSCLES_MAX_LENGTH + " muscle ID")
+    private List<
+        @Size(
+            min = Constants.STRING_FILTER_MIN_LENGTH,
+            max = Constants.STRING_FILTER_MAX_LENGTH,
+            message = "muscle ID must have between " + Constants.STRING_FILTER_MIN_LENGTH + " and " + Constants.STRING_FILTER_MAX_LENGTH + " characters"
+        )
+    String> synergisticMuscles;
 
     @Getter
     @Setter
-    // to do
-    private List<String> fixatorMuscles;
+    @Size(max = Constants.FIXATOR_MUSCLES_MAX_LENGTH, message = "fixatorMuscles must have max " + Constants.FIXATOR_MUSCLES_MAX_LENGTH + " muscle ID")
+    private List<
+        @Size(
+            min = Constants.STRING_FILTER_MIN_LENGTH,
+            max = Constants.STRING_FILTER_MAX_LENGTH,
+            message = "muscle ID must have between " + Constants.STRING_FILTER_MIN_LENGTH + " and " + Constants.STRING_FILTER_MAX_LENGTH + " characters"
+        )
+    String> fixatorMuscles;
 }

@@ -20,6 +20,8 @@ import jakarta.validation.Validation;
 public class ActivityUtils {
     public static Query getQueryByActivityQyeryParamsDto(ActivityQueryParamsDto activityQueryParamsDto) {
         Query query = new Query();
+        
+        query.addCriteria(Criteria.where("isDeleted").is(false));
 
         if (activityQueryParamsDto.getName() != null) {
             query.addCriteria(Criteria.where("name").regex(activityQueryParamsDto.getName(), "i"));

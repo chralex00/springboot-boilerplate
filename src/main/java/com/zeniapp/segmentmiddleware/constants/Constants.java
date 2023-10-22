@@ -74,6 +74,10 @@ public class Constants {
     public static final int EXERCISE_TYPE_MAX_LENGTH = 64;
     public static final int MAIN_EXERCISES_MAX_LENGTH = 15;
     public static final int TAGS_MAX_LENGTH = 15;
+    public static final int AGONIST_MUSCLES_MAX_LENGTH = 5;
+    public static final int ANTAGONIST_MUSCLES_MAX_LENGTH = 5;
+    public static final int SYNERGISTIC_MUSCLES_MAX_LENGTH = 5;
+    public static final int FIXATOR_MUSCLES_MAX_LENGTH = 5;
 
     // Regular Expressions
     public static final String ISO8601_FORMAT_REGEXP = "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$";

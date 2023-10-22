@@ -38,7 +38,7 @@ public class ActivityDto {
 
     @Getter
     @Setter
-    private List<Object> mainExercises; // to do
+    private List<ExerciseDto> mainExercises;
 
     @Getter
     @Setter

@@ -1,8 +1,10 @@
 package com.zeniapp.segmentmiddleware.controllers;
 
 import jakarta.validation.Valid;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,10 +28,12 @@ import com.zeniapp.segmentmiddleware.dtos.ErrorResponseDto;
 import com.zeniapp.segmentmiddleware.dtos.FindManyResponseDto;
 import com.zeniapp.segmentmiddleware.dtos.UpdateActivityDto;
 import com.zeniapp.segmentmiddleware.entities.Activity;
+import com.zeniapp.segmentmiddleware.entities.Exercise;
 import com.zeniapp.segmentmiddleware.exceptions.DuplicateFieldsException;
 import com.zeniapp.segmentmiddleware.exceptions.ResourceNotFoundException;
 import com.zeniapp.segmentmiddleware.exceptions.WrongPayloadException;
 import com.zeniapp.segmentmiddleware.services.ActivityService;
+import com.zeniapp.segmentmiddleware.services.ExerciseService;
 import com.zeniapp.segmentmiddleware.utils.ActivityUtils;
 
 @Slf4j
@@ -38,6 +42,9 @@ import com.zeniapp.segmentmiddleware.utils.ActivityUtils;
 public class AdminActivityController {
     @Autowired
     private ActivityService activityService;
+    
+    @Autowired
+    private ExerciseService exerciseService;
     
     @Autowired
     private ModelMapper modelMapper;
@@ -85,7 +92,10 @@ public class AdminActivityController {
             ActivityUtils.manageDuplicateFields(activityByName);
 
             Activity activityToCreate = this.modelMapper.map(createActivityDto, Activity.class);
-            // to do - set main exercises
+            
+            Set<String> exerciseIdsSet = new HashSet<String>(createActivityDto.getMainExercises());
+            List<Exercise> exercisesByIds = this.exerciseService.findAllByIds(exerciseIdsSet);
+            activityToCreate.setMainExercises(exercisesByIds);
 
             Activity createdActivity = this.activityService.save(activityToCreate);
 
@@ -178,7 +188,11 @@ public class AdminActivityController {
             activityFound.setDescription(updateActivityDto.getDescription());
             activityFound.setTags(updateActivityDto.getTags());
             activityFound.setMets(updateActivityDto.getMets());
-            activityFound.setMainExercises(null); // to do - check if the exercises exists
+
+            Set<String> exerciseIdsSet = new HashSet<String>(updateActivityDto.getMainExercises());
+            List<Exercise> exercisesByIds = this.exerciseService.findAllByIds(exerciseIdsSet);
+            activityFound.setMainExercises(exercisesByIds);
+            
             activityFound.setIsPublished(updateActivityDto.getIsPublished());
             activityFound.setIsDeleted(updateActivityDto.getIsDeleted());
 
