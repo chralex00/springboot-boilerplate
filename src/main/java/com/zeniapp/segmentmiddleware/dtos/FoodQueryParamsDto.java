@@ -167,11 +167,25 @@ public class FoodQueryParamsDto {
 
     @Getter
     @Setter
-    // to do
-    private List<String> vitamins;
+    @Size(max = Constants.VITAMINS_MAX_LENGTH, message = "vitamins must have max " + Constants.VITAMINS_MAX_LENGTH + " elements")
+    private List<
+        @Size(
+            min = Constants.STRING_FILTER_MIN_LENGTH,
+            max = Constants.STRING_FILTER_MAX_LENGTH,
+            message = "vitamin must have between " + Constants.STRING_FILTER_MIN_LENGTH + " and " + Constants.STRING_FILTER_MAX_LENGTH + " characters"
+        )
+        @Pattern(regexp = Constants.VITAMIN_REGEXP, message = "vitamin must respect to the following pattern: " + Constants.VITAMIN_REGEXP)
+    String> vitamins;
 
     @Getter
     @Setter
-    // to do
-    private List<String> minerals;
+    @Size(max = Constants.MINERALS_MAX_LENGTH, message = "minerals must have max " + Constants.MINERALS_MAX_LENGTH + " elements")
+    private List<
+        @Size(
+            min = Constants.STRING_FILTER_MIN_LENGTH,
+            max = Constants.STRING_FILTER_MAX_LENGTH,
+            message = "mineral must have between " + Constants.STRING_FILTER_MIN_LENGTH + " and " + Constants.STRING_FILTER_MAX_LENGTH + " characters"
+        )
+        @Pattern(regexp = Constants.MINERAL_REGEXP, message = "mineral must respect to the following pattern: " + Constants.MINERAL_REGEXP)
+    String> minerals;
 }

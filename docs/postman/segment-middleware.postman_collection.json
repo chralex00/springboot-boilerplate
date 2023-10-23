@@ -1114,7 +1114,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"name\": \"Powerlifting\",\r\n    \"description\": \"An anae,robic activity to increase muscle mass and especially strength.\",\r\n    \"type\": \"SPORT\",\r\n    \"tags\": [],\r\n    \"mets\": 6,\r\n    \"mainExercises\": [\r\n        \"6534ee6674e18c5c854c31e8\"\r\n    ],\r\n    \"isPublished\": true,\r\n    \"isDeleted\": false\r\n}\r\n",
+									"raw": "{\r\n    \"name\": \"Powerlifting\",\r\n    \"description\": \"An anae,robic activity to increase muscle mass and especially strength.\",\r\n    \"type\": \"SPORT\",\r\n    \"tags\": [],\r\n    \"mets\": 6,\r\n    \"mainExercises\": [\r\n        \"6534ee6674e18c5c854c31e8\"\r\n    ],\r\n    \"isPublished\": true\r\n}\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1162,7 +1162,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"name\": \"Bodybuilding\",\r\n    \"description\": \"An anae,robic activity to increase muscle mass and strength.\",\r\n    \"type\": \"DISCIPLINE\",\r\n    \"tags\": [],\r\n    \"mets\": 6,\r\n    \"mainExercises\": [\r\n        \"6534ee6674e18c5c854c31e8\"\r\n    ],\r\n    \"isPublished\": true,\r\n    \"isDeleted\": false\r\n}\r\n",
+									"raw": "{\r\n    \"name\": \"Bodybuilding\",\r\n    \"description\": \"An anae,robic activity to increase muscle mass and strength.\",\r\n    \"type\": \"DISCIPLINE\",\r\n    \"tags\": [],\r\n    \"mets\": 6,\r\n    \"mainExercises\": [\r\n        \"6534ee6674e18c5c854c31e8\"\r\n    ],\r\n    \"isPublished\": true\r\n}\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1182,7 +1182,7 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": "6534f0c79c63902dd12211ff"
+											"value": "6536ccfb52e396746ea06ab3"
 										}
 									]
 								}
@@ -1487,7 +1487,7 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": "6534ee6674e18c5c854c31e8"
+											"value": "6536c611dc558221ce4e7a79"
 										}
 									]
 								}
@@ -1522,7 +1522,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"name\": \"Squat\",\r\n    \"execution\": \"Test execution description\",\r\n    \"commonErrors\": \"Test commonErrors description\",\r\n    \"type\": \"MULTIARTICULAR\",\r\n    \"difficulty\": \"MEDIUM\",\r\n    \"category\": \"FUNDAMENTAL\",\r\n    \"agonistMuscles\": [],\r\n    \"antagonistMuscles\": [],\r\n    \"synergisticMuscles\": [],\r\n    \"fixatorMuscles\": [],\r\n    \"isPublished\": true,\r\n    \"isDeleted\": false\r\n}\r\n",
+									"raw": "{\r\n    \"name\": \"Squat\",\r\n    \"execution\": \"Test execution description\",\r\n    \"commonErrors\": \"Test commonErrors description\",\r\n    \"type\": \"MULTIARTICULAR\",\r\n    \"difficulty\": \"MEDIUM\",\r\n    \"category\": \"FUNDAMENTAL\",\r\n    \"agonistMuscles\": [],\r\n    \"antagonistMuscles\": [],\r\n    \"synergisticMuscles\": [],\r\n    \"fixatorMuscles\": [],\r\n    \"isPublished\": true\r\n}\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1570,7 +1570,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"name\": \"Bodybuilding\",\r\n    \"description\": \"An anae,robic activity to increase muscle mass and strength.\",\r\n    \"type\": \"DISCIPLINE\",\r\n    \"tags\": [],\r\n    \"mets\": 6,\r\n    \"mainExercises\": [],\r\n    \"isPublished\": true,\r\n    \"isDeleted\": false\r\n}\r\n",
+									"raw": "{\r\n    \"name\": \"Squat\",\r\n    \"execution\": \"Test execution description\",\r\n    \"commonErrors\": \"Test commonErrors description\",\r\n    \"type\": \"MULTIARTICULAR\",\r\n    \"difficulty\": \"MEDIUM\",\r\n    \"category\": \"FUNDAMENTAL\",\r\n    \"agonistMuscles\": [\r\n        \"6536c5ffdc558221ce4e7a78\"\r\n    ],\r\n    \"antagonistMuscles\": [],\r\n    \"synergisticMuscles\": [],\r\n    \"fixatorMuscles\": [],\r\n    \"isPublished\": true\r\n}\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1578,19 +1578,19 @@
 									}
 								},
 								"url": {
-									"raw": "{{BASE_URL}}/admin/activities/:id",
+									"raw": "{{BASE_URL}}/admin/exercises/:id",
 									"host": [
 										"{{BASE_URL}}"
 									],
 									"path": [
 										"admin",
-										"activities",
+										"exercises",
 										":id"
 									],
 									"variable": [
 										{
 											"key": "id",
-											"value": "65340f43577f8b6aa8a2a467"
+											"value": "6536ccc952e396746ea06ab2"
 										}
 									]
 								}
@@ -1624,19 +1624,403 @@
 									}
 								],
 								"url": {
-									"raw": "{{BASE_URL}}/admin/activities/:id",
+									"raw": "{{BASE_URL}}/admin/exercises/:id",
 									"host": [
 										"{{BASE_URL}}"
 									],
 									"path": [
 										"admin",
-										"activities",
+										"exercises",
 										":id"
 									],
 									"variable": [
 										{
 											"key": "id",
-											"value": "1f7a507f-0258-4e13-b7e2-4c3e7350c3d7"
+											"value": "6536c611dc558221ce4e7a79"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "muscles",
+			"item": [
+				{
+					"name": "admin",
+					"item": [
+						{
+							"name": "count",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/admin/muscles/count",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"muscles",
+										"count"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Chest",
+											"description": "String between 1 and 256 characters",
+											"disabled": true
+										},
+										{
+											"key": "dimension",
+											"value": "BIG",
+											"description": "It can be SMALL, MEDIUM, or BIG",
+											"disabled": true
+										},
+										{
+											"key": "form",
+											"value": "FUSIFORM",
+											"description": "It can be FUSIFORM, PARALLEL, CONVERGENT, UNIPENNATE, BIPINNATE, MULTIPINNATE or CIRCULAR",
+											"disabled": true
+										},
+										{
+											"key": "origin",
+											"value": "Test",
+											"description": "String between 1 and 256 characters",
+											"disabled": true
+										},
+										{
+											"key": "insertion",
+											"value": "Test",
+											"description": "String between 1 and 256 characters",
+											"disabled": true
+										},
+										{
+											"key": "functions",
+											"value": "Test",
+											"description": "String between 1 and 256 characters",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find many",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/admin/muscles",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"muscles"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "0",
+											"description": "Integer number, between 0 and 2147483647",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"description": "Integer and positive number, between 1 and 50",
+											"disabled": true
+										},
+										{
+											"key": "sortField",
+											"value": "name",
+											"description": "It can be name, form, dimension, origin, insertion, or functions",
+											"disabled": true
+										},
+										{
+											"key": "sortDirection",
+											"value": "desc",
+											"description": "It can be asc, or desc",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "Chest",
+											"description": "String between 1 and 256 characters",
+											"disabled": true
+										},
+										{
+											"key": "dimension",
+											"value": "BIG",
+											"description": "It can be SMALL, MEDIUM, or BIG",
+											"disabled": true
+										},
+										{
+											"key": "form",
+											"value": "FUSIFORM",
+											"description": "It can be FUSIFORM, PARALLEL, CONVERGENT, UNIPENNATE, BIPINNATE, MULTIPINNATE or CIRCULAR",
+											"disabled": true
+										},
+										{
+											"key": "origin",
+											"value": "Test",
+											"description": "String between 1 and 256 characters",
+											"disabled": true
+										},
+										{
+											"key": "insertion",
+											"value": "Test",
+											"description": "String between 1 and 256 characters",
+											"disabled": true
+										},
+										{
+											"key": "functions",
+											"value": "Test",
+											"description": "String between 1 and 256 characters",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/admin/muscles/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"muscles",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "6536c5ffdc558221ce4e7a78"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Back\",\r\n    \"origin\": \"Test origin\",\r\n    \"insertion\": \"Test insertion\",\r\n    \"functions\": \"Test functions\",\r\n    \"dimension\": \"BIG\",\r\n    \"form\": \"FUSIFORM\",\r\n    \"mainExercises\": [],\r\n    \"isPublished\": true\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/admin/muscles",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"muscles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Back\",\r\n    \"origin\": \"Test origin\",\r\n    \"insertion\": \"Test insertion\",\r\n    \"functions\": \"Test functions\",\r\n    \"dimension\": \"BIG\",\r\n    \"form\": \"FUSIFORM\",\r\n    \"mainExercises\": [],\r\n    \"isPublished\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/admin/muscles/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"muscles",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "6536cc9f52e396746ea06ab1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/admin/muscles/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"muscles",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "6536ca0497838320db043d6c"
 										}
 									]
 								}

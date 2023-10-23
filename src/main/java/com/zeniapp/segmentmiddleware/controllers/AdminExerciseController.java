@@ -1,8 +1,10 @@
 package com.zeniapp.segmentmiddleware.controllers;
 
 import jakarta.validation.Valid;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,10 +28,12 @@ import com.zeniapp.segmentmiddleware.dtos.ErrorResponseDto;
 import com.zeniapp.segmentmiddleware.dtos.FindManyResponseDto;
 import com.zeniapp.segmentmiddleware.dtos.UpdateExerciseDto;
 import com.zeniapp.segmentmiddleware.entities.Exercise;
+import com.zeniapp.segmentmiddleware.entities.Muscle;
 import com.zeniapp.segmentmiddleware.exceptions.DuplicateFieldsException;
 import com.zeniapp.segmentmiddleware.exceptions.ResourceNotFoundException;
 import com.zeniapp.segmentmiddleware.exceptions.WrongPayloadException;
 import com.zeniapp.segmentmiddleware.services.ExerciseService;
+import com.zeniapp.segmentmiddleware.services.MuscleService;
 import com.zeniapp.segmentmiddleware.utils.ExerciseUtils;
 
 @Slf4j
@@ -38,6 +42,9 @@ import com.zeniapp.segmentmiddleware.utils.ExerciseUtils;
 public class AdminExerciseController {
     @Autowired
     private ExerciseService exerciseService;
+    
+    @Autowired
+    private MuscleService muscleService;
     
     @Autowired
     private ModelMapper modelMapper;
@@ -88,7 +95,23 @@ public class AdminExerciseController {
             ExerciseUtils.manageDuplicateFields(exerciseByName);
 
             Exercise exerciseToCreate = this.modelMapper.map(createExerciseDto, Exercise.class);
-            // to do - set agonist, antagonist, synergistic and fixator muscles
+            exerciseToCreate.setIsDeleted(false);
+
+            Set<String> agonistMuscleIdsSet = new HashSet<String>(createExerciseDto.getAgonistMuscles());
+            List<Muscle> agonistMuscleIds = this.muscleService.findAllByIds(agonistMuscleIdsSet);
+            exerciseToCreate.setAgonistMuscles(agonistMuscleIds);
+
+            Set<String> antagonistMuscleIdsSet = new HashSet<String>(createExerciseDto.getAntagonistMuscles());
+            List<Muscle> antagonistMuscleIds = this.muscleService.findAllByIds(antagonistMuscleIdsSet);
+            exerciseToCreate.setAntagonistMuscles(antagonistMuscleIds);
+
+            Set<String> synergisticMuscleIdsSet = new HashSet<String>(createExerciseDto.getSynergisticMuscles());
+            List<Muscle> synergisticMuscleIds = this.muscleService.findAllByIds(synergisticMuscleIdsSet);
+            exerciseToCreate.setSynergisticMuscles(synergisticMuscleIds);
+
+            Set<String> fixatorMuscleIdsSet = new HashSet<String>(createExerciseDto.getFixatorMuscles());
+            List<Muscle> fixatorMuscleIds = this.muscleService.findAllByIds(fixatorMuscleIdsSet);
+            exerciseToCreate.setFixatorMuscles(fixatorMuscleIds);
 
             Exercise createdExercise = this.exerciseService.save(exerciseToCreate);
 
@@ -186,12 +209,25 @@ public class AdminExerciseController {
             exerciseFound.setDifficulty(updateExerciseDto.getDifficulty());
             exerciseFound.setCategory(updateExerciseDto.getCategory());
             exerciseFound.setType(updateExerciseDto.getType());
-            exerciseFound.setAgonistMuscles(null); // to do - check if the muscles exists
-            exerciseFound.setAntagonistMuscles(null); // to do - check if the muscles exists
-            exerciseFound.setSynergisticMuscles(null); // to do - check if the muscles exists
-            exerciseFound.setFixatorMuscles(null); // to do - check if the muscles exists
+
+            
+            Set<String> agonistMuscleIdsSet = new HashSet<String>(updateExerciseDto.getAgonistMuscles());
+            List<Muscle> agonistMuscleIds = this.muscleService.findAllByIds(agonistMuscleIdsSet);
+            exerciseFound.setAgonistMuscles(agonistMuscleIds);
+
+            Set<String> antagonistMuscleIdsSet = new HashSet<String>(updateExerciseDto.getAntagonistMuscles());
+            List<Muscle> antagonistMuscleIds = this.muscleService.findAllByIds(antagonistMuscleIdsSet);
+            exerciseFound.setAntagonistMuscles(antagonistMuscleIds);
+
+            Set<String> synergisticMuscleIdsSet = new HashSet<String>(updateExerciseDto.getSynergisticMuscles());
+            List<Muscle> synergisticMuscleIds = this.muscleService.findAllByIds(synergisticMuscleIdsSet);
+            exerciseFound.setSynergisticMuscles(synergisticMuscleIds);
+
+            Set<String> fixatorMuscleIdsSet = new HashSet<String>(updateExerciseDto.getFixatorMuscles());
+            List<Muscle> fixatorMuscleIds = this.muscleService.findAllByIds(fixatorMuscleIdsSet);
+            exerciseFound.setFixatorMuscles(fixatorMuscleIds);
+
             exerciseFound.setIsPublished(updateExerciseDto.getIsPublished());
-            exerciseFound.setIsDeleted(updateExerciseDto.getIsDeleted());
 
             Exercise exerciseUpdated = this.exerciseService.save(exerciseFound);
 

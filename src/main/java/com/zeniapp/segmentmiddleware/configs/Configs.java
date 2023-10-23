@@ -227,6 +227,8 @@ public class Configs implements WebMvcConfigurer {
                     .requestMatchers("/api/v1/admin/sessions/**").authenticated()
                     .requestMatchers("/api/v1/admin/activities/**").authenticated()
                     .requestMatchers("/api/v1/admin/exercises/**").authenticated()
+                    .requestMatchers("/api/v1/admin/foods/**").authenticated()
+                    .requestMatchers("/api/v1/admin/muscles/**").authenticated()
                     .requestMatchers("/api/v1/user/accounts/**").authenticated()
                     .requestMatchers("/api/v1/access/**").permitAll()
                     .requestMatchers("/api/v1/healthcheck/**").permitAll()

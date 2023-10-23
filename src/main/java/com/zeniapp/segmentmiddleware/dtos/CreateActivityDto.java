@@ -87,9 +87,4 @@ public class CreateActivityDto {
     @Setter
     @NotNull(message = "isPublished cannot be null")
     private Boolean isPublished;
-
-    @Getter
-    @Setter
-    @NotNull(message = "isDeleted cannot be null")
-    private Boolean isDeleted;
 }

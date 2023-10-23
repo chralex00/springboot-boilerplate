@@ -3,9 +3,6 @@ package com.zeniapp.segmentmiddleware.entities;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
-import com.zeniapp.segmentmiddleware.enums.FoodCategory;
-import com.zeniapp.segmentmiddleware.enums.Mineral;
-import com.zeniapp.segmentmiddleware.enums.Vitamin;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,7 +27,7 @@ public class Food {
 
     @Getter
     @Setter
-    private FoodCategory category;
+    private String category;
 
     @Getter
     @Setter
@@ -70,11 +67,11 @@ public class Food {
 
     @Getter
     @Setter
-    private List<Vitamin> vitamins; // top 5 vitamins most present
+    private List<String> vitamins; // top 5 vitamins most present
 
     @Getter
     @Setter
-    private List<Mineral> minerals; // top 5 minerals most present
+    private List<String> minerals; // top 5 minerals most present
     
     @Getter
     @Setter

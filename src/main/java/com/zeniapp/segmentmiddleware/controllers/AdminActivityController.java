@@ -92,6 +92,7 @@ public class AdminActivityController {
             ActivityUtils.manageDuplicateFields(activityByName);
 
             Activity activityToCreate = this.modelMapper.map(createActivityDto, Activity.class);
+            activityToCreate.setIsDeleted(false);
             
             Set<String> exerciseIdsSet = new HashSet<String>(createActivityDto.getMainExercises());
             List<Exercise> exercisesByIds = this.exerciseService.findAllByIds(exerciseIdsSet);
@@ -194,7 +195,6 @@ public class AdminActivityController {
             activityFound.setMainExercises(exercisesByIds);
             
             activityFound.setIsPublished(updateActivityDto.getIsPublished());
-            activityFound.setIsDeleted(updateActivityDto.getIsDeleted());
 
             Activity activityUpdated = this.activityService.save(activityFound);
 

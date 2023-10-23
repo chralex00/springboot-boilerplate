@@ -5,12 +5,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class ExerciseDto {
+public class ExerciseWithoutMusclesDto {
     @Getter
     @Setter
     private String id;
@@ -18,42 +17,26 @@ public class ExerciseDto {
     @Getter
     @Setter
     private String name;
-  
-    @Getter
-    @Setter
-    private String execution;
-  
-    @Getter
-    @Setter
-    private String commonErrors;
-  
-    @Getter
-    @Setter
-    private String difficulty;
-  
-    @Getter
-    @Setter
-    private String category;
-  
-    @Getter
-    @Setter
-    private String type;
-    
-    @Getter
-    @Setter
-    private List<MuscleWithoutExercisesDto> agonistMuscles;
 
     @Getter
     @Setter
-    private List<MuscleWithoutExercisesDto> antagonistMuscles;
-    
+    private String execution;
+
     @Getter
     @Setter
-    private List<MuscleWithoutExercisesDto> synergisticMuscles;
-    
+    private String commonErrors;
+
     @Getter
     @Setter
-    private List<MuscleWithoutExercisesDto> fixatorMuscles;
+    private String difficulty;
+
+    @Getter
+    @Setter
+    private String category;
+
+    @Getter
+    @Setter
+    private String type;
     
     @Getter
     @Setter

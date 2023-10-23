@@ -78,6 +78,8 @@ public class Constants {
     public static final int ANTAGONIST_MUSCLES_MAX_LENGTH = 5;
     public static final int SYNERGISTIC_MUSCLES_MAX_LENGTH = 5;
     public static final int FIXATOR_MUSCLES_MAX_LENGTH = 5;
+    public static final int VITAMINS_MAX_LENGTH = 5;
+    public static final int MINERALS_MAX_LENGTH = 5;
 
     // Regular Expressions
     public static final String ISO8601_FORMAT_REGEXP = "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$";
@@ -100,4 +102,6 @@ public class Constants {
     public static final String MUSCLE_DIMENSION_REGEXP = "^(SMALL|MEDIUM|BIG)$";
     public static final String FOOD_CATEGORY_REGEXP = "^(SWEETS|DAIRY_OR_EGGS|NUTS_AND_SEEDS|FRUITS_AND_VEGETABLES|WHOLE_GRAINS_AND_LEGUMES|OILS|OTHER)$";
     public static final String ACTIVITY_TYPE_REGEXP = "^(QUOTIDIAN|SPORT|DISCIPLINE|WORK|OTHER)$";
+    public static final String VITAMIN_REGEXP = "^(A|D|E|K|B1|B2|B3|B5|B6|B8|B9|B12|C)$";
+    public static final String MINERAL_REGEXP = "^(CALCIUM|POTASSIUM|MAGNESIUM|IRON|PHOSPHORUS|SODIUM|ZINC|COPPER|MANGANESE|SELENIUM)$";
 }

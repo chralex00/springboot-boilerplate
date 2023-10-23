@@ -46,81 +46,92 @@ public class CreateFoodDto {
     @NotNull(message = "energy cannot be null")
     @Min(value = Constants.MIN_ENERGY_VALUE, message = "energy must be greater than, or equal to " + Constants.MIN_ENERGY_VALUE)
     @Max(value = Constants.MAX_ENERGY_VALUE, message = "energy must be lower than, or equal to " + Constants.MAX_ENERGY_VALUE)
-    private Integer energy; // expressed in kcal/referencePortion
+    private Integer energy;
 
     @Getter
     @Setter
     @NotNull(message = "referencePortion cannot be null")
     @Min(value = Constants.MIN_REFERENCE_PORTION_QUANTITY_VALUE, message = "referencePortion must be greater than, or equal to " + Constants.MIN_REFERENCE_PORTION_QUANTITY_VALUE)
     @Max(value = Constants.MAX_REFERENCE_PORTION_QUANTITY_VALUE, message = "referencePortion must be lower than, or equal to " + Constants.MAX_REFERENCE_PORTION_QUANTITY_VALUE)
-    private Integer referencePortion; // expressed in grams
+    private Integer referencePortion;
 
     @Getter
     @Setter
     @NotNull(message = "proteins cannot be null")
     @Min(value = Constants.MIN_MACRONUTRIENT_VALUE, message = "proteins must be greater than, or equal to " + Constants.MIN_MACRONUTRIENT_VALUE)
     @Max(value = Constants.MAX_MACRONUTRIENT_VALUE, message = "proteins must be lower than, or equal to " + Constants.MAX_MACRONUTRIENT_VALUE)
-    private Integer proteins; // expressed in grams/referencePortion
+    private Integer proteins;
 
     @Getter
     @Setter
     @NotNull(message = "simplexCarbs cannot be null")
     @Min(value = Constants.MIN_MACRONUTRIENT_VALUE, message = "simplexCarbs must be greater than, or equal to " + Constants.MIN_MACRONUTRIENT_VALUE)
     @Max(value = Constants.MAX_MACRONUTRIENT_VALUE, message = "simplexCarbs must be lower than, or equal to " + Constants.MAX_MACRONUTRIENT_VALUE)
-    private Integer simplexCarbs; // expressed in grams/referencePortion
+    private Integer simplexCarbs;
 
     @Getter
     @Setter
     @NotNull(message = "complexCarbs cannot be null")
     @Min(value = Constants.MIN_MACRONUTRIENT_VALUE, message = "complexCarbs must be greater than, or equal to " + Constants.MIN_MACRONUTRIENT_VALUE)
     @Max(value = Constants.MAX_MACRONUTRIENT_VALUE, message = "complexCarbs must be lower than, or equal to " + Constants.MAX_MACRONUTRIENT_VALUE)
-    private Integer complexCarbs; // expressed in grams/referencePortion
+    private Integer complexCarbs;
 
     @Getter
     @Setter
     @NotNull(message = "saturatedFats cannot be null")
     @Min(value = Constants.MIN_MACRONUTRIENT_VALUE, message = "saturatedFats must be greater than, or equal to " + Constants.MIN_MACRONUTRIENT_VALUE)
     @Max(value = Constants.MAX_MACRONUTRIENT_VALUE, message = "saturatedFats must be lower than, or equal to " + Constants.MAX_MACRONUTRIENT_VALUE)
-    private Integer saturatedFats; // expressed in grams/referencePortion
+    private Integer saturatedFats;
 
     @Getter
     @Setter
     @NotNull(message = "unsaturatedFats cannot be null")
     @Min(value = Constants.MIN_MACRONUTRIENT_VALUE, message = "unsaturatedFats must be greater than, or equal to " + Constants.MIN_MACRONUTRIENT_VALUE)
     @Max(value = Constants.MAX_MACRONUTRIENT_VALUE, message = "unsaturatedFats must be lower than, or equal to " + Constants.MAX_MACRONUTRIENT_VALUE)
-    private Integer unsaturatedFats; // expressed in grams/referencePortion
+    private Integer unsaturatedFats;
 
     @Getter
     @Setter
     @NotNull(message = "fibers cannot be null")
     @Min(value = Constants.MIN_MACRONUTRIENT_VALUE, message = "fibers must be greater than, or equal to " + Constants.MIN_MACRONUTRIENT_VALUE)
     @Max(value = Constants.MAX_MACRONUTRIENT_VALUE, message = "fibers must be lower than, or equal to " + Constants.MAX_MACRONUTRIENT_VALUE)
-    private Integer fibers; // expressed in grams/referencePortion
+    private Integer fibers;
 
     @Getter
     @Setter
     @NotNull(message = "cholesterol cannot be null")
     @Min(value = Constants.MIN_CHOLESTEROL_VALUE, message = "cholesterol must be greater than, or equal to " + Constants.MIN_CHOLESTEROL_VALUE)
     @Max(value = Constants.MAX_CHOLESTEROL_VALUE, message = "cholesterol must be lower than, or equal to " + Constants.MAX_CHOLESTEROL_VALUE)
-    private Integer cholesterol; // expressed in milligrams/referencePortion
+    private Integer cholesterol;
 
     @Getter
     @Setter
-    // to do
-    private List<String> vitamins; // top 5 vitamins most present
+    @NotNull(message = "vitamins cannot be null")
+    @Size(max = Constants.VITAMINS_MAX_LENGTH, message = "vitamins must have max " + Constants.VITAMINS_MAX_LENGTH + " elements")
+    private List<
+        @Size(
+            min = Constants.STRING_FILTER_MIN_LENGTH,
+            max = Constants.STRING_FILTER_MAX_LENGTH,
+            message = "vitamin must have between " + Constants.STRING_FILTER_MIN_LENGTH + " and " + Constants.STRING_FILTER_MAX_LENGTH + " characters"
+        )
+        @Pattern(regexp = Constants.VITAMIN_REGEXP, message = "vitamin must respect to the following pattern: " + Constants.VITAMIN_REGEXP)
+    String> vitamins;
 
     @Getter
     @Setter
-    // to do
-    private List<String> minerals; // top 5 minerals most present
+    @NotNull(message = "minerals cannot be null")
+    @Size(max = Constants.MINERALS_MAX_LENGTH, message = "minerals must have max " + Constants.MINERALS_MAX_LENGTH + " elements")
+    private List<
+        @Size(
+            min = Constants.STRING_FILTER_MIN_LENGTH,
+            max = Constants.STRING_FILTER_MAX_LENGTH,
+            message = "mineral must have between " + Constants.STRING_FILTER_MIN_LENGTH + " and " + Constants.STRING_FILTER_MAX_LENGTH + " characters"
+        )
+        @Pattern(regexp = Constants.MINERAL_REGEXP, message = "mineral must respect to the following pattern: " + Constants.MINERAL_REGEXP)
+    String> minerals;
     
     @Getter
     @Setter
     @NotNull(message = "isPublished cannot be null")
     private Boolean isPublished;
-
-    @Getter
-    @Setter
-    @NotNull(message = "isDeleted cannot be null")
-    private Boolean isDeleted;
 }

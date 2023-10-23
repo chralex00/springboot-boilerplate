@@ -86,16 +86,18 @@ public class CreateMuscleDto {
 
     @Getter
     @Setter
-    // to do
-    private List<String> mainExercises; // max 15 exercises
+    @NotNull(message = "mainExercises cannot be null")
+    @Size(max = Constants.MAIN_EXERCISES_MAX_LENGTH, message = "mainExercises must have max " + Constants.MAIN_EXERCISES_MAX_LENGTH + " exercise ID")
+    private List<
+        @Size(
+            min = Constants.STRING_FILTER_MIN_LENGTH,
+            max = Constants.STRING_FILTER_MAX_LENGTH,
+            message = "exercise ID must have between " + Constants.STRING_FILTER_MIN_LENGTH + " and " + Constants.STRING_FILTER_MAX_LENGTH + " characters"
+        )
+    String> mainExercises;
     
     @Getter
     @Setter
     @NotNull(message = "isPublished cannot be null")
     private Boolean isPublished;
-
-    @Getter
-    @Setter
-    @NotNull(message = "isDeleted cannot be null")
-    private Boolean isDeleted;
 }
