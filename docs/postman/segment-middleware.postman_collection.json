@@ -2032,6 +2032,548 @@
 			]
 		},
 		{
+			"name": "foods",
+			"item": [
+				{
+					"name": "admin",
+					"item": [
+						{
+							"name": "count",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/admin/foods/count",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"foods",
+										"count"
+									],
+									"query": [
+										{
+											"key": "category",
+											"value": "WHOLE_GRAINS_AND_LEGUMES",
+											"description": "It can be SWEETS, DAIRY_OR_EGGS, NUTS_AND_SEEDS, FRUITS_AND_VEGETABLES, WHOLE_GRAINS_AND_LEGUMES, OILS, or OTHER",
+											"disabled": true
+										},
+										{
+											"key": "energyMin",
+											"value": "50",
+											"description": "Integer number, between 0 and 10000",
+											"disabled": true
+										},
+										{
+											"key": "energyMax",
+											"value": "390",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "proteinsMin",
+											"value": "0",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "proteinsMax",
+											"value": "100",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "simplexCarbsMin",
+											"value": "0",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "simplexCarbsMax",
+											"value": "100",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "complexCarbsMin",
+											"value": "0",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "complexCarbsMax",
+											"value": "100",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "saturatedFatsMin",
+											"value": "0",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "saturatedFatsMax",
+											"value": "100",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "unsaturatedFatsMin",
+											"value": "0",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "unsaturatedFatsMax",
+											"value": "100",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "fibersMin",
+											"value": "0",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "fibersMax",
+											"value": "100",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "vitamins",
+											"value": "A,C,E",
+											"disabled": true
+										},
+										{
+											"key": "minerals",
+											"value": "CALCIUM,POTASSIUM",
+											"disabled": true
+										},
+										{
+											"key": "cholesterolMin",
+											"value": "0",
+											"description": "Integer number, between 0 and 10000",
+											"disabled": true
+										},
+										{
+											"key": "cholesterolMax",
+											"value": "200",
+											"description": "Integer number, between 0 and 10000",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find many",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/admin/foods",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"foods"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "0",
+											"description": "Integer number, between 0 and 2147483647",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"description": "Integer and positive number, between 1 and 50",
+											"disabled": true
+										},
+										{
+											"key": "sortField",
+											"value": "name",
+											"description": "It can be name, category, energy, proteins, simplexCarbs, complexCarbs, saturatedFats, unsaturatedFats, fibers, or cholestrol",
+											"disabled": true
+										},
+										{
+											"key": "sortDirection",
+											"value": "desc",
+											"description": "It can be asc, or desc",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "Pasta",
+											"description": "String between 1 and 256 characters",
+											"disabled": true
+										},
+										{
+											"key": "category",
+											"value": "WHOLE_GRAINS_AND_LEGUMES",
+											"description": "It can be SWEETS, DAIRY_OR_EGGS, NUTS_AND_SEEDS, FRUITS_AND_VEGETABLES, WHOLE_GRAINS_AND_LEGUMES, OILS, or OTHER",
+											"disabled": true
+										},
+										{
+											"key": "energyMin",
+											"value": "50",
+											"description": "Integer number, between 0 and 10000",
+											"disabled": true
+										},
+										{
+											"key": "energyMax",
+											"value": "390",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "proteinsMin",
+											"value": "0",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "proteinsMax",
+											"value": "100",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "simplexCarbsMin",
+											"value": "0",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "simplexCarbsMax",
+											"value": "100",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "complexCarbsMin",
+											"value": "0",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "complexCarbsMax",
+											"value": "100",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "saturatedFatsMin",
+											"value": "0",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "saturatedFatsMax",
+											"value": "100",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "unsaturatedFatsMin",
+											"value": "0",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "unsaturatedFatsMax",
+											"value": "100",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "fibersMin",
+											"value": "0",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "fibersMax",
+											"value": "100",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "vitamins",
+											"value": "A,C,D",
+											"disabled": true
+										},
+										{
+											"key": "minerals",
+											"value": "MANGANESE,SELENIUM",
+											"disabled": true
+										},
+										{
+											"key": "cholesterolMin",
+											"value": "0",
+											"description": "Integer number, between 0 and 10000",
+											"disabled": true
+										},
+										{
+											"key": "cholesterolMax",
+											"value": "200",
+											"description": "Integer number, between 0 and 10000",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/admin/foods/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"foods",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "653805f90d712d5f3b559be2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Riso\",\r\n    \"category\": \"WHOLE_GRAINS_AND_LEGUMES\",\r\n    \"energy\": 360,\r\n    \"proteins\": 8,\r\n    \"simplexCarbs\": 2,\r\n    \"complexCarbs\": 68,\r\n    \"saturatedFats\": 1,\r\n    \"unsaturatedFats\": 0.5,\r\n    \"fibers\": 10,\r\n    \"cholesterol\": 2,\r\n    \"vitamins\": [\r\n        \"A\",\r\n        \"D\",\r\n        \"C\"\r\n    ],\r\n    \"minerals\": [\r\n        \"MANGANESE\",\r\n        \"SELENIUM\"\r\n    ],\r\n    \"referencePortion\": 100,\r\n    \"isPublished\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/admin/foods",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"foods"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Pasta\",\r\n    \"category\": \"WHOLE_GRAINS_AND_LEGUMES\",\r\n    \"energy\": 360,\r\n    \"proteins\": 8,\r\n    \"simplexCarbs\": 2,\r\n    \"complexCarbs\": 68,\r\n    \"saturatedFats\": 1,\r\n    \"unsaturatedFats\": 0.5,\r\n    \"fibers\": 10,\r\n    \"cholesterol\": 2,\r\n    \"vitamins\": [\r\n        \"A\",\r\n        \"D\",\r\n        \"C\"\r\n    ],\r\n    \"minerals\": [\r\n        \"MANGANESE\",\r\n        \"SELENIUM\"\r\n    ],\r\n    \"referencePortion\": 100,\r\n    \"isPublished\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/admin/foods/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"foods",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "653805300d712d5f3b559be1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/admin/foods/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"foods",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "653805f90d712d5f3b559be2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
 			"name": "access",
 			"item": [
 				{

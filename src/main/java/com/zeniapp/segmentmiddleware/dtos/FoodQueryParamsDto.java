@@ -54,7 +54,7 @@ public class FoodQueryParamsDto {
         max = Constants.STRING_FILTER_MAX_LENGTH,
         message = "category must have between " + Constants.STRING_FILTER_MIN_LENGTH + " and " + Constants.STRING_FILTER_MAX_LENGTH + " characters"
     )
-    @Pattern(regexp = Constants.MUSCLE_DIMENSION_REGEXP, message = "category must respect to the following pattern: " + Constants.MUSCLE_DIMENSION_REGEXP)
+    @Pattern(regexp = Constants.FOOD_CATEGORY_REGEXP, message = "category must respect to the following pattern: " + Constants.FOOD_CATEGORY_REGEXP)
     private String category;
 
     @Getter

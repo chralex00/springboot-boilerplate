@@ -21,7 +21,7 @@ public class Constants {
     public static final int MIN_ENERGY_VALUE = 0; // expressed in kcal
     public static final int MAX_ENERGY_VALUE = 9000; // expressed in kcal
     public static final int MIN_CHOLESTEROL_VALUE = 0; // expressed in milligrams
-    public static final int MAX_CHOLESTEROL_VALUE = 1000; // expressed in milligrams
+    public static final int MAX_CHOLESTEROL_VALUE = 10_000; // expressed in milligrams
 
     // Length Limits
     public static final int EMAIL_MIN_LENGTH = 5;
@@ -100,8 +100,8 @@ public class Constants {
     public static final String EXERCISE_TYPE_REGEXP = "^(MULTIARTICULAR|BIARTICULAR|SINGLEARTICULAR)$";
     public static final String MUSCLE_FORM_REGEXP = "^(FUSIFORM|PARALLEL|CONVERGENT|UNIPENNATE|BIPINNATE|MULTIPINNATE|CIRCULAR)$";
     public static final String MUSCLE_DIMENSION_REGEXP = "^(SMALL|MEDIUM|BIG)$";
-    public static final String FOOD_CATEGORY_REGEXP = "^(SWEETS|DAIRY_OR_EGGS|NUTS_AND_SEEDS|FRUITS_AND_VEGETABLES|WHOLE_GRAINS_AND_LEGUMES|OILS|OTHER)$";
     public static final String ACTIVITY_TYPE_REGEXP = "^(QUOTIDIAN|SPORT|DISCIPLINE|WORK|OTHER)$";
     public static final String VITAMIN_REGEXP = "^(A|D|E|K|B1|B2|B3|B5|B6|B8|B9|B12|C)$";
     public static final String MINERAL_REGEXP = "^(CALCIUM|POTASSIUM|MAGNESIUM|IRON|PHOSPHORUS|SODIUM|ZINC|COPPER|MANGANESE|SELENIUM)$";
+    public static final String FOOD_CATEGORY_REGEXP = "^(SWEETS|DAIRY_OR_EGGS|NUTS_AND_SEEDS|FRUITS_AND_VEGETABLES|WHOLE_GRAINS_AND_LEGUMES|OILS|OTHER)$";
 }
