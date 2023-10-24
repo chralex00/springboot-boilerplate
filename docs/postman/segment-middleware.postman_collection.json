@@ -1236,6 +1236,236 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "count",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/user/activities/count",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"user",
+										"activities",
+										"count"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Bodybuilding",
+											"description": "String between 1 and 256 characters",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "DISCIPLINE",
+											"description": "It can be QUOTIDIAN, SPORT, DISCIPLINE, WORK, or OTHER",
+											"disabled": true
+										},
+										{
+											"key": "tags",
+											"value": "Anaerobic,Lift,Strength",
+											"description": "List of strings, max 15 tags",
+											"disabled": true
+										},
+										{
+											"key": "mainExercises",
+											"value": "65339b5f4e7cf6c45f014fa0,65339b5f4e7cf6c45f014fa1,65339b5f4e7cf6c45f014fa2",
+											"description": "List of IDs, max 15 exercise IDs",
+											"disabled": true
+										},
+										{
+											"key": "metsMin",
+											"value": "0",
+											"description": "Integer number between 0 and 50",
+											"disabled": true
+										},
+										{
+											"key": "metsMax",
+											"value": "20",
+											"description": "Integer number between 0 and 50",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find many",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/user/activities",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"user",
+										"activities"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "0",
+											"description": "Integer number, between 0 and 2147483647",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"description": "Integer and positive number, between 1 and 50",
+											"disabled": true
+										},
+										{
+											"key": "sortField",
+											"value": "name",
+											"description": "It can be name, type, or mets",
+											"disabled": true
+										},
+										{
+											"key": "sortDirection",
+											"value": "desc",
+											"description": "It can be asc, or desc",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "Bodybuilding",
+											"description": "String between 1 and 256 characters",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "DISCIPLINE",
+											"description": "It can be QUOTIDIAN, SPORT, DISCIPLINE, WORK, or OTHER",
+											"disabled": true
+										},
+										{
+											"key": "tags",
+											"value": "Anaerobic,Lift,Strength",
+											"description": "List of strings, max 15 tags",
+											"disabled": true
+										},
+										{
+											"key": "mainExercises",
+											"value": "65339b5f4e7cf6c45f014fa0,65339b5f4e7cf6c45f014fa1,65339b5f4e7cf6c45f014fa2",
+											"description": "List of IDs, max 15 exercise IDs",
+											"disabled": true
+										},
+										{
+											"key": "metsMin",
+											"value": "0",
+											"description": "Integer number between 0 and 50",
+											"disabled": true
+										},
+										{
+											"key": "metsMax",
+											"value": "20",
+											"description": "Integer number between 0 and 50",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/user/activities/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"user",
+										"activities",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "653813017498ed781a0f155e"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		},
@@ -1644,6 +1874,260 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "count",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/user/exercises/count",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"user",
+										"exercises",
+										"count"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Squat",
+											"description": "String between 1 and 256 characters",
+											"disabled": true
+										},
+										{
+											"key": "difficulty",
+											"value": "MEDIUM",
+											"description": "It can be EASY, MEDIUM, DIFFICULT, or EXTREME",
+											"disabled": true
+										},
+										{
+											"key": "category",
+											"value": "FUNDAMENTAL",
+											"description": "It can be FUNDAMENTAL, COMPLEMENTARY, or INSULATING",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "MULTIARTICULAR",
+											"description": "It can be MULTIARTICULAR, BIARTICULAR, or SINGLEARTICULAR",
+											"disabled": true
+										},
+										{
+											"key": "agonistMuscles",
+											"value": "65339b5f4e7cf6c45f014fa0,65339b5f4e7cf6c45f014fa1,65339b5f4e7cf6c45f014fa2",
+											"description": "List of IDs, max 5 muscle IDs",
+											"disabled": true
+										},
+										{
+											"key": "antagonistMuscles",
+											"value": "65339b5f4e7cf6c45f014fa0,65339b5f4e7cf6c45f014fa1,65339b5f4e7cf6c45f014fa2",
+											"description": "List of IDs, max 5 muscle IDs",
+											"disabled": true
+										},
+										{
+											"key": "synergisticMuscles",
+											"value": "65339b5f4e7cf6c45f014fa0,65339b5f4e7cf6c45f014fa1,65339b5f4e7cf6c45f014fa2",
+											"description": "List of IDs, max 5 muscle IDs",
+											"disabled": true
+										},
+										{
+											"key": "fixatorMuscles",
+											"value": "65339b5f4e7cf6c45f014fa0,65339b5f4e7cf6c45f014fa1,65339b5f4e7cf6c45f014fa2",
+											"description": "List of IDs, max 5 muscle IDs",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find many",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/user/exercises",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"user",
+										"exercises"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "0",
+											"description": "Integer number, between 0 and 2147483647",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"description": "Integer and positive number, between 1 and 50",
+											"disabled": true
+										},
+										{
+											"key": "sortField",
+											"value": "name",
+											"description": "It can be name, difficulty, category, or type",
+											"disabled": true
+										},
+										{
+											"key": "sortDirection",
+											"value": "asc",
+											"description": "It can be asc, or desc",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "Squat",
+											"description": "String between 1 and 256 characters",
+											"disabled": true
+										},
+										{
+											"key": "difficulty",
+											"value": "MEDIUM",
+											"description": "It can be EASY, MEDIUM, DIFFICULT, or EXTREME",
+											"disabled": true
+										},
+										{
+											"key": "category",
+											"value": "FUNDAMENTAL",
+											"description": "It can be FUNDAMENTAL, COMPLEMENTARY, or INSULATING",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "MULTIARTICULAR",
+											"description": "It can be MULTIARTICULAR, BIARTICULAR, or SINGLEARTICULAR",
+											"disabled": true
+										},
+										{
+											"key": "agonistMuscles",
+											"value": "65339b5f4e7cf6c45f014fa0,65339b5f4e7cf6c45f014fa1,65339b5f4e7cf6c45f014fa2",
+											"description": "List of IDs, max 5 muscle IDs",
+											"disabled": true
+										},
+										{
+											"key": "antagonistMuscles",
+											"value": "65339b5f4e7cf6c45f014fa0,65339b5f4e7cf6c45f014fa1,65339b5f4e7cf6c45f014fa2",
+											"description": "List of IDs, max 5 muscle IDs",
+											"disabled": true
+										},
+										{
+											"key": "synergisticMuscles",
+											"value": "65339b5f4e7cf6c45f014fa0,65339b5f4e7cf6c45f014fa1,65339b5f4e7cf6c45f014fa2",
+											"description": "List of IDs, max 5 muscle IDs",
+											"disabled": true
+										},
+										{
+											"key": "fixatorMuscles",
+											"value": "65339b5f4e7cf6c45f014fa0,65339b5f4e7cf6c45f014fa1,65339b5f4e7cf6c45f014fa2",
+											"description": "List of IDs, max 5 muscle IDs",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/user/exercises/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"user",
+										"exercises",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "653812957498ed781a0f155d"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		},
@@ -2021,6 +2505,236 @@
 										{
 											"key": "id",
 											"value": "6536ca0497838320db043d6c"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "count",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/user/muscles/count",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"user",
+										"muscles",
+										"count"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Chest",
+											"description": "String between 1 and 256 characters",
+											"disabled": true
+										},
+										{
+											"key": "dimension",
+											"value": "BIG",
+											"description": "It can be SMALL, MEDIUM, or BIG",
+											"disabled": true
+										},
+										{
+											"key": "form",
+											"value": "FUSIFORM",
+											"description": "It can be FUSIFORM, PARALLEL, CONVERGENT, UNIPENNATE, BIPINNATE, MULTIPINNATE or CIRCULAR",
+											"disabled": true
+										},
+										{
+											"key": "origin",
+											"value": "Test",
+											"description": "String between 1 and 256 characters",
+											"disabled": true
+										},
+										{
+											"key": "insertion",
+											"value": "Test",
+											"description": "String between 1 and 256 characters",
+											"disabled": true
+										},
+										{
+											"key": "functions",
+											"value": "Test",
+											"description": "String between 1 and 256 characters",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find many",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/user/muscles",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"user",
+										"muscles"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "0",
+											"description": "Integer number, between 0 and 2147483647",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"description": "Integer and positive number, between 1 and 50",
+											"disabled": true
+										},
+										{
+											"key": "sortField",
+											"value": "name",
+											"description": "It can be name, form, dimension, origin, insertion, or functions",
+											"disabled": true
+										},
+										{
+											"key": "sortDirection",
+											"value": "desc",
+											"description": "It can be asc, or desc",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "Chest",
+											"description": "String between 1 and 256 characters",
+											"disabled": true
+										},
+										{
+											"key": "dimension",
+											"value": "BIG",
+											"description": "It can be SMALL, MEDIUM, or BIG",
+											"disabled": true
+										},
+										{
+											"key": "form",
+											"value": "FUSIFORM",
+											"description": "It can be FUSIFORM, PARALLEL, CONVERGENT, UNIPENNATE, BIPINNATE, MULTIPINNATE or CIRCULAR",
+											"disabled": true
+										},
+										{
+											"key": "origin",
+											"value": "Test",
+											"description": "String between 1 and 256 characters",
+											"disabled": true
+										},
+										{
+											"key": "insertion",
+											"value": "Test",
+											"description": "String between 1 and 256 characters",
+											"disabled": true
+										},
+										{
+											"key": "functions",
+											"value": "Test",
+											"description": "String between 1 and 256 characters",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/user/muscles/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"user",
+										"muscles",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "653811a07498ed781a0f155c"
 										}
 									]
 								}
@@ -2563,6 +3277,394 @@
 										{
 											"key": "id",
 											"value": "653805f90d712d5f3b559be2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "count",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/user/foods/count",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"user",
+										"foods",
+										"count"
+									],
+									"query": [
+										{
+											"key": "category",
+											"value": "WHOLE_GRAINS_AND_LEGUMES",
+											"description": "It can be SWEETS, DAIRY_OR_EGGS, NUTS_AND_SEEDS, FRUITS_AND_VEGETABLES, WHOLE_GRAINS_AND_LEGUMES, OILS, or OTHER",
+											"disabled": true
+										},
+										{
+											"key": "energyMin",
+											"value": "50",
+											"description": "Integer number, between 0 and 10000",
+											"disabled": true
+										},
+										{
+											"key": "energyMax",
+											"value": "390",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "proteinsMin",
+											"value": "0",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "proteinsMax",
+											"value": "100",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "simplexCarbsMin",
+											"value": "0",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "simplexCarbsMax",
+											"value": "100",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "complexCarbsMin",
+											"value": "0",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "complexCarbsMax",
+											"value": "100",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "saturatedFatsMin",
+											"value": "0",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "saturatedFatsMax",
+											"value": "100",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "unsaturatedFatsMin",
+											"value": "0",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "unsaturatedFatsMax",
+											"value": "100",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "fibersMin",
+											"value": "0",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "fibersMax",
+											"value": "100",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "vitamins",
+											"value": "A,C,E",
+											"disabled": true
+										},
+										{
+											"key": "minerals",
+											"value": "CALCIUM,POTASSIUM",
+											"disabled": true
+										},
+										{
+											"key": "cholesterolMin",
+											"value": "0",
+											"description": "Integer number, between 0 and 10000",
+											"disabled": true
+										},
+										{
+											"key": "cholesterolMax",
+											"value": "200",
+											"description": "Integer number, between 0 and 10000",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find many",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/user/foods",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"user",
+										"foods"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "0",
+											"description": "Integer number, between 0 and 2147483647",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"description": "Integer and positive number, between 1 and 50",
+											"disabled": true
+										},
+										{
+											"key": "sortField",
+											"value": "name",
+											"description": "It can be name, category, energy, proteins, simplexCarbs, complexCarbs, saturatedFats, unsaturatedFats, fibers, or cholestrol",
+											"disabled": true
+										},
+										{
+											"key": "sortDirection",
+											"value": "desc",
+											"description": "It can be asc, or desc",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "Pasta",
+											"description": "String between 1 and 256 characters",
+											"disabled": true
+										},
+										{
+											"key": "category",
+											"value": "WHOLE_GRAINS_AND_LEGUMES",
+											"description": "It can be SWEETS, DAIRY_OR_EGGS, NUTS_AND_SEEDS, FRUITS_AND_VEGETABLES, WHOLE_GRAINS_AND_LEGUMES, OILS, or OTHER",
+											"disabled": true
+										},
+										{
+											"key": "energyMin",
+											"value": "50",
+											"description": "Integer number, between 0 and 10000",
+											"disabled": true
+										},
+										{
+											"key": "energyMax",
+											"value": "390",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "proteinsMin",
+											"value": "0",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "proteinsMax",
+											"value": "100",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "simplexCarbsMin",
+											"value": "0",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "simplexCarbsMax",
+											"value": "100",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "complexCarbsMin",
+											"value": "0",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "complexCarbsMax",
+											"value": "100",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "saturatedFatsMin",
+											"value": "0",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "saturatedFatsMax",
+											"value": "100",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "unsaturatedFatsMin",
+											"value": "0",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "unsaturatedFatsMax",
+											"value": "100",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "fibersMin",
+											"value": "0",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "fibersMax",
+											"value": "100",
+											"description": "Integer number, between 0 and 1000",
+											"disabled": true
+										},
+										{
+											"key": "vitamins",
+											"value": "A,C,D",
+											"disabled": true
+										},
+										{
+											"key": "minerals",
+											"value": "MANGANESE,SELENIUM",
+											"disabled": true
+										},
+										{
+											"key": "cholesterolMin",
+											"value": "0",
+											"description": "Integer number, between 0 and 10000",
+											"disabled": true
+										},
+										{
+											"key": "cholesterolMax",
+											"value": "200",
+											"description": "Integer number, between 0 and 10000",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/user/foods/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"user",
+										"foods",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "653810c67498ed781a0f155b"
 										}
 									]
 								}

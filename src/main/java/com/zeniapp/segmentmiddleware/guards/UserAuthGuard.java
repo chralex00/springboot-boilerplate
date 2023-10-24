@@ -51,7 +51,7 @@ public class UserAuthGuard extends OncePerRequestFilter {
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
-        RequestMatcher adminAccountPathMatcher = new NegatedRequestMatcher(new AntPathRequestMatcher("/api/v1/user/accounts/**"));
+        RequestMatcher adminAccountPathMatcher = new NegatedRequestMatcher(new AntPathRequestMatcher("/api/v1/user/**"));
         return adminAccountPathMatcher.matches(request);
     }
 
