@@ -90,4 +90,8 @@ public class ActivityQueryParamsDto {
     @Min(value = Constants.MIN_METS_VALUE, message = "metsMax must be greater than, or equal to " + Constants.MIN_METS_VALUE)
     @Max(value = Constants.MAX_METS_VALUE, message = "metsMax must be greater than, or equal to " + Constants.MAX_METS_VALUE)
     private Integer metsMax;
+    
+    @Getter
+    @Setter
+    private Boolean isPublished;
 }

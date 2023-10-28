@@ -55,6 +55,10 @@ public class ExerciseUtils {
             query.addCriteria(Criteria.where("synergisticMuscles").all(exerciseQueryParamsDto.getSynergisticMuscles()));
         }
 
+        if (exerciseQueryParamsDto.getIsPublished() != null) {
+            query.addCriteria(Criteria.where("isPublished").is(exerciseQueryParamsDto.getIsPublished()));
+        }
+
         return query;
     }
 

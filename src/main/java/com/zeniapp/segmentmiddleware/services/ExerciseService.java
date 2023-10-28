@@ -60,6 +60,17 @@ public class ExerciseService {
         }
     }
 
+    public Optional<Exercise> findOnePublished(String id) throws Exception {
+        try {
+            return this.exerciseDao.findOnePublished(id);
+        }
+        catch (Exception exception) {
+            ExerciseService.log.error("error occurred retrieving the exercise");
+            ExerciseService.log.error("error message is " + exception.getMessage());
+            throw exception;
+        }
+    }
+
     public List<Exercise> findMany(ExerciseQueryParamsDto exerciseQueryParamsDto) throws Exception {
         try {
             Query query = ExerciseUtils.getQueryByExerciseQyeryParamsDto(exerciseQueryParamsDto);

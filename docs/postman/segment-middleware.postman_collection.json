@@ -933,6 +933,12 @@
 											"value": "20",
 											"description": "Integer number between 0 and 50",
 											"disabled": true
+										},
+										{
+											"key": "isPublished",
+											"value": "true",
+											"description": "Boolean value, it can be true, or false",
+											"disabled": true
 										}
 									]
 								}
@@ -1034,6 +1040,12 @@
 											"value": "20",
 											"description": "Integer number between 0 and 50",
 											"disabled": true
+										},
+										{
+											"key": "isPublished",
+											"value": "true",
+											"description": "Boolean value, it can be true, or false",
+											"disabled": true
 										}
 									]
 								}
@@ -1079,7 +1091,7 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": "6534f0c79c63902dd12211ff"
+											"value": "653813017498ed781a0f155e"
 										}
 									]
 								}
@@ -1559,6 +1571,12 @@
 											"value": "65339b5f4e7cf6c45f014fa0,65339b5f4e7cf6c45f014fa1,65339b5f4e7cf6c45f014fa2",
 											"description": "List of IDs, max 5 muscle IDs",
 											"disabled": true
+										},
+										{
+											"key": "isPublished",
+											"value": "true",
+											"description": "Boolean value, it can be true, or false",
+											"disabled": true
 										}
 									]
 								}
@@ -1672,6 +1690,12 @@
 											"value": "65339b5f4e7cf6c45f014fa0,65339b5f4e7cf6c45f014fa1,65339b5f4e7cf6c45f014fa2",
 											"description": "List of IDs, max 5 muscle IDs",
 											"disabled": true
+										},
+										{
+											"key": "isPublished",
+											"value": "true",
+											"description": "Boolean value, it can be true, or false",
+											"disabled": true
 										}
 									]
 								}
@@ -1717,7 +1741,7 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": "6536c611dc558221ce4e7a79"
+											"value": "653812957498ed781a0f155d"
 										}
 									]
 								}
@@ -2164,7 +2188,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{BASE_URL}}/admin/muscles/count",
+									"raw": "{{BASE_URL}}/admin/muscles/count?isPublished=true",
 									"host": [
 										"{{BASE_URL}}"
 									],
@@ -2209,6 +2233,11 @@
 											"value": "Test",
 											"description": "String between 1 and 256 characters",
 											"disabled": true
+										},
+										{
+											"key": "isPublished",
+											"value": "true",
+											"description": "Bollean value, it can be true, or false"
 										}
 									]
 								}
@@ -2310,6 +2339,12 @@
 											"value": "Test",
 											"description": "String between 1 and 256 characters",
 											"disabled": true
+										},
+										{
+											"key": "isPublished",
+											"value": "true",
+											"description": "Boolean value, it can be true, or false",
+											"disabled": true
 										}
 									]
 								}
@@ -2355,7 +2390,7 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": "6536c5ffdc558221ce4e7a78"
+											"value": "653811a07498ed781a0f155c"
 										}
 									]
 								}
@@ -2881,11 +2916,13 @@
 										{
 											"key": "vitamins",
 											"value": "A,C,E",
+											"description": "It can be a comma-separated list of max 5 vitamins",
 											"disabled": true
 										},
 										{
 											"key": "minerals",
 											"value": "CALCIUM,POTASSIUM",
+											"description": "It can be a comma-separated list of max 5 minerals",
 											"disabled": true
 										},
 										{
@@ -2898,6 +2935,12 @@
 											"key": "cholesterolMax",
 											"value": "200",
 											"description": "Integer number, between 0 and 10000",
+											"disabled": true
+										},
+										{
+											"key": "isPublished",
+											"value": "true",
+											"description": "Boolean value, it can be true, or false",
 											"disabled": true
 										}
 									]
@@ -3064,11 +3107,13 @@
 										{
 											"key": "vitamins",
 											"value": "A,C,D",
+											"description": "It can be a comma-separated list of max 5 vitamins",
 											"disabled": true
 										},
 										{
 											"key": "minerals",
 											"value": "MANGANESE,SELENIUM",
+											"description": "It can be a comma-separated list of max 5 minerals",
 											"disabled": true
 										},
 										{
@@ -3081,6 +3126,12 @@
 											"key": "cholesterolMax",
 											"value": "200",
 											"description": "Integer number, between 0 and 10000",
+											"disabled": true
+										},
+										{
+											"key": "isPublished",
+											"value": "true",
+											"description": "Boolean value, it can be true, or false",
 											"disabled": true
 										}
 									]
@@ -3127,7 +3178,7 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": "653805f90d712d5f3b559be2"
+											"value": "653c0ec3eb4ed41f5af6b88e"
 										}
 									]
 								}
@@ -3418,11 +3469,13 @@
 										{
 											"key": "vitamins",
 											"value": "A,C,E",
+											"description": "It can be a comma-separated list of max 5 vitamins",
 											"disabled": true
 										},
 										{
 											"key": "minerals",
 											"value": "CALCIUM,POTASSIUM",
+											"description": "It can be a comma-separated list of max 5 minerals",
 											"disabled": true
 										},
 										{
@@ -3601,11 +3654,13 @@
 										{
 											"key": "vitamins",
 											"value": "A,C,D",
+											"description": "It can be a comma-separated list of max 5 vitamins",
 											"disabled": true
 										},
 										{
 											"key": "minerals",
 											"value": "MANGANESE,SELENIUM",
+											"description": "It can be a comma-separated list of max 5 minerals",
 											"disabled": true
 										},
 										{
@@ -3664,7 +3719,7 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": "653810c67498ed781a0f155b"
+											"value": "653c0ec3eb4ed41f5af6b88e"
 										}
 									]
 								}

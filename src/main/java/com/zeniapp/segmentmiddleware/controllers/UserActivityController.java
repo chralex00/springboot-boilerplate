@@ -45,7 +45,8 @@ public class UserActivityController {
             ActivityQueryParamsDto activityQueryParamsDto = new ActivityQueryParamsDto(
                 null, null, null, null,
                 name, type, tags, mainExercises,
-                metsMin, metsMax
+                metsMin, metsMax,
+                true
             );
             
             ActivityUtils.validateActivityQueryParamsDto(activityQueryParamsDto);
@@ -68,7 +69,7 @@ public class UserActivityController {
     @GetMapping("/{id}")
     public ResponseEntity<?> findOne(@PathVariable String id) {
         try {
-            Activity activityFound = this.activityService.findOne(id).orElseThrow(ResourceNotFoundException::new);
+            Activity activityFound = this.activityService.findOnePublished(id).orElseThrow(ResourceNotFoundException::new);
 
             ActivityDto activityDto = this.modelMapper.map(activityFound, ActivityDto.class);
 
@@ -101,7 +102,8 @@ public class UserActivityController {
             ActivityQueryParamsDto activityQueryParamsDto = new ActivityQueryParamsDto(
                 offset, limit, sortField, sortDirection,
                 name, type, tags, mainExercises,
-                metsMin, metsMax
+                metsMin, metsMax,
+                true
             );
             
             ActivityUtils.validateActivityQueryParamsDto(activityQueryParamsDto);

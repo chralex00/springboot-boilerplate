@@ -19,4 +19,7 @@ public interface FoodDao extends MongoRepository<Food, String> {
 
     @Query(value = "{ '_id': { $in: ?0 }, 'isDeleted': false }")
     public List<Food> findAllByIdAndIsDeletedFalse(Set<String> ids);
+    
+    @Query(value = "{ '_id': ?0, 'isPublished': true }")
+    public Optional<Food> findOnePublished(String id);
 }

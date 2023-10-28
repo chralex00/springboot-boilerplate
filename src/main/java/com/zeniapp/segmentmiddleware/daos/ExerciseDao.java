@@ -19,4 +19,7 @@ public interface ExerciseDao extends MongoRepository<Exercise, String> {
 
     @Query(value = "{ '_id': { $in: ?0 }, 'isDeleted': false }")
     public List<Exercise> findAllByIdAndIsDeletedFalse(Set<String> ids);
+    
+    @Query(value = "{ '_id': ?0, 'isPublished': true }")
+    public Optional<Exercise> findOnePublished(String id);
 }

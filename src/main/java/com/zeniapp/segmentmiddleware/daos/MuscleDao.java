@@ -19,4 +19,7 @@ public interface MuscleDao extends MongoRepository<Muscle, String> {
 
     @Query(value = "{ '_id': { $in: ?0 }, 'isDeleted': false }")
     public List<Muscle> findAllByIdAndIsDeletedFalse(Set<String> ids);
+    
+    @Query(value = "{ '_id': ?0, 'isPublished': true }")
+    public Optional<Muscle> findOnePublished(String id);
 }

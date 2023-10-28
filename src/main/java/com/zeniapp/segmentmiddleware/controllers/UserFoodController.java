@@ -65,7 +65,8 @@ public class UserFoodController {
                 proteinsMin, proteinsMax, simplexCarbsMin, simplexCarbsMax,
                 complexCarbsMin, complexCarbsMax, saturatedFatsMin, saturatedFatsMax,
                 unsaturatedFatsMin, unsaturatedFatsMax, fibersMin, fibersMax,
-                cholesterolMin, cholesterolMax, vitamins, minerals
+                cholesterolMin, cholesterolMax, vitamins, minerals,
+                true
             );
             
             FoodUtils.validateFoodQueryParamsDto(foodQueryParamsDto);
@@ -88,7 +89,7 @@ public class UserFoodController {
     @GetMapping("/{id}")
     public ResponseEntity<?> findOne(@PathVariable String id) {
         try {
-            Food foodFound = this.foodService.findOne(id).orElseThrow(ResourceNotFoundException::new);
+            Food foodFound = this.foodService.findOnePublished(id).orElseThrow(ResourceNotFoundException::new);
 
             FoodDto foodDto = this.modelMapper.map(foodFound, FoodDto.class);
 
@@ -141,7 +142,8 @@ public class UserFoodController {
                 proteinsMin, proteinsMax, simplexCarbsMin, simplexCarbsMax,
                 complexCarbsMin, complexCarbsMax, saturatedFatsMin, saturatedFatsMax,
                 unsaturatedFatsMin, unsaturatedFatsMax, fibersMin, fibersMax,
-                cholesterolMin, cholesterolMax, vitamins, minerals
+                cholesterolMin, cholesterolMax, vitamins, minerals,
+                true
             );
             
             FoodUtils.validateFoodQueryParamsDto(foodQueryParamsDto);

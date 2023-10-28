@@ -65,7 +65,8 @@ public class AdminFoodController {
         @RequestParam(required = false) Integer cholesterolMin,
         @RequestParam(required = false) Integer cholesterolMax,
         @RequestParam(required = false) List<String> vitamins,
-        @RequestParam(required = false) List<String> minerals
+        @RequestParam(required = false) List<String> minerals,
+        @RequestParam(required = false) Boolean isPublished
     ) {
         try {
             FoodQueryParamsDto foodQueryParamsDto = new FoodQueryParamsDto(
@@ -75,7 +76,8 @@ public class AdminFoodController {
                 proteinsMin, proteinsMax, simplexCarbsMin, simplexCarbsMax,
                 complexCarbsMin, complexCarbsMax, saturatedFatsMin, saturatedFatsMax,
                 unsaturatedFatsMin, unsaturatedFatsMax, fibersMin, fibersMax,
-                cholesterolMin, cholesterolMax, vitamins, minerals
+                cholesterolMin, cholesterolMax, vitamins, minerals,
+                isPublished
             );
             
             FoodUtils.validateFoodQueryParamsDto(foodQueryParamsDto);
@@ -170,7 +172,8 @@ public class AdminFoodController {
         @RequestParam(required = false) Integer cholesterolMin,
         @RequestParam(required = false) Integer cholesterolMax,
         @RequestParam(required = false) List<String> vitamins,
-        @RequestParam(required = false) List<String> minerals
+        @RequestParam(required = false) List<String> minerals,
+        @RequestParam(required = false) Boolean isPublished
     ) {
         try {
             FoodQueryParamsDto foodQueryParamsDto = new FoodQueryParamsDto(
@@ -180,7 +183,8 @@ public class AdminFoodController {
                 proteinsMin, proteinsMax, simplexCarbsMin, simplexCarbsMax,
                 complexCarbsMin, complexCarbsMax, saturatedFatsMin, saturatedFatsMax,
                 unsaturatedFatsMin, unsaturatedFatsMax, fibersMin, fibersMax,
-                cholesterolMin, cholesterolMax, vitamins, minerals
+                cholesterolMin, cholesterolMax, vitamins, minerals,
+                isPublished
             );
             
             FoodUtils.validateFoodQueryParamsDto(foodQueryParamsDto);

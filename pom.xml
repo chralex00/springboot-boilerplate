@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.zeniapp</groupId>
 	<artifactId>segment-middleware</artifactId>
-	<version>v0.3.0-rc.2</version>
+	<version>v0.3.1-rc.1</version>
 	<name>segment-middleware</name>
 	<description>A middleware for the Segment app.</description>				
 	<parent>

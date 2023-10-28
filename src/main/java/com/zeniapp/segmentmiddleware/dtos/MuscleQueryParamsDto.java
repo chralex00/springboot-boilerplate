@@ -92,4 +92,8 @@ public class MuscleQueryParamsDto {
     )
     @Pattern(regexp = Constants.MUSCLE_DIMENSION_REGEXP, message = "dimension must respect to the following pattern: " + Constants.MUSCLE_DIMENSION_REGEXP)
     private String dimension;
+    
+    @Getter
+    @Setter
+    private Boolean isPublished;
 }

@@ -60,6 +60,17 @@ public class MuscleService {
         }
     }
 
+    public Optional<Muscle> findOnePublished(String id) throws Exception {
+        try {
+            return this.muscleDao.findOnePublished(id);
+        }
+        catch (Exception exception) {
+            MuscleService.log.error("error occurred retrieving the muscle");
+            MuscleService.log.error("error message is " + exception.getMessage());
+            throw exception;
+        }
+    }
+
     public List<Muscle> findMany(MuscleQueryParamsDto muscleQueryParamsDto) throws Exception {
         try {
             Query query = MuscleUtils.getQueryByMuscleQyeryParamsDto(muscleQueryParamsDto);

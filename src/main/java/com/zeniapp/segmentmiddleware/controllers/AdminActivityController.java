@@ -56,13 +56,15 @@ public class AdminActivityController {
         @RequestParam(required = false) List<String> tags,
         @RequestParam(required = false) List<String> mainExercises,
         @RequestParam(required = false) Integer metsMin,
-        @RequestParam(required = false) Integer metsMax
+        @RequestParam(required = false) Integer metsMax,
+        @RequestParam(required = false) Boolean isPublished
     ) {
         try {
             ActivityQueryParamsDto activityQueryParamsDto = new ActivityQueryParamsDto(
                 null, null, null, null,
                 name, type, tags, mainExercises,
-                metsMin, metsMax
+                metsMin, metsMax,
+                isPublished
             );
             
             ActivityUtils.validateActivityQueryParamsDto(activityQueryParamsDto);
@@ -145,13 +147,15 @@ public class AdminActivityController {
         @RequestParam(required = false) List<String> tags,
         @RequestParam(required = false) List<String> mainExercises,
         @RequestParam(required = false) Integer metsMin,
-        @RequestParam(required = false) Integer metsMax
+        @RequestParam(required = false) Integer metsMax,
+        @RequestParam(required = false) Boolean isPublished
     ) {
         try {
             ActivityQueryParamsDto activityQueryParamsDto = new ActivityQueryParamsDto(
                 offset, limit, sortField, sortDirection,
                 name, type, tags, mainExercises,
-                metsMin, metsMax
+                metsMin, metsMax,
+                isPublished
             );
             
             ActivityUtils.validateActivityQueryParamsDto(activityQueryParamsDto);

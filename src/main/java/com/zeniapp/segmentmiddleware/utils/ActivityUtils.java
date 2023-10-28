@@ -50,6 +50,10 @@ public class ActivityUtils {
         if (activityQueryParamsDto.getMainExercises() != null) {
             query.addCriteria(Criteria.where("mainExercises").all(activityQueryParamsDto.getMainExercises()));
         }
+        
+        if (activityQueryParamsDto.getIsPublished() != null) {
+            query.addCriteria(Criteria.where("isPublished").is(activityQueryParamsDto.getIsPublished()));
+        }
 
         return query;
     }

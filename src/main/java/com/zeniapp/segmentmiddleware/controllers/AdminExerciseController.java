@@ -58,14 +58,16 @@ public class AdminExerciseController {
         @RequestParam(required = false) List<String> agonistMuscles,
         @RequestParam(required = false) List<String> antagonistMuscles,
         @RequestParam(required = false) List<String> synergisticMuscles,
-        @RequestParam(required = false) List<String> fixatorMuscles
+        @RequestParam(required = false) List<String> fixatorMuscles,
+        @RequestParam(required = false) Boolean isPublished
     ) {
         try {
             ExerciseQueryParamsDto exerciseQueryParamsDto = new ExerciseQueryParamsDto(
                 null, null, null, null,
                 name, difficulty, category,
                 type, agonistMuscles, antagonistMuscles,
-                synergisticMuscles, fixatorMuscles
+                synergisticMuscles, fixatorMuscles,
+                isPublished
             );
             
             ExerciseUtils.validateExerciseQueryParamsDto(exerciseQueryParamsDto);
@@ -162,14 +164,16 @@ public class AdminExerciseController {
         @RequestParam(required = false) List<String> agonistMuscles,
         @RequestParam(required = false) List<String> antagonistMuscles,
         @RequestParam(required = false) List<String> synergisticMuscles,
-        @RequestParam(required = false) List<String> fixatorMuscles
+        @RequestParam(required = false) List<String> fixatorMuscles,
+        @RequestParam(required = false) Boolean isPublished
     ) {
         try {
             ExerciseQueryParamsDto exerciseQueryParamsDto = new ExerciseQueryParamsDto(
                 offset, limit, sortField, sortDirection,
                 name, difficulty, category,
                 type, agonistMuscles, antagonistMuscles,
-                synergisticMuscles, fixatorMuscles
+                synergisticMuscles, fixatorMuscles,
+                isPublished
             );
             
             ExerciseUtils.validateExerciseQueryParamsDto(exerciseQueryParamsDto);

@@ -45,7 +45,8 @@ public class UserMuscleController {
             MuscleQueryParamsDto muscleQueryParamsDto = new MuscleQueryParamsDto(
                 null, null, null, null,
                 name, origin, insertion,
-                functions, form, dimension
+                functions, form, dimension,
+                true
             );
             
             MuscleUtils.validateMuscleQueryParamsDto(muscleQueryParamsDto);
@@ -68,7 +69,7 @@ public class UserMuscleController {
     @GetMapping("/{id}")
     public ResponseEntity<?> findOne(@PathVariable String id) {
         try {
-            Muscle muscleFound = this.muscleService.findOne(id).orElseThrow(ResourceNotFoundException::new);
+            Muscle muscleFound = this.muscleService.findOnePublished(id).orElseThrow(ResourceNotFoundException::new);
 
             MuscleDto muscleDto = this.modelMapper.map(muscleFound, MuscleDto.class);
 
@@ -101,7 +102,8 @@ public class UserMuscleController {
             MuscleQueryParamsDto muscleQueryParamsDto = new MuscleQueryParamsDto(
                 offset, limit, sortField, sortDirection,
                 name, origin, insertion,
-                functions, form, dimension
+                functions, form, dimension,
+                true
             );
             
             MuscleUtils.validateMuscleQueryParamsDto(muscleQueryParamsDto);

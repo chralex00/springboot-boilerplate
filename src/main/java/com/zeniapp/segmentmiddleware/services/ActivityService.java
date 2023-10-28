@@ -59,6 +59,17 @@ public class ActivityService {
         }
     }
 
+    public Optional<Activity> findOnePublished(String id) throws Exception {
+        try {
+            return this.activityDao.findOnePublished(id);
+        }
+        catch (Exception exception) {
+            ActivityService.log.error("error occurred retrieving the activity");
+            ActivityService.log.error("error message is " + exception.getMessage());
+            throw exception;
+        }
+    }
+
     public List<Activity> findMany(ActivityQueryParamsDto activityQueryParamsDto) throws Exception {
         try {
             Query query = ActivityUtils.getQueryByActivityQyeryParamsDto(activityQueryParamsDto);

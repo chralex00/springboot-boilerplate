@@ -188,4 +188,8 @@ public class FoodQueryParamsDto {
         )
         @Pattern(regexp = Constants.MINERAL_REGEXP, message = "mineral must respect to the following pattern: " + Constants.MINERAL_REGEXP)
     String> minerals;
+    
+    @Getter
+    @Setter
+    private Boolean isPublished;
 }

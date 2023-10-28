@@ -48,7 +48,8 @@ public class UserExerciseController {
                 null, null, null, null,
                 name, difficulty, category,
                 type, agonistMuscles, antagonistMuscles,
-                synergisticMuscles, fixatorMuscles
+                synergisticMuscles, fixatorMuscles,
+                true
             );
             
             ExerciseUtils.validateExerciseQueryParamsDto(exerciseQueryParamsDto);
@@ -71,7 +72,7 @@ public class UserExerciseController {
     @GetMapping("/{id}")
     public ResponseEntity<?> findOne(@PathVariable String id) {
         try {
-            Exercise exerciseFound = this.exerciseService.findOne(id).orElseThrow(ResourceNotFoundException::new);
+            Exercise exerciseFound = this.exerciseService.findOnePublished(id).orElseThrow(ResourceNotFoundException::new);
 
             ExerciseDto exerciseDto = this.modelMapper.map(exerciseFound, ExerciseDto.class);
 
@@ -107,7 +108,8 @@ public class UserExerciseController {
                 offset, limit, sortField, sortDirection,
                 name, difficulty, category,
                 type, agonistMuscles, antagonistMuscles,
-                synergisticMuscles, fixatorMuscles
+                synergisticMuscles, fixatorMuscles,
+                true
             );
             
             ExerciseUtils.validateExerciseQueryParamsDto(exerciseQueryParamsDto);

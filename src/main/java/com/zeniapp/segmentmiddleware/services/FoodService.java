@@ -60,6 +60,17 @@ public class FoodService {
         }
     }
 
+    public Optional<Food> findOnePublished(String id) throws Exception {
+        try {
+            return this.foodDao.findOnePublished(id);
+        }
+        catch (Exception exception) {
+            FoodService.log.error("error occurred retrieving the food");
+            FoodService.log.error("error message is " + exception.getMessage());
+            throw exception;
+        }
+    }
+
     public List<Food> findMany(FoodQueryParamsDto foodQueryParamsDto) throws Exception {
         try {
             Query query = FoodUtils.getQueryByFoodQyeryParamsDto(foodQueryParamsDto);

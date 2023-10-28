@@ -14,4 +14,7 @@ public interface ActivityDao extends MongoRepository<Activity, String> {
     
     @Query(value = "{ '_id': { $ne: ?0 }, 'name': ?1 }")
     public Optional<Activity> findByIdNotAndName(String id, String name);
+    
+    @Query(value = "{ '_id': ?0, 'isPublished': true }")
+    public Optional<Activity> findOnePublished(String id);
 }

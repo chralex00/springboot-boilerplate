@@ -120,4 +120,8 @@ public class ExerciseQueryParamsDto {
             message = "muscle ID must have between " + Constants.STRING_FILTER_MIN_LENGTH + " and " + Constants.STRING_FILTER_MAX_LENGTH + " characters"
         )
     String> fixatorMuscles;
+
+    @Getter
+    @Setter
+    private Boolean isPublished;
 }

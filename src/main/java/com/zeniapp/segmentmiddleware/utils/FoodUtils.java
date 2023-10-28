@@ -130,7 +130,7 @@ public class FoodUtils {
         if (foodQueryParamsDto.getCholesterolMin() != null && foodQueryParamsDto.getCholesterolMax() != null) {
             query.addCriteria(Criteria.where("cholesterol")
                 .gte(foodQueryParamsDto.getCholesterolMin())
-                .lte(foodQueryParamsDto.getFibersMax()));
+                .lte(foodQueryParamsDto.getCholesterolMax()));
         }
         else if (foodQueryParamsDto.getCholesterolMin() != null) {
             query.addCriteria(Criteria.where("cholesterol").gte(foodQueryParamsDto.getCholesterolMin()));
@@ -145,6 +145,10 @@ public class FoodUtils {
 
         if (foodQueryParamsDto.getMinerals() != null) {
             query.addCriteria(Criteria.where("minerals").all(foodQueryParamsDto.getMinerals()));
+        }
+
+        if (foodQueryParamsDto.getIsPublished() != null) {
+            query.addCriteria(Criteria.where("isPublished").is(foodQueryParamsDto.getIsPublished()));
         }
 
         return query;
