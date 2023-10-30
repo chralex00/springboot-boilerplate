@@ -57,6 +57,7 @@ public class AdminMuscleController {
         @RequestParam(required = false) String functions,
         @RequestParam(required = false) String form,
         @RequestParam(required = false) String dimension,
+        @RequestParam(required = false) List<String> mainExercises,
         @RequestParam(required = false) Boolean isPublished
     ) {
         try {
@@ -64,7 +65,7 @@ public class AdminMuscleController {
                 null, null, null, null,
                 name, origin, insertion,
                 functions, form, dimension,
-                isPublished
+                mainExercises, isPublished
             );
             
             MuscleUtils.validateMuscleQueryParamsDto(muscleQueryParamsDto);
@@ -148,6 +149,7 @@ public class AdminMuscleController {
         @RequestParam(required = false) String functions,
         @RequestParam(required = false) String form,
         @RequestParam(required = false) String dimension,
+        @RequestParam(required = false) List<String> mainExercises,
         @RequestParam(required = false) Boolean isPublished
     ) {
         try {
@@ -155,7 +157,7 @@ public class AdminMuscleController {
                 offset, limit, sortField, sortDirection,
                 name, origin, insertion,
                 functions, form, dimension,
-                isPublished
+                mainExercises, isPublished
             );
             
             MuscleUtils.validateMuscleQueryParamsDto(muscleQueryParamsDto);

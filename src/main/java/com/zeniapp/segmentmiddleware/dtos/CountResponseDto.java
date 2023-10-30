@@ -12,5 +12,5 @@ import lombok.ToString;
 public class CountResponseDto {
     @Getter
     @Setter
-    public Long total;
+    private Long total;
 }

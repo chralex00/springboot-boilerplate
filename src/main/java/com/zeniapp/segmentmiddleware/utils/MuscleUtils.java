@@ -47,6 +47,10 @@ public class MuscleUtils {
             query.addCriteria(Criteria.where("form").is(muscleQueryParamsDto.getForm()));
         }
         
+        if (muscleQueryParamsDto.getMainExercises() != null) {
+            query.addCriteria(Criteria.where("mainExercises").all(muscleQueryParamsDto.getMainExercises()));
+        }
+        
         if (muscleQueryParamsDto.getIsPublished() != null) {
             query.addCriteria(Criteria.where("isPublished").is(muscleQueryParamsDto.getIsPublished()));
         }

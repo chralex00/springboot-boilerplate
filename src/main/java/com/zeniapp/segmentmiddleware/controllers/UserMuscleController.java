@@ -39,14 +39,15 @@ public class UserMuscleController {
         @RequestParam(required = false) String insertion,
         @RequestParam(required = false) String functions,
         @RequestParam(required = false) String form,
-        @RequestParam(required = false) String dimension
+        @RequestParam(required = false) String dimension,
+        @RequestParam(required = false) List<String> mainExercises
     ) {
         try {
             MuscleQueryParamsDto muscleQueryParamsDto = new MuscleQueryParamsDto(
                 null, null, null, null,
                 name, origin, insertion,
                 functions, form, dimension,
-                true
+                mainExercises, true
             );
             
             MuscleUtils.validateMuscleQueryParamsDto(muscleQueryParamsDto);
@@ -96,14 +97,15 @@ public class UserMuscleController {
         @RequestParam(required = false) String insertion,
         @RequestParam(required = false) String functions,
         @RequestParam(required = false) String form,
-        @RequestParam(required = false) String dimension
+        @RequestParam(required = false) String dimension,
+        @RequestParam(required = false) List<String> mainExercises
     ) {
         try {
             MuscleQueryParamsDto muscleQueryParamsDto = new MuscleQueryParamsDto(
                 offset, limit, sortField, sortDirection,
                 name, origin, insertion,
                 functions, form, dimension,
-                true
+                mainExercises, true
             );
             
             MuscleUtils.validateMuscleQueryParamsDto(muscleQueryParamsDto);

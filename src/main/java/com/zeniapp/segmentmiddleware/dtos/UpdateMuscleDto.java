@@ -25,7 +25,7 @@ public class UpdateMuscleDto {
         max = Constants.MUSCLE_NAME_MAX_LENGTH,
         message = "name must have between " + Constants.MUSCLE_NAME_MIN_LENGTH + " and " + Constants.MUSCLE_NAME_MAX_LENGTH + " characters"
     )
-    public String name;
+    private String name;
 
     @Getter
     @Setter
@@ -36,7 +36,7 @@ public class UpdateMuscleDto {
         max = Constants.MUSCLE_ORIGIN_MAX_LENGTH,
         message = "origin must have between " + Constants.MUSCLE_ORIGIN_MIN_LENGTH + " and " + Constants.MUSCLE_ORIGIN_MAX_LENGTH + " characters"
     )
-    public String origin;
+    private String origin;
 
     @Getter
     @Setter
@@ -47,7 +47,7 @@ public class UpdateMuscleDto {
         max = Constants.MUSCLE_INSERTION_MAX_LENGTH,
         message = "insertion must have between " + Constants.MUSCLE_INSERTION_MIN_LENGTH + " and " + Constants.MUSCLE_INSERTION_MAX_LENGTH + " characters"
     )
-    public String insertion;
+    private String insertion;
 
     @Getter
     @Setter

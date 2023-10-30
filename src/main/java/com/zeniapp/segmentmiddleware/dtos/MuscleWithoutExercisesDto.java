@@ -16,15 +16,15 @@ public class MuscleWithoutExercisesDto {
     
     @Getter
     @Setter
-    public String name;
+    private String name;
 
     @Getter
     @Setter
-    public String origin;
+    private String origin;
 
     @Getter
     @Setter
-    public String insertion;
+    private String insertion;
 
     @Getter
     @Setter

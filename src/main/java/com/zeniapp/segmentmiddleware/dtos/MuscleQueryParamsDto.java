@@ -1,5 +1,7 @@
 package com.zeniapp.segmentmiddleware.dtos;
 
+import java.util.List;
+
 import com.zeniapp.segmentmiddleware.constants.Constants;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -92,6 +94,17 @@ public class MuscleQueryParamsDto {
     )
     @Pattern(regexp = Constants.MUSCLE_DIMENSION_REGEXP, message = "dimension must respect to the following pattern: " + Constants.MUSCLE_DIMENSION_REGEXP)
     private String dimension;
+
+    @Getter
+    @Setter
+    @Size(max = Constants.MAIN_EXERCISES_MAX_LENGTH, message = "mainExercises must have max " + Constants.MAIN_EXERCISES_MAX_LENGTH + " exercise ID")
+    private List<
+        @Size(
+            min = Constants.STRING_FILTER_MIN_LENGTH,
+            max = Constants.STRING_FILTER_MAX_LENGTH,
+            message = "exercise ID must have between " + Constants.STRING_FILTER_MIN_LENGTH + " and " + Constants.STRING_FILTER_MAX_LENGTH + " characters"
+        )
+    String> mainExercises;
     
     @Getter
     @Setter
