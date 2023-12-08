@@ -21,9 +21,9 @@ public class CreateExerciseDto {
     @NotNull(message = "name cannot be null")
     @NotBlank(message = "name cannot be an empty string")
     @Size(
-        min = Constants.ACTIVITY_NAME_MIN_LENGTH,
-        max = Constants.ACTIVITY_NAME_MAX_LENGTH,
-        message = "name must have between " + Constants.ACTIVITY_NAME_MIN_LENGTH + " and " + Constants.ACTIVITY_NAME_MAX_LENGTH + " characters"
+        min = Constants.EXERCISE_NAME_MIN_LENGTH,
+        max = Constants.EXERCISE_NAME_MAX_LENGTH,
+        message = "name must have between " + Constants.EXERCISE_NAME_MIN_LENGTH + " and " + Constants.EXERCISE_NAME_MAX_LENGTH + " characters"
     )
     private String name;
   

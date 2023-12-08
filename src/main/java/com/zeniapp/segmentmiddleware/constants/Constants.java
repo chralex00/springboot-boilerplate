@@ -22,8 +22,44 @@ public class Constants {
     public static final int MAX_ENERGY_VALUE = 9000; // expressed in kcal
     public static final int MIN_CHOLESTEROL_VALUE = 0; // expressed in milligrams
     public static final int MAX_CHOLESTEROL_VALUE = 10_000; // expressed in milligrams
+    public static final int MIN_TRAINING_DURATION_VALUE = 1; // expressed in weeks
+    public static final int MAX_TRAINING_DURATION_VALUE = 24; // expressed in weeks
+    public static final int TRAINING_FOR_ACTIVITIES_MAX_LENGTH = 5;
+    public static final int TRAINING_SESSIONS_MAX_LENGTH = 12;
+    public static final int TRAINING_SESSION_EXECUTIONS_MAX_LENGTH = 50;
+    public static final int TRAINING_SESSION_EXECUTIONS_SETS_MAX_LENGTH = 50;
 
     // Length Limits
+    public static final int TRAINING_STARTS_ON_MIN_LENGTH = 1;
+    public static final int TRAINING_STARTS_ON_MAX_LENGTH = 48;
+    public static final int INTENSITY_TECHNIQUE_MIN_LENGTH = 1;
+    public static final int INTENSITY_TECHNIQUE_MAX_LENGTH = 64;
+    public static final int INTENSITY_MEASURE_UNIT_MIN_LENGTH = 1;
+    public static final int INTENSITY_MEASURE_UNIT_MAX_LENGTH = 32;
+    public static final int TIME_UNDER_TENSION_MIN_LENGTH = 7;
+    public static final int TIME_UNDER_TENSION_MAX_LENGTH = 16;
+    public static final int REPS_MIN_LENGTH = 1;
+    public static final int REPS_MAX_LENGTH = 64;
+    public static final int INTENSITY_MIN_LENGTH = 1;
+    public static final int INTENSITY_MAX_LENGTH = 64;
+    public static final int TRAINING_SESSION_EXECUTION_NOTES_MIN_LENGTH = 0;
+    public static final int TRAINING_SESSION_EXECUTION_NOTES_MAX_LENGTH = 128;
+    public static final int ESTIMATED_STARTING_TIME_MIN_LENGTH = 4;
+    public static final int ESTIMATED_STARTING_TIME_MAX_LENGTH = 4;
+    public static final int ESTIMATED_DURATION_MIN_LENGTH = 4;
+    public static final int ESTIMATED_DURATION_MAX_LENGTH = 4;
+    public static final int TRAINING_TITLE_MIN_LENGTH = 1;
+    public static final int TRAINING_TITLE_MAX_LENGTH = 256;
+    public static final int TRAINING_DESCRIPTION_MIN_LENGTH = 0;
+    public static final int TRAINING_DESCRIPTION_MAX_LENGTH = 1024;
+    public static final int TRAINING_TYPE_MIN_LENGTH = 1;
+    public static final int TRAINING_TYPE_MAX_LENGTH = 64;
+    public static final int TRAINING_SESSION_TITLE_MIN_LENGTH = 1;
+    public static final int TRAINING_SESSION_TITLE_MAX_LENGTH = 128;
+    public static final int ESTIMATED_EFFORT_LEVEL_MIN_LENGTH = 1;
+    public static final int ESTIMATED_EFFORT_LEVEL_MAX_LENGTH = 64;
+    public static final int ACCOUNT_ID_MIN_LENGTH = 1;
+    public static final int ACCOUNT_ID_MAX_LENGTH = 128;
     public static final int EMAIL_MIN_LENGTH = 5;
     public static final int EMAIL_MAX_LENGTH = 256;
     public static final int USERNAME_MIN_LENGTH = 2;
@@ -104,4 +140,12 @@ public class Constants {
     public static final String VITAMIN_REGEXP = "^(A|D|E|K|B1|B2|B3|B5|B6|B8|B9|B12|C)$";
     public static final String MINERAL_REGEXP = "^(CALCIUM|POTASSIUM|MAGNESIUM|IRON|PHOSPHORUS|SODIUM|ZINC|COPPER|MANGANESE|SELENIUM)$";
     public static final String FOOD_CATEGORY_REGEXP = "^(SWEETS|DAIRY_OR_EGGS|NUTS_AND_SEEDS|FRUITS_AND_VEGETABLES|WHOLE_GRAINS_AND_LEGUMES|OILS|OTHER)$";
+    public static final String TRAINING_TYPE_REGEXP = "^(SPLIT_ROUTINE|TOTAL_BODY|OTHER)$";
+    public static final String ESTIMATED_EFFORT_LEVEL_REGEXP = "^(SLIGHT|LOW|MEDIUM|HIGH|AT_THE_LIMIT|EXTREME)$";
+    public static final String ESTIMATED_DURATION_REGEXP = "^([01]\\d|2[0-3]):?([0-5]\\d)$";
+    public static final String ESTIMATED_STARTING_TIME_REGEXP = "^([01]\\\\d|2[0-3]):?([0-5]\\\\d)$";
+    public static final String TIME_UNDER_TENSION_REGEXP = "^([1-9]{1,2}|EXP)-([0-9]{1,2})-([1-9]{1,2}|EXP)-([0-9]{1,2})$";
+    public static final String INTENSITY_MEASURE_UNIT_REGEXP = "^(RPE|RM|PERCENTAGE|BUFFER)$";
+    public static final String TRAINING_STARTS_ON_REGEXP = "^\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])$";
+    public static final String INTENSITY_TECHNIQUE_REGEXP = ""; // to do
 }
