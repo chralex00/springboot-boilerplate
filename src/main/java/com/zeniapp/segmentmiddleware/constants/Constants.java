@@ -116,6 +116,8 @@ public class Constants {
     public static final int FIXATOR_MUSCLES_MAX_LENGTH = 5;
     public static final int VITAMINS_MAX_LENGTH = 5;
     public static final int MINERALS_MAX_LENGTH = 5;
+    public static final int TRAINING_EXECUTION_SET_TYPE_MIN_LENGTH = 1;
+    public static final int TRAINING_EXECUTION_SET_TYPE_MAX_LENGTH = 64;
 
     // Regular Expressions
     public static final String ISO8601_FORMAT_REGEXP = "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$";
@@ -125,6 +127,7 @@ public class Constants {
     public static final String LAST_NAME_REGEXP = "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$";
     public static final String PASSWORD_REGEXP = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]*$";
     public static final String ROLE_REGEXP = "^(USER|ADMIN)$";
+    public static final String TRAINING_SORT_FIELDS_REGEXP = "^(title|type|startsOn|duration)$";
     public static final String ACTIVITY_SORT_FIELDS_REGEXP = "^(name|type|mets)$";
     public static final String ACCOUNT_SORT_FIELDS_REGEXP = "^(email|username|firstName|lastName|createdOn|updatedOn)$";
     public static final String SESSION_SORT_FIELDS_REGEXP = "^(apiCounter|createdOn|lastActivityOn)$";
@@ -147,5 +150,5 @@ public class Constants {
     public static final String TIME_UNDER_TENSION_REGEXP = "^([1-9]{1,2}|EXP)-([0-9]{1,2})-([1-9]{1,2}|EXP)-([0-9]{1,2})$";
     public static final String INTENSITY_MEASURE_UNIT_REGEXP = "^(RPE|RM|PERCENTAGE|BUFFER)$";
     public static final String TRAINING_STARTS_ON_REGEXP = "^\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])$";
-    public static final String INTENSITY_TECHNIQUE_REGEXP = ""; // to do
+    public static final String SET_TYPE_REGEXP = "^(WARM_UP|APPROACH_SET|LIGHT_SET|HEAVY_SET)$";
 }

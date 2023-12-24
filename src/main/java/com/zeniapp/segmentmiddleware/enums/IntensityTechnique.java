@@ -26,8 +26,7 @@ public enum IntensityTechnique {
     ACCOMMODATING_RESISTANCE("ACCOMMODATING_RESISTANCE"),
     CONTRAST_SET("CONTRAST_SET"),
     TWENTYONE_REPS("TWENTYONE_REPS"),
-    DROPSET("DROPSET"),
-    OTHER("OTHER");
+    DROPSET("DROPSET");
 
     @Getter
     private String setMethod;

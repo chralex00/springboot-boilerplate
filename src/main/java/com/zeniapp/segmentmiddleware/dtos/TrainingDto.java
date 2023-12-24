@@ -53,6 +53,14 @@ public class TrainingDto {
     @Setter
     private List<TrainingSessionDto> sessions;
 
+    @Getter
+    @Setter
+    private String createdOn;
+
+    @Getter
+    @Setter
+    private String updatedOn;
+
     @AllArgsConstructor
     @NoArgsConstructor
     @ToString

@@ -2,7 +2,7 @@ package com.zeniapp.segmentmiddleware.dtos;
 
 import java.util.List;
 import com.zeniapp.segmentmiddleware.constants.Constants;
-import com.zeniapp.segmentmiddleware.enums.ActivityType;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -58,9 +58,9 @@ public class CreateTrainingDto {
         @Size(
         min = Constants.TRAINING_STARTS_ON_MIN_LENGTH,
         max = Constants.TRAINING_STARTS_ON_MAX_LENGTH,
-        message = "type must have between " + Constants.TRAINING_STARTS_ON_MIN_LENGTH + " and " + Constants.TRAINING_STARTS_ON_MAX_LENGTH + " characters"
+        message = "startsOn must have between " + Constants.TRAINING_STARTS_ON_MIN_LENGTH + " and " + Constants.TRAINING_STARTS_ON_MAX_LENGTH + " characters"
     )
-    @Pattern(regexp = Constants.TRAINING_TYPE_REGEXP, message = "type must respect to the following pattern: " + Constants.TRAINING_STARTS_ON_REGEXP)
+    // to do
     private String startsOn;
 
     @Getter
@@ -87,60 +87,15 @@ public class CreateTrainingDto {
 
     @Getter
     @Setter
+    @Valid
     @NotNull(message = "trainingForActivities cannot be null")
     @Size(max = Constants.TRAINING_FOR_ACTIVITIES_MAX_LENGTH, message = "trainingForActivities must have max " + Constants.TRAINING_FOR_ACTIVITIES_MAX_LENGTH + " elements")
     private List<CreateTrainingActivityDto> trainingForActivities;
 
     @Getter
     @Setter
+    @Valid
     @NotNull(message = "sessions cannot be null")
     @Size(max = Constants.TRAINING_SESSIONS_MAX_LENGTH, message = "sessions must have max " + Constants.TRAINING_SESSIONS_MAX_LENGTH + " elements")
     private List<CreateTrainingSessionDto> sessions;
-
-    @AllArgsConstructor
-    @NoArgsConstructor
-    @ToString
-    public class CreateTrainingActivityDto  {
-        @Getter
-        @Setter
-        @NotNull(message = "activity name cannot be null")
-        @NotBlank(message = "activity name cannot be an empty string")
-        @Size(
-            min = Constants.ACTIVITY_NAME_MIN_LENGTH,
-            max = Constants.ACTIVITY_NAME_MAX_LENGTH,
-            message = "activity name must have between " + Constants.ACTIVITY_NAME_MIN_LENGTH + " and " + Constants.ACTIVITY_NAME_MAX_LENGTH + " characters"
-        )
-        private String name;
-        
-        @Getter
-        @Setter
-        @NotNull(message = "activity type cannot be null")
-        @NotBlank(message = "activity type cannot be an empty string")
-        @Size(
-            min = Constants.ACTIVITY_TYPE_MIN_LENGTH,
-            max = Constants.ACTIVITY_TYPE_MAX_LENGTH,
-            message = "activity type must have between " + Constants.ACTIVITY_TYPE_MIN_LENGTH + " and " + Constants.ACTIVITY_TYPE_MAX_LENGTH + " characters"
-        )
-        @Pattern(regexp = Constants.ACTIVITY_TYPE_REGEXP, message = "activity type must respect to the following pattern: " + Constants.ACTIVITY_TYPE_REGEXP)
-        private ActivityType type;
-
-        @Getter
-        @Setter
-        @NotNull(message = "activity mets cannot be null")
-        @Min(value = Constants.MIN_METS_VALUE, message = "activity mets must be greater than, or equal to " + Constants.MIN_METS_VALUE)
-        @Max(value = Constants.MAX_METS_VALUE, message = "activity mets must be lower than, or equal to " + Constants.MAX_METS_VALUE)
-        private Integer mets;
-
-        @Getter
-        @Setter
-        @NotNull(message = "activity tags cannot be null")
-        @Size(max = Constants.TAGS_MAX_LENGTH, message = "activity tags must have max " + Constants.TAGS_MAX_LENGTH + " elements")
-        private List<
-            @Size(
-                min = Constants.STRING_FILTER_MIN_LENGTH,
-                max = Constants.STRING_FILTER_MAX_LENGTH,
-                message = "activity tag must have between " + Constants.STRING_FILTER_MIN_LENGTH + " and " + Constants.STRING_FILTER_MAX_LENGTH + " characters"
-            )
-        String> tags;
-    }
 }

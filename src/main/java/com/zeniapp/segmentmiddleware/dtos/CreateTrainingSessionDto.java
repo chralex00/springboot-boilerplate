@@ -2,6 +2,7 @@ package com.zeniapp.segmentmiddleware.dtos;
 
 import java.util.List;
 import com.zeniapp.segmentmiddleware.constants.Constants;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -61,6 +62,7 @@ public class CreateTrainingSessionDto {
 
     @Getter
     @Setter
+    @Valid
     @NotNull(message = "executions cannot be null")
     @Size(max = Constants.TRAINING_SESSION_EXECUTIONS_MAX_LENGTH, message = "executions must have max " + Constants.TRAINING_SESSION_EXECUTIONS_MAX_LENGTH + " elements")
     private List<CreateTrainingSessionExecutionDto> executions;

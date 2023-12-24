@@ -57,6 +57,14 @@ public class Training {
     @Setter
     private List<TrainingSession> sessions;
 
+    @Getter
+    @Setter
+    private String createdOn; // ISO date string
+
+    @Getter
+    @Setter
+    private String updatedOn; // ISO date string
+
     @AllArgsConstructor
     @NoArgsConstructor
     @ToString
