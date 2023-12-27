@@ -3,8 +3,6 @@ package com.zeniapp.segmentmiddleware.entities;
 import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import com.zeniapp.segmentmiddleware.enums.ActivityType;
-import com.zeniapp.segmentmiddleware.enums.TrainingType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,7 +29,7 @@ public class Training {
 
     @Getter
     @Setter
-    private TrainingType type;
+    private String type;
 
     @Getter
     @Setter
@@ -64,25 +62,4 @@ public class Training {
     @Getter
     @Setter
     private String updatedOn; // ISO date string
-
-    @AllArgsConstructor
-    @NoArgsConstructor
-    @ToString
-    public class TrainingActivity { // partial type of the Activity entity
-        @Getter
-        @Setter
-        private String name;
-        
-        @Getter
-        @Setter
-        private ActivityType type;
-
-        @Getter
-        @Setter
-        private Integer mets;
-
-        @Getter
-        @Setter
-        private List<String> tags;
-    }
 }

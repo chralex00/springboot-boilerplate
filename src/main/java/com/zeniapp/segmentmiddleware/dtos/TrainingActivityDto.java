@@ -1,25 +1,30 @@
 package com.zeniapp.segmentmiddleware.dtos;
 
+import com.zeniapp.segmentmiddleware.enums.ActivityType;
 import java.util.List;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import lombok.ToString;
+import lombok.Getter;
+import lombok.Setter;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class TrainingSessionExecutionDto {
+public class TrainingActivityDto {
     @Getter
     @Setter
-    private List<TrainingSessionExecutionSetDto> sets;
+    private String name;
+    
+    @Getter
+    @Setter
+    private ActivityType type;
 
     @Getter
     @Setter
-    private String notes;
+    private Integer mets;
 
     @Getter
     @Setter
-    private TrainingSessionExecutionExerciseDto exercise;
+    private List<String> tags;
 }

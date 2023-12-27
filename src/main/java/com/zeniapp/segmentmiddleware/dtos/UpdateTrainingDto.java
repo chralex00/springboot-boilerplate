@@ -18,7 +18,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class CreateTrainingDto {
+public class UpdateTrainingDto {
     @Getter
     @Setter
     @NotNull(message = "title cannot be null")
@@ -90,12 +90,12 @@ public class CreateTrainingDto {
     @Valid
     @NotNull(message = "trainingForActivities cannot be null")
     @Size(max = Constants.TRAINING_FOR_ACTIVITIES_MAX_LENGTH, message = "trainingForActivities must have max " + Constants.TRAINING_FOR_ACTIVITIES_MAX_LENGTH + " elements")
-    private List<CreateTrainingActivityDto> trainingForActivities;
+    private List<UpdateTrainingActivityDto> trainingForActivities;
 
     @Getter
     @Setter
     @Valid
     @NotNull(message = "sessions cannot be null")
     @Size(max = Constants.TRAINING_SESSIONS_MAX_LENGTH, message = "sessions must have max " + Constants.TRAINING_SESSIONS_MAX_LENGTH + " elements")
-    private List<CreateTrainingSessionDto> sessions;
+    private List<UpdateTrainingSessionDto> sessions;
 }

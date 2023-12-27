@@ -1,4 +1,4 @@
-package com.zeniapp.segmentmiddleware.dtos;
+package com.zeniapp.segmentmiddleware.entities;
 
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -10,16 +10,20 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class TrainingSessionExecutionDto {
+public class TrainingActivity { // partial type of the Activity entity
     @Getter
     @Setter
-    private List<TrainingSessionExecutionSetDto> sets;
+    private String name;
+    
+    @Getter
+    @Setter
+    private String type;
 
     @Getter
     @Setter
-    private String notes;
+    private Integer mets;
 
     @Getter
     @Setter
-    private TrainingSessionExecutionExerciseDto exercise;
+    private List<String> tags;
 }

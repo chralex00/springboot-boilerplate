@@ -3731,6 +3731,839 @@
 			]
 		},
 		{
+			"name": "trainings",
+			"item": [
+				{
+					"name": "admin",
+					"item": [
+						{
+							"name": "count",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/admin/trainings/count",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"trainings",
+										"count"
+									],
+									"query": [
+										{
+											"key": "title",
+											"value": "Training 1",
+											"description": "String between 1 and 256 characters",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "SPLIT_ROUTINE",
+											"description": "It can be SPLIT_ROUTINE, TOTAL_BODY, or OTHER",
+											"disabled": true
+										},
+										{
+											"key": "startsOnMin",
+											"value": "2023-01-20T00:00:00.114Z",
+											"description": "An ISO date string",
+											"disabled": true
+										},
+										{
+											"key": "startsOnMax",
+											"value": "2023-12-31T00:00:00.114Z",
+											"description": "An ISO date string",
+											"disabled": true
+										},
+										{
+											"key": "createdOnMin",
+											"value": "2023-01-20T00:00:00.114Z",
+											"description": "An ISO date string",
+											"disabled": true
+										},
+										{
+											"key": "createdOnMax",
+											"value": "2023-12-31T00:00:00.114Z",
+											"description": "An ISO date string",
+											"disabled": true
+										},
+										{
+											"key": "updatedOnMin",
+											"value": "2023-01-20T00:00:00.114Z",
+											"description": "An ISO date string",
+											"disabled": true
+										},
+										{
+											"key": "updatedOnMax",
+											"value": "2023-12-31T00:00:00.114Z",
+											"description": "An ISO date string",
+											"disabled": true
+										},
+										{
+											"key": "isArchived",
+											"value": "true",
+											"description": "Boolean value, it can be true, or false",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find many",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/admin/trainings",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"trainings"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "0",
+											"description": "Integer number, between 0 and 2147483647",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"description": "Integer and positive number, between 1 and 50",
+											"disabled": true
+										},
+										{
+											"key": "sortField",
+											"value": "title",
+											"description": "It can be title, type, startsOn, or duration",
+											"disabled": true
+										},
+										{
+											"key": "sortDirection",
+											"value": "desc",
+											"description": "It can be asc, or desc",
+											"disabled": true
+										},
+										{
+											"key": "title",
+											"value": "Test",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "SPLIT_ROUTINE",
+											"description": "It can be SPLIT_ROUTINE, TOTAL_BODY, or OTHER",
+											"disabled": true
+										},
+										{
+											"key": "startsOnMin",
+											"value": "2023-12-01T00%3A00%3A00.000%2B0100",
+											"description": "An ISO date string in YYYY-MM-DDThh:mm:ss.sss+ZZZZ format",
+											"disabled": true
+										},
+										{
+											"key": "startsOnMax",
+											"value": "2023-12-31T00%3A00%3A00.000%2B0100",
+											"description": "An ISO date string in YYYY-MM-DDThh:mm:ss.sss+ZZZZ format",
+											"disabled": true
+										},
+										{
+											"key": "createdOnMin",
+											"value": "2023-12-01T00%3A00%3A00.000%2B0100",
+											"description": "An ISO date string in YYYY-MM-DDThh:mm:ss.sss+ZZZZ format",
+											"disabled": true
+										},
+										{
+											"key": "createdOnMax",
+											"value": "2023-12-31T00%3A00%3A00.000%2B0100",
+											"description": "An ISO date string in YYYY-MM-DDThh:mm:ss.sss+ZZZZ format",
+											"disabled": true
+										},
+										{
+											"key": "updatedOnMin",
+											"value": "2023-12-01T00%3A00%3A00.000%2B0100",
+											"description": "An ISO date string in YYYY-MM-DDThh:mm:ss.sss+ZZZZ format",
+											"disabled": true
+										},
+										{
+											"key": "updatedOnMax",
+											"value": "2023-12-31T00%3A00%3A00.000%2B0100",
+											"description": "An ISO date string in YYYY-MM-DDThh:mm:ss.sss+ZZZZ format",
+											"disabled": true
+										},
+										{
+											"key": "isArchived",
+											"value": "true",
+											"description": "Boolean value, it can be true, or false",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/admin/trainings/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"trainings",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "658c5fe0dbe265575a4a3048"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Test #1\",\r\n    \"description\": \"A bodybuilding training description.\",\r\n    \"type\": \"SPLIT_ROUTINE\",\r\n    \"startsOn\": \"2023-12-25T00:00:00.000+0100\",\r\n    \"duration\": 8,\r\n    \"isArchived\": false,\r\n    \"accountId\": \"c4fc614b-05b4-46dd-b95a-2cbb09284c0f\",\r\n    \"sessions\": [\r\n        {\r\n            \"title\": \"A\",\r\n            \"estimatedEffortLevel\": \"MEDIUM\",\r\n            \"executions\": [\r\n                {\r\n                    \"sets\": [\r\n                        {\r\n                            \"intensity\": \"9.5\",\r\n                            \"intensityMeasureUnit\": \"RPE\",\r\n                            \"intensityTechnique\": \"DROPSET\",\r\n                            \"reps\": \"8/MAX\",\r\n                            \"timeUnderTension\": \"2-1-2-1\",\r\n                            \"type\": \"HEAVY_SET\"\r\n\r\n                        }\r\n                    ],\r\n                    \"exercise\": {\r\n                        \"name\": \"Panca piana con bilanciere\",\r\n                        \"category\": \"FUNDAMENTAL\",\r\n                        \"type\": \"MULTIARTICULAR\",\r\n                        \"difficulty\": \"MEDIUM\",\r\n                        \"agonistMuscleNames\": [\"Pettorali\"],\r\n                        \"antagonistMuscleNames\": [\"Dorsali\", \"Bocipiti\", \"Spalle (capo posteriore)\"],\r\n                        \"synergisticMuscleNames\": [\"Spalle (capo anteriore)\", \"Tricipiti\"],\r\n                        \"fixatorMuscleNames\": [\"Addominali\", \"Gambe\"]\r\n                    }\r\n                }\r\n            ]\r\n        }\r\n    ],\r\n    \"trainingForActivities\": [\r\n        {\r\n            \"name\": \"Bodybuilding\",\r\n            \"type\": \"DISCIPLINE\",\r\n            \"mets\": 5.5,\r\n            \"tags\": [\"Anaerobic\", \"Weights\", \"Body Recomp\"]\r\n        }\r\n    ]\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/admin/trainings",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"trainings"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Other test title\",\r\n    \"description\": \"A bodybuilding training description.\",\r\n    \"type\": \"SPLIT_ROUTINE\",\r\n    \"startsOn\": \"2023-12-25T00:00:00.000+0100\",\r\n    \"duration\": 8,\r\n    \"isArchived\": false,\r\n    \"accountId\": \"c4fc614b-05b4-46dd-b95a-2cbb09284c0f\",\r\n    \"sessions\": [\r\n        {\r\n            \"title\": \"A\",\r\n            \"estimatedEffortLevel\": \"MEDIUM\",\r\n            \"executions\": [\r\n                {\r\n                    \"sets\": [\r\n                        {\r\n                            \"intensity\": \"9.5\",\r\n                            \"intensityMeasureUnit\": \"RPE\",\r\n                            \"intensityTechnique\": \"DROPSET\",\r\n                            \"reps\": \"8/MAX\",\r\n                            \"timeUnderTension\": \"2-1-2-1\",\r\n                            \"type\": \"HEAVY_SET\"\r\n\r\n                        }\r\n                    ],\r\n                    \"exercise\": {\r\n                        \"name\": \"Panca piana con bilanciere\",\r\n                        \"category\": \"FUNDAMENTAL\",\r\n                        \"type\": \"MULTIARTICULAR\",\r\n                        \"difficulty\": \"MEDIUM\",\r\n                        \"agonistMuscleNames\": [\"Pettorali\"],\r\n                        \"antagonistMuscleNames\": [\"Dorsali\", \"Bocipiti\", \"Spalle (capo posteriore)\"],\r\n                        \"synergisticMuscleNames\": [\"Spalle (capo anteriore)\", \"Tricipiti\"],\r\n                        \"fixatorMuscleNames\": [\"Addominali\", \"Gambe\"]\r\n                    }\r\n                }\r\n            ]\r\n        }\r\n    ],\r\n    \"trainingForActivities\": [\r\n        {\r\n            \"name\": \"Bodybuilding\",\r\n            \"type\": \"DISCIPLINE\",\r\n            \"mets\": 5.5,\r\n            \"tags\": [\"Anaerobic\", \"Weights\", \"Body Recomp\"]\r\n        },\r\n        {\r\n            \"name\": \"Powerlifting\",\r\n            \"type\": \"DISCIPLINE\",\r\n            \"mets\": 4.5,\r\n            \"tags\": [\"Anaerobic\", \"Weights\", \"Strength\"]\r\n        }\r\n    ]\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/admin/trainings/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"trainings",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "658c5fe0dbe265575a4a3048"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/admin/trainings/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"trainings",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "658c585ac849a07b51a5f353"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "count",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/user/trainings/count",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"user",
+										"trainings",
+										"count"
+									],
+									"query": [
+										{
+											"key": "title",
+											"value": "Training 1",
+											"description": "String between 1 and 256 characters",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "SPLIT_ROUTINE",
+											"description": "It can be SPLIT_ROUTINE, TOTAL_BODY, or OTHER",
+											"disabled": true
+										},
+										{
+											"key": "startsOnMin",
+											"value": "2023-01-20T00:00:00.114Z",
+											"description": "An ISO date string",
+											"disabled": true
+										},
+										{
+											"key": "startsOnMax",
+											"value": "2023-12-31T00:00:00.114Z",
+											"description": "An ISO date string",
+											"disabled": true
+										},
+										{
+											"key": "createdOnMin",
+											"value": "2023-01-20T00:00:00.114Z",
+											"description": "An ISO date string",
+											"disabled": true
+										},
+										{
+											"key": "createdOnMax",
+											"value": "2023-12-31T00:00:00.114Z",
+											"description": "An ISO date string",
+											"disabled": true
+										},
+										{
+											"key": "updatedOnMin",
+											"value": "2023-01-20T00:00:00.114Z",
+											"description": "An ISO date string",
+											"disabled": true
+										},
+										{
+											"key": "updatedOnMax",
+											"value": "2023-12-31T00:00:00.114Z",
+											"description": "An ISO date string",
+											"disabled": true
+										},
+										{
+											"key": "isArchived",
+											"value": "true",
+											"description": "Boolean value, it can be true, or false",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find many",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/user/trainings",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"user",
+										"trainings"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "0",
+											"description": "Integer number, between 0 and 2147483647",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"description": "Integer and positive number, between 1 and 50",
+											"disabled": true
+										},
+										{
+											"key": "sortField",
+											"value": "title",
+											"description": "It can be title, type, startsOn, or duration",
+											"disabled": true
+										},
+										{
+											"key": "sortDirection",
+											"value": "desc",
+											"description": "It can be asc, or desc",
+											"disabled": true
+										},
+										{
+											"key": "title",
+											"value": "Test",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "SPLIT_ROUTINE",
+											"description": "It can be SPLIT_ROUTINE, TOTAL_BODY, or OTHER",
+											"disabled": true
+										},
+										{
+											"key": "startsOnMin",
+											"value": "2023-12-01T00%3A00%3A00.000%2B0100",
+											"description": "An ISO date string in YYYY-MM-DDThh:mm:ss.sss+ZZZZ format",
+											"disabled": true
+										},
+										{
+											"key": "startsOnMax",
+											"value": "2023-12-31T00%3A00%3A00.000%2B0100",
+											"description": "An ISO date string in YYYY-MM-DDThh:mm:ss.sss+ZZZZ format",
+											"disabled": true
+										},
+										{
+											"key": "createdOnMin",
+											"value": "2023-12-01T00%3A00%3A00.000%2B0100",
+											"description": "An ISO date string in YYYY-MM-DDThh:mm:ss.sss+ZZZZ format",
+											"disabled": true
+										},
+										{
+											"key": "createdOnMax",
+											"value": "2023-12-31T00%3A00%3A00.000%2B0100",
+											"description": "An ISO date string in YYYY-MM-DDThh:mm:ss.sss+ZZZZ format",
+											"disabled": true
+										},
+										{
+											"key": "updatedOnMin",
+											"value": "2023-12-01T00%3A00%3A00.000%2B0100",
+											"description": "An ISO date string in YYYY-MM-DDThh:mm:ss.sss+ZZZZ format",
+											"disabled": true
+										},
+										{
+											"key": "updatedOnMax",
+											"value": "2023-12-31T00%3A00%3A00.000%2B0100",
+											"description": "An ISO date string in YYYY-MM-DDThh:mm:ss.sss+ZZZZ format",
+											"disabled": true
+										},
+										{
+											"key": "isArchived",
+											"value": "true",
+											"description": "Boolean value, it can be true, or false",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/user/trainings/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"user",
+										"trainings",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "658c6db25e0f8e3556df8e89"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Test #1\",\r\n    \"description\": \"A bodybuilding training description.\",\r\n    \"type\": \"SPLIT_ROUTINE\",\r\n    \"startsOn\": \"2023-12-25T00:00:00.000+0100\",\r\n    \"duration\": 8,\r\n    \"isArchived\": false,\r\n    \"accountId\": \"c4fc614b-05b4-46dd-b95a-2cbb09284c0f\",\r\n    \"sessions\": [\r\n        {\r\n            \"title\": \"A\",\r\n            \"estimatedEffortLevel\": \"MEDIUM\",\r\n            \"executions\": [\r\n                {\r\n                    \"sets\": [\r\n                        {\r\n                            \"intensity\": \"9.5\",\r\n                            \"intensityMeasureUnit\": \"RPE\",\r\n                            \"intensityTechnique\": \"DROPSET\",\r\n                            \"reps\": \"8/MAX\",\r\n                            \"timeUnderTension\": \"2-1-2-1\",\r\n                            \"type\": \"HEAVY_SET\"\r\n\r\n                        }\r\n                    ],\r\n                    \"exercise\": {\r\n                        \"name\": \"Panca piana con bilanciere\",\r\n                        \"category\": \"FUNDAMENTAL\",\r\n                        \"type\": \"MULTIARTICULAR\",\r\n                        \"difficulty\": \"MEDIUM\",\r\n                        \"agonistMuscleNames\": [\"Pettorali\"],\r\n                        \"antagonistMuscleNames\": [\"Dorsali\", \"Bocipiti\", \"Spalle (capo posteriore)\"],\r\n                        \"synergisticMuscleNames\": [\"Spalle (capo anteriore)\", \"Tricipiti\"],\r\n                        \"fixatorMuscleNames\": [\"Addominali\", \"Gambe\"]\r\n                    }\r\n                }\r\n            ]\r\n        }\r\n    ],\r\n    \"trainingForActivities\": [\r\n        {\r\n            \"name\": \"Bodybuilding\",\r\n            \"type\": \"DISCIPLINE\",\r\n            \"mets\": 5.5,\r\n            \"tags\": [\"Anaerobic\", \"Weights\", \"Body Recomp\"]\r\n        }\r\n    ]\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/user/trainings",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"user",
+										"trainings"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Other test title\",\r\n    \"description\": \"A bodybuilding training description.\",\r\n    \"type\": \"SPLIT_ROUTINE\",\r\n    \"startsOn\": \"2023-12-25T00:00:00.000+0100\",\r\n    \"duration\": 8,\r\n    \"isArchived\": false,\r\n    \"accountId\": \"c4fc614b-05b4-46dd-b95a-2cbb09284c0f\",\r\n    \"sessions\": [\r\n        {\r\n            \"title\": \"A\",\r\n            \"estimatedEffortLevel\": \"MEDIUM\",\r\n            \"executions\": [\r\n                {\r\n                    \"sets\": [\r\n                        {\r\n                            \"intensity\": \"9.5\",\r\n                            \"intensityMeasureUnit\": \"RPE\",\r\n                            \"intensityTechnique\": \"DROPSET\",\r\n                            \"reps\": \"8/MAX\",\r\n                            \"timeUnderTension\": \"2-1-2-1\",\r\n                            \"type\": \"HEAVY_SET\"\r\n\r\n                        }\r\n                    ],\r\n                    \"exercise\": {\r\n                        \"name\": \"Panca piana con bilanciere\",\r\n                        \"category\": \"FUNDAMENTAL\",\r\n                        \"type\": \"MULTIARTICULAR\",\r\n                        \"difficulty\": \"MEDIUM\",\r\n                        \"agonistMuscleNames\": [\"Pettorali\"],\r\n                        \"antagonistMuscleNames\": [\"Dorsali\", \"Bocipiti\", \"Spalle (capo posteriore)\"],\r\n                        \"synergisticMuscleNames\": [\"Spalle (capo anteriore)\", \"Tricipiti\"],\r\n                        \"fixatorMuscleNames\": [\"Addominali\", \"Gambe\"]\r\n                    }\r\n                }\r\n            ]\r\n        }\r\n    ],\r\n    \"trainingForActivities\": [\r\n        {\r\n            \"name\": \"Bodybuilding\",\r\n            \"type\": \"DISCIPLINE\",\r\n            \"mets\": 5.5,\r\n            \"tags\": [\"Anaerobic\", \"Weights\", \"Body Recomp\"]\r\n        },\r\n        {\r\n            \"name\": \"Powerlifting\",\r\n            \"type\": \"DISCIPLINE\",\r\n            \"mets\": 4.5,\r\n            \"tags\": [\"Anaerobic\", \"Weights\", \"Strength\"]\r\n        }\r\n    ]\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/user/trainings/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"user",
+										"trainings",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "658c6e670d68ff389b63cd44"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/user/trainings/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"user",
+										"trainings",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "658c6db25e0f8e3556df8e89"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
 			"name": "access",
 			"item": [
 				{

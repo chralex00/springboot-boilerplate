@@ -31,7 +31,7 @@ public class Constants {
 
     // Length Limits
     public static final int TRAINING_STARTS_ON_MIN_LENGTH = 1;
-    public static final int TRAINING_STARTS_ON_MAX_LENGTH = 48;
+    public static final int TRAINING_STARTS_ON_MAX_LENGTH = 64;
     public static final int INTENSITY_TECHNIQUE_MIN_LENGTH = 1;
     public static final int INTENSITY_TECHNIQUE_MAX_LENGTH = 64;
     public static final int INTENSITY_MEASURE_UNIT_MIN_LENGTH = 1;
@@ -149,6 +149,5 @@ public class Constants {
     public static final String ESTIMATED_STARTING_TIME_REGEXP = "^([01]\\\\d|2[0-3]):?([0-5]\\\\d)$";
     public static final String TIME_UNDER_TENSION_REGEXP = "^([1-9]{1,2}|EXP)-([0-9]{1,2})-([1-9]{1,2}|EXP)-([0-9]{1,2})$";
     public static final String INTENSITY_MEASURE_UNIT_REGEXP = "^(RPE|RM|PERCENTAGE|BUFFER)$";
-    public static final String TRAINING_STARTS_ON_REGEXP = "^\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])$";
     public static final String SET_TYPE_REGEXP = "^(WARM_UP|APPROACH_SET|LIGHT_SET|HEAVY_SET)$";
 }

@@ -17,8 +17,10 @@ import jakarta.validation.Validation;
 public class TrainingUtils {
     public static Query getQueryByTrainingQyeryParamsDto(TrainingQueryParamsDto trainingQueryParamsDto) {
         Query query = new Query();
-        
-        query.addCriteria(Criteria.where("isDeleted").is(false));
+
+        if (trainingQueryParamsDto.getAccountId() != null) {
+            query.addCriteria(Criteria.where("accountId").is(trainingQueryParamsDto.getAccountId()));
+        }
 
         if (trainingQueryParamsDto.getTitle() != null) {
             query.addCriteria(Criteria.where("title").regex(trainingQueryParamsDto.getTitle(), "i"));
@@ -69,7 +71,7 @@ public class TrainingUtils {
         }
 
         if (trainingQueryParamsDto.getUpdatedOnMin() != null && trainingQueryParamsDto.getUpdatedOnMax() != null) {
-            query.addCriteria(Criteria.where("createdOn")
+            query.addCriteria(Criteria.where("updatedOn")
                 .gte(trainingQueryParamsDto.getUpdatedOnMin())
                 .lte(trainingQueryParamsDto.getUpdatedOnMax()));
         }

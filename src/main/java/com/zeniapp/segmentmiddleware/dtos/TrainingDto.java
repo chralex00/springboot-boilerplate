@@ -1,7 +1,6 @@
 package com.zeniapp.segmentmiddleware.dtos;
 
 import java.util.List;
-import com.zeniapp.segmentmiddleware.enums.ActivityType;
 import com.zeniapp.segmentmiddleware.enums.TrainingType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -60,25 +59,4 @@ public class TrainingDto {
     @Getter
     @Setter
     private String updatedOn;
-
-    @AllArgsConstructor
-    @NoArgsConstructor
-    @ToString
-    public class TrainingActivityDto {
-        @Getter
-        @Setter
-        private String name;
-        
-        @Getter
-        @Setter
-        private ActivityType type;
-
-        @Getter
-        @Setter
-        private Integer mets;
-
-        @Getter
-        @Setter
-        private List<String> tags;
-    }
 }

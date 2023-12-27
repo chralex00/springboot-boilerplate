@@ -63,7 +63,7 @@ public class TrainingQueryParamsDto {
         max = Constants.STRING_FILTER_MAX_LENGTH,
         message = "startsOnMin must have between " + Constants.STRING_FILTER_MIN_LENGTH + " and " + Constants.STRING_FILTER_MAX_LENGTH + " characters"
     )
-    // to do
+    @Pattern(regexp = Constants.ISO8601_FORMAT_REGEXP, message = "startsOnMin must respect to the following pattern: " + Constants.ISO8601_FORMAT_REGEXP)
     private String startsOnMin;
 
     @Getter
@@ -73,7 +73,7 @@ public class TrainingQueryParamsDto {
         max = Constants.TRAINING_STARTS_ON_MAX_LENGTH,
         message = "startsOnMax must have between " + Constants.TRAINING_STARTS_ON_MIN_LENGTH + " and " + Constants.TRAINING_STARTS_ON_MAX_LENGTH + " characters"
     )
-    // to do
+    @Pattern(regexp = Constants.ISO8601_FORMAT_REGEXP, message = "startsOnMax must respect to the following pattern: " + Constants.ISO8601_FORMAT_REGEXP)
     private String startsOnMax;
 
     @Getter
@@ -99,7 +99,7 @@ public class TrainingQueryParamsDto {
         max = Constants.STRING_FILTER_MAX_LENGTH,
         message = "createdOnMin must have between " + Constants.STRING_FILTER_MIN_LENGTH + " and " + Constants.STRING_FILTER_MAX_LENGTH + " characters"
     )
-    // to do
+    @Pattern(regexp = Constants.ISO8601_FORMAT_REGEXP, message = "createdOnMin must respect to the following pattern: " + Constants.ISO8601_FORMAT_REGEXP)
     private String createdOnMin;
 
     @Getter
@@ -109,7 +109,7 @@ public class TrainingQueryParamsDto {
         max = Constants.TRAINING_STARTS_ON_MAX_LENGTH,
         message = "createdOnMax must have between " + Constants.TRAINING_STARTS_ON_MIN_LENGTH + " and " + Constants.TRAINING_STARTS_ON_MAX_LENGTH + " characters"
     )
-    // to do
+    @Pattern(regexp = Constants.ISO8601_FORMAT_REGEXP, message = "createdOnMax must respect to the following pattern: " + Constants.ISO8601_FORMAT_REGEXP)
     private String createdOnMax;
 
     @Getter
@@ -119,7 +119,7 @@ public class TrainingQueryParamsDto {
         max = Constants.STRING_FILTER_MAX_LENGTH,
         message = "updatedOnMin must have between " + Constants.STRING_FILTER_MIN_LENGTH + " and " + Constants.STRING_FILTER_MAX_LENGTH + " characters"
     )
-    // to do
+    @Pattern(regexp = Constants.ISO8601_FORMAT_REGEXP, message = "updatedOnMin must respect to the following pattern: " + Constants.ISO8601_FORMAT_REGEXP)
     private String updatedOnMin;
 
     @Getter
@@ -129,7 +129,7 @@ public class TrainingQueryParamsDto {
         max = Constants.TRAINING_STARTS_ON_MAX_LENGTH,
         message = "updatedOnMax must have between " + Constants.TRAINING_STARTS_ON_MIN_LENGTH + " and " + Constants.TRAINING_STARTS_ON_MAX_LENGTH + " characters"
     )
-    // to do
+    @Pattern(regexp = Constants.ISO8601_FORMAT_REGEXP, message = "updatedOnMax must respect to the following pattern: " + Constants.ISO8601_FORMAT_REGEXP)
     private String updatedOnMax;
 
     @Getter
