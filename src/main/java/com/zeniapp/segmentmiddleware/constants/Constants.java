@@ -37,6 +37,8 @@ public class Constants {
     public static final int DIET_MEAL_COURSES_MAX_LENGTH = 20;
     public static final int DIET_GOAL_MIN_LENGTH = 1;
     public static final int DIET_GOAL_MAX_LENGTH = 128;
+    public static final int FOOD_QUANTITY_MIN_VALUE = 1;
+    public static final int FOOD_QUANTITY_MAX_VALUE = 2000;
 
     // Length Limits
     public static final int TRAINING_STARTS_ON_MIN_LENGTH = 1;
@@ -184,5 +186,5 @@ public class Constants {
     public static final String DIET_TYPE_REGEXP = "^(STANDARD_DIET|LOW_CALORIE|NORMAL_CALORIE|HIGH_CALORIE|LOW_PROTEIN|LOW_CARB|LOW_FAT|HIGH_PROTEIN|HIGH_CARB|HIGH_FAT|MEDITERRANEAN|KETOGENIC|INTERMITTENT_FASTING|DETOX|PALEO|ZONE|VEGAN|FRUCTARIAN|VEGETARIAN|RAW|WARRIOR|MEAL_REPLACEMENTS)$";
     public static final String DIET_MEAL_TYPE_REGEXP = "^(BREAKFAST|SNACK|LUNCH|DINNER|OTHER)$";
     public static final String DIET_MEAL_COURSE_TYPE_REGEXP = "^(STARTER|MAIN|SECOND|DESSERT|BITTER|OTHER)$";
-    public static final String FOOD_QUANTITY_EXPRESSED_IN_REGEXP = "^()$"; // to do
+    public static final String FOOD_QUANTITY_EXPRESSED_IN_REGEXP = "^(PORTIONS|GRAMS|KILOGRAM|LITER|MILLILITER|HECTOGRAM)$";
 }
