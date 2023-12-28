@@ -17,4 +17,9 @@ public class ResourceNotFoundException extends Exception {
         this.errorResponseDto.setName(HttpStatus.NOT_FOUND.getReasonPhrase());
         this.errorResponseDto.setMessages(Arrays.asList(new String[] { "resource not found" }));
     }
+
+    public ResourceNotFoundException(String message) {
+        this();
+        this.errorResponseDto.setMessages(Arrays.asList(new String[] { message }));
+    }
 }

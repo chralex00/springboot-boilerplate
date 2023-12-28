@@ -139,6 +139,6 @@ public class TrainingQueryParamsDto {
         max = Constants.ACCOUNT_ID_MAX_LENGTH,
         message = "accountId must have between " + Constants.ACCOUNT_ID_MIN_LENGTH + " and " + Constants.ACCOUNT_ID_MAX_LENGTH + " characters"
     )
-    // to do
+    @Pattern(regexp = Constants.UUID_REGEXP, message = "accountId must respect to the following pattern: " + Constants.UUID_REGEXP)
     private String accountId;
 }

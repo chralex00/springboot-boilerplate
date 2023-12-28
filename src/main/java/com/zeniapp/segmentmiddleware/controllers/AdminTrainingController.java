@@ -28,6 +28,7 @@ import com.zeniapp.segmentmiddleware.entities.Training;
 import com.zeniapp.segmentmiddleware.exceptions.DuplicateFieldsException;
 import com.zeniapp.segmentmiddleware.exceptions.ResourceNotFoundException;
 import com.zeniapp.segmentmiddleware.exceptions.WrongPayloadException;
+import com.zeniapp.segmentmiddleware.services.AccountService;
 import com.zeniapp.segmentmiddleware.services.TrainingService;
 import com.zeniapp.segmentmiddleware.utils.ActivityUtils;
 import com.zeniapp.segmentmiddleware.utils.TrainingUtils;
@@ -40,6 +41,9 @@ import lombok.extern.slf4j.Slf4j;
 public class AdminTrainingController {
     @Autowired
     private TrainingService trainingService;
+    
+    @Autowired
+    private AccountService accountService;
     
     @Autowired
     private ModelMapper modelMapper;
@@ -91,6 +95,10 @@ public class AdminTrainingController {
         try {
             TrainingUtils.validateCreateOrUpdateTrainingDto(bindingResult);
 
+            this.accountService
+                .findOne(createTrainingDto.getAccountId())
+                .orElseThrow(() -> new ResourceNotFoundException("account not found"));
+
             Training trainingToCreate = modelMapper.map(createTrainingDto, Training.class);
             trainingToCreate.setId(null);
             SimpleDateFormat datetimeFormatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
@@ -103,6 +111,9 @@ public class AdminTrainingController {
         }
         catch (WrongPayloadException wrongPayloadException) {
             return new ResponseEntity<ErrorResponseDto>(wrongPayloadException.getErrorResponseDto(), HttpStatus.BAD_REQUEST);
+        }
+        catch (ResourceNotFoundException resourceNotFoundException) {
+            return new ResponseEntity<ErrorResponseDto>(resourceNotFoundException.getErrorResponseDto(), HttpStatus.NOT_FOUND);
         }
         catch (DuplicateFieldsException duplicateFieldsException) {
             return new ResponseEntity<ErrorResponseDto>(duplicateFieldsException.getErrorResponseDto(), HttpStatus.CONFLICT);
@@ -186,6 +197,10 @@ public class AdminTrainingController {
     public ResponseEntity<?> updateOne(@PathVariable String id, @Valid @RequestBody UpdateTrainingDto updateTrainingDto, BindingResult bindingResult) {
         try {
             TrainingUtils.validateCreateOrUpdateTrainingDto(bindingResult);
+            
+            this.accountService
+                .findOne(updateTrainingDto.getAccountId())
+                .orElseThrow(() -> new ResourceNotFoundException("account not found"));
 
             Training trainingFound = this.trainingService.findOne(id).orElseThrow(ResourceNotFoundException::new);
 
