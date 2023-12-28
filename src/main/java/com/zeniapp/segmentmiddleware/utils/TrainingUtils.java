@@ -22,8 +22,16 @@ public class TrainingUtils {
             query.addCriteria(Criteria.where("accountId").is(trainingQueryParamsDto.getAccountId()));
         }
 
+        if (trainingQueryParamsDto.getTags() != null) {
+            query.addCriteria(Criteria.where("tags").all(trainingQueryParamsDto.getTags()));
+        }
+
         if (trainingQueryParamsDto.getTitle() != null) {
             query.addCriteria(Criteria.where("title").regex(trainingQueryParamsDto.getTitle(), "i"));
+        }
+
+        if (trainingQueryParamsDto.getGoal() != null) {
+            query.addCriteria(Criteria.where("goal").regex(trainingQueryParamsDto.getGoal(), "i"));
         }
 
         if (trainingQueryParamsDto.getType() != null) {

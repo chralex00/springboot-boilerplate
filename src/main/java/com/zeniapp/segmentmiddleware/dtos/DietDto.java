@@ -1,7 +1,6 @@
 package com.zeniapp.segmentmiddleware.dtos;
 
 import java.util.List;
-import com.zeniapp.segmentmiddleware.enums.TrainingType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +10,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class TrainingDto {
+public class DietDto {
     @Getter
     @Setter
 	private String id;
@@ -26,11 +25,15 @@ public class TrainingDto {
 
     @Getter
     @Setter
+    private List<String> tags;
+
+    @Getter
+    @Setter
     private String goal;
 
     @Getter
     @Setter
-    private TrainingType type;
+    private String type;
 
     @Getter
     @Setter
@@ -43,18 +46,6 @@ public class TrainingDto {
     @Getter
     @Setter
     private Boolean isArchived;
-    
-    @Getter
-    @Setter
-    private String accountId;
-
-    @Getter
-    @Setter
-    private List<TrainingActivityDto> trainingForActivities;
-
-    @Getter
-    @Setter
-    private List<TrainingSessionDto> sessions;
 
     @Getter
     @Setter
@@ -66,5 +57,13 @@ public class TrainingDto {
 
     @Getter
     @Setter
-    private List<String> tags;
+    private String accountId;
+
+    @Getter
+    @Setter
+    private List<DietActivityDto> dietForActivities;
+    
+    @Getter
+    @Setter
+    private List<DietMealDto> meals;
 }

@@ -51,6 +51,7 @@ public class AdminTrainingController {
     @GetMapping("/count")
     public ResponseEntity<?> count(
         @RequestParam(required = false) String title,
+        @RequestParam(required = false) String goal,
         @RequestParam(required = false) String type,
         @RequestParam(required = false) String startsOnMin,
         @RequestParam(required = false) String startsOnMax,
@@ -61,16 +62,17 @@ public class AdminTrainingController {
         @RequestParam(required = false) String updatedOnMin,
         @RequestParam(required = false) String updatedOnMax,
         @RequestParam(required = false) Boolean isArchived,
+        @RequestParam(required = false) List<String> tags,
         @RequestParam(required = false) String accountId
     ) {
         try {
             TrainingQueryParamsDto trainingQueryParamsDto = new TrainingQueryParamsDto(
                 null, null, null, null,
-                title, type, startsOnMin, startsOnMax,
+                title, goal, type, startsOnMin, startsOnMax,
                 durationMin, durationMax, isArchived,
                 createdOnMin, createdOnMax,
                 updatedOnMin, updatedOnMax,
-                accountId
+                accountId, tags
             );
             
             TrainingUtils.validateTrainingQueryParamsDto(trainingQueryParamsDto);
@@ -151,6 +153,7 @@ public class AdminTrainingController {
         @RequestParam(required = false, defaultValue = "title") String sortField,
         @RequestParam(required = false, defaultValue = "asc") String sortDirection,
         @RequestParam(required = false) String title,
+        @RequestParam(required = false) String goal,
         @RequestParam(required = false) String type,
         @RequestParam(required = false) String startsOnMin,
         @RequestParam(required = false) String startsOnMax,
@@ -161,16 +164,17 @@ public class AdminTrainingController {
         @RequestParam(required = false) String updatedOnMin,
         @RequestParam(required = false) String updatedOnMax,
         @RequestParam(required = false) Boolean isArchived,
+        @RequestParam(required = false) List<String> tags,
         @RequestParam(required = false) String accountId
     ) {
         try {
             TrainingQueryParamsDto trainingQueryParamsDto = new TrainingQueryParamsDto(
                 offset, limit, sortField, sortDirection,
-                title, type, startsOnMin, startsOnMax,
+                title, goal, type, startsOnMin, startsOnMax,
                 durationMin, durationMax, isArchived,
                 createdOnMin, createdOnMax,
                 updatedOnMin, updatedOnMax,
-                accountId
+                accountId, tags
             );
             
             TrainingUtils.validateTrainingQueryParamsDto(trainingQueryParamsDto);

@@ -28,6 +28,15 @@ public class Constants {
     public static final int TRAINING_SESSIONS_MAX_LENGTH = 12;
     public static final int TRAINING_SESSION_EXECUTIONS_MAX_LENGTH = 50;
     public static final int TRAINING_SESSION_EXECUTIONS_SETS_MAX_LENGTH = 50;
+    public static final int TRAINING_GOAL_MIN_LENGTH = 1;
+    public static final int TRAINING_GOAL_MAX_LENGTH = 128;
+    public static final int MIN_DIET_DURATION_VALUE = 1; // expressed in weeks
+    public static final int MAX_DIET_DURATION_VALUE = 24; // expressed in weeks
+    public static final int DIET_FOR_ACTIVITIES_MAX_LENGTH = 5;
+    public static final int DIET_MEALS_MAX_LENGTH = 24;
+    public static final int DIET_MEAL_COURSES_MAX_LENGTH = 20;
+    public static final int DIET_GOAL_MIN_LENGTH = 1;
+    public static final int DIET_GOAL_MAX_LENGTH = 128;
 
     // Length Limits
     public static final int TRAINING_STARTS_ON_MIN_LENGTH = 1;
@@ -56,6 +65,8 @@ public class Constants {
     public static final int TRAINING_TYPE_MAX_LENGTH = 64;
     public static final int TRAINING_SESSION_TITLE_MIN_LENGTH = 1;
     public static final int TRAINING_SESSION_TITLE_MAX_LENGTH = 128;
+    public static final int TRAINING_EXECUTION_SET_TYPE_MIN_LENGTH = 1;
+    public static final int TRAINING_EXECUTION_SET_TYPE_MAX_LENGTH = 64;
     public static final int ESTIMATED_EFFORT_LEVEL_MIN_LENGTH = 1;
     public static final int ESTIMATED_EFFORT_LEVEL_MAX_LENGTH = 64;
     public static final int ACCOUNT_ID_MIN_LENGTH = 1;
@@ -116,8 +127,26 @@ public class Constants {
     public static final int FIXATOR_MUSCLES_MAX_LENGTH = 5;
     public static final int VITAMINS_MAX_LENGTH = 5;
     public static final int MINERALS_MAX_LENGTH = 5;
-    public static final int TRAINING_EXECUTION_SET_TYPE_MIN_LENGTH = 1;
-    public static final int TRAINING_EXECUTION_SET_TYPE_MAX_LENGTH = 64;
+    public static final int DIET_TITLE_MIN_LENGTH = 1;
+    public static final int DIET_TITLE_MAX_LENGTH = 256;
+    public static final int DIET_DESCRIPTION_MIN_LENGTH = 0;
+    public static final int DIET_DESCRIPTION_MAX_LENGTH = 1024;
+    public static final int DIET_TYPE_MIN_LENGTH = 1;
+    public static final int DIET_TYPE_MAX_LENGTH = 64;
+    public static final int DIET_MEAL_TITLE_MIN_LENGTH = 1;
+    public static final int DIET_MEAL_TITLE_MAX_LENGTH = 128;
+    public static final int DIET_MEAL_COURSE_TYPE_MIN_LENGTH = 1;
+    public static final int DIET_MEAL_COURSE_TYPE_MAX_LENGTH = 64;
+    public static final int DIET_STARTS_ON_MIN_LENGTH = 1;
+    public static final int DIET_STARTS_ON_MAX_LENGTH = 64;
+    public static final int DIET_SESSION_TITLE_MIN_LENGTH = 1;
+    public static final int DIET_SESSION_TITLE_MAX_LENGTH = 128;
+    public static final int DIET_MEAL_TYPE_MIN_LENGTH = 1;
+    public static final int DIET_MEAL_TYPE_MAX_LENGTH = 64;
+    public static final int DIET_MEAL_COURSE_NOTES_MIN_LENGTH = 1;
+    public static final int DIET_MEAL_COURSE_NOTES_MAX_LENGTH = 256;
+    public static final int FOOD_QUANTITY_EXPRESSED_IN_MIN_LENGTH = 1;
+    public static final int FOOD_QUANTITY_EXPRESSED_IN_MAX_LENGTH = 64;
 
     // Regular Expressions
     public static final String UUID_REGEXP = "^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$";
@@ -151,4 +180,9 @@ public class Constants {
     public static final String TIME_UNDER_TENSION_REGEXP = "^([1-9]{1,2}|EXP)-([0-9]{1,2})-([1-9]{1,2}|EXP)-([0-9]{1,2})$";
     public static final String INTENSITY_MEASURE_UNIT_REGEXP = "^(RPE|RM|PERCENTAGE|BUFFER)$";
     public static final String SET_TYPE_REGEXP = "^(WARM_UP|APPROACH_SET|LIGHT_SET|HEAVY_SET)$";
+    public static final String DIET_SORT_FIELDS_REGEXP = "^(title|goal|type|startsOn|duration)$";
+    public static final String DIET_TYPE_REGEXP = "^(STANDARD_DIET|LOW_CALORIE|NORMAL_CALORIE|HIGH_CALORIE|LOW_PROTEIN|LOW_CARB|LOW_FAT|HIGH_PROTEIN|HIGH_CARB|HIGH_FAT|MEDITERRANEAN|KETOGENIC|INTERMITTENT_FASTING|DETOX|PALEO|ZONE|VEGAN|FRUCTARIAN|VEGETARIAN|RAW|WARRIOR|MEAL_REPLACEMENTS)$";
+    public static final String DIET_MEAL_TYPE_REGEXP = "^(BREAKFAST|SNACK|LUNCH|DINNER|OTHER)$";
+    public static final String DIET_MEAL_COURSE_TYPE_REGEXP = "^(STARTER|MAIN|SECOND|DESSERT|BITTER|OTHER)$";
+    public static final String FOOD_QUANTITY_EXPRESSED_IN_REGEXP = "^()$"; // to do
 }

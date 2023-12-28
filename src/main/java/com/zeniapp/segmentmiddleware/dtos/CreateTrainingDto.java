@@ -41,6 +41,17 @@ public class CreateTrainingDto {
 
     @Getter
     @Setter
+    @NotNull(message = "goal cannot be null")
+    @NotBlank(message = "goal cannot be an empty string")
+    @Size(
+        min = Constants.TRAINING_GOAL_MIN_LENGTH,
+        max = Constants.TRAINING_GOAL_MAX_LENGTH,
+        message = "goal must have between " + Constants.TRAINING_GOAL_MIN_LENGTH + " and " + Constants.TRAINING_GOAL_MAX_LENGTH + " characters"
+    )
+    private String goal;
+
+    @Getter
+    @Setter
     @NotNull(message = "type cannot be null")
     @NotBlank(message = "type cannot be an empty string")
     @Size(
@@ -75,6 +86,18 @@ public class CreateTrainingDto {
     @NotNull(message = "isArchived cannot be null")
     private Boolean isArchived;
     
+    @Getter
+    @Setter
+    @NotNull(message = "training tags cannot be null")
+    @Size(max = Constants.TAGS_MAX_LENGTH, message = "training tags must have max " + Constants.TAGS_MAX_LENGTH + " elements")
+    private List<
+        @Size(
+            min = Constants.STRING_FILTER_MIN_LENGTH,
+            max = Constants.STRING_FILTER_MAX_LENGTH,
+            message = "training tag must have between " + Constants.STRING_FILTER_MIN_LENGTH + " and " + Constants.STRING_FILTER_MAX_LENGTH + " characters"
+        )
+    String> tags;
+
     @Getter
     @Setter
     @NotNull(message = "accountId cannot be null")

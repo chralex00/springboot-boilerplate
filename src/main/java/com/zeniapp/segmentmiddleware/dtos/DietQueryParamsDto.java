@@ -15,7 +15,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class TrainingQueryParamsDto {
+public class DietQueryParamsDto {
     @Getter
     @Setter
     @Min(value = Constants.MIN_OFFSET_VALUE, message = "offset must be greater than, or equal to " + Constants.MIN_OFFSET_VALUE)
@@ -30,7 +30,7 @@ public class TrainingQueryParamsDto {
 
     @Getter
     @Setter
-    @Pattern(regexp = Constants.TRAINING_SORT_FIELDS_REGEXP, message = "sortField must respect to the following pattern: " + Constants.TRAINING_SORT_FIELDS_REGEXP)
+    @Pattern(regexp = Constants.DIET_SORT_FIELDS_REGEXP, message = "sortField must respect to the following pattern: " + Constants.DIET_SORT_FIELDS_REGEXP)
     private String sortField;
 
     @Getter
@@ -63,7 +63,7 @@ public class TrainingQueryParamsDto {
         max = Constants.STRING_FILTER_MAX_LENGTH,
         message = "type must have between " + Constants.STRING_FILTER_MIN_LENGTH + " and " + Constants.STRING_FILTER_MAX_LENGTH + " characters"
     )
-    @Pattern(regexp = Constants.TRAINING_TYPE_REGEXP, message = "type must respect to the following pattern: " + Constants.TRAINING_TYPE_REGEXP)
+    @Pattern(regexp = Constants.DIET_TYPE_REGEXP, message = "type must respect to the following pattern: " + Constants.DIET_TYPE_REGEXP)
     private String type;
 
     @Getter
@@ -79,23 +79,23 @@ public class TrainingQueryParamsDto {
     @Getter
     @Setter
     @Size(
-        min = Constants.TRAINING_STARTS_ON_MIN_LENGTH,
-        max = Constants.TRAINING_STARTS_ON_MAX_LENGTH,
-        message = "startsOnMax must have between " + Constants.TRAINING_STARTS_ON_MIN_LENGTH + " and " + Constants.TRAINING_STARTS_ON_MAX_LENGTH + " characters"
+        min = Constants.DIET_STARTS_ON_MIN_LENGTH,
+        max = Constants.DIET_STARTS_ON_MAX_LENGTH,
+        message = "startsOnMax must have between " + Constants.DIET_STARTS_ON_MIN_LENGTH + " and " + Constants.DIET_STARTS_ON_MAX_LENGTH + " characters"
     )
     @Pattern(regexp = Constants.ISO8601_FORMAT_REGEXP, message = "startsOnMax must respect to the following pattern: " + Constants.ISO8601_FORMAT_REGEXP)
     private String startsOnMax;
 
     @Getter
     @Setter
-    @Min(value = Constants.MIN_TRAINING_DURATION_VALUE, message = "durationMin must be greater than, or equal to " + Constants.MIN_TRAINING_DURATION_VALUE)
-    @Max(value = Constants.MAX_TRAINING_DURATION_VALUE, message = "durationMin must be greater than, or equal to " + Constants.MAX_TRAINING_DURATION_VALUE)
+    @Min(value = Constants.MIN_DIET_DURATION_VALUE, message = "durationMin must be greater than, or equal to " + Constants.MIN_DIET_DURATION_VALUE)
+    @Max(value = Constants.MAX_DIET_DURATION_VALUE, message = "durationMin must be greater than, or equal to " + Constants.MAX_DIET_DURATION_VALUE)
     private Integer durationMin;
 
     @Getter
     @Setter
-    @Min(value = Constants.MIN_TRAINING_DURATION_VALUE, message = "durationMax must be greater than, or equal to " + Constants.MIN_TRAINING_DURATION_VALUE)
-    @Max(value = Constants.MAX_TRAINING_DURATION_VALUE, message = "durationMax must be greater than, or equal to " + Constants.MAX_TRAINING_DURATION_VALUE)
+    @Min(value = Constants.MIN_DIET_DURATION_VALUE, message = "durationMax must be greater than, or equal to " + Constants.MIN_DIET_DURATION_VALUE)
+    @Max(value = Constants.MAX_DIET_DURATION_VALUE, message = "durationMax must be greater than, or equal to " + Constants.MAX_DIET_DURATION_VALUE)
     private Integer durationMax;
 
     @Getter
@@ -115,9 +115,9 @@ public class TrainingQueryParamsDto {
     @Getter
     @Setter
     @Size(
-        min = Constants.TRAINING_STARTS_ON_MIN_LENGTH,
-        max = Constants.TRAINING_STARTS_ON_MAX_LENGTH,
-        message = "createdOnMax must have between " + Constants.TRAINING_STARTS_ON_MIN_LENGTH + " and " + Constants.TRAINING_STARTS_ON_MAX_LENGTH + " characters"
+        min = Constants.DIET_STARTS_ON_MIN_LENGTH,
+        max = Constants.DIET_STARTS_ON_MAX_LENGTH,
+        message = "createdOnMax must have between " + Constants.DIET_STARTS_ON_MIN_LENGTH + " and " + Constants.DIET_STARTS_ON_MAX_LENGTH + " characters"
     )
     @Pattern(regexp = Constants.ISO8601_FORMAT_REGEXP, message = "createdOnMax must respect to the following pattern: " + Constants.ISO8601_FORMAT_REGEXP)
     private String createdOnMax;
@@ -135,9 +135,9 @@ public class TrainingQueryParamsDto {
     @Getter
     @Setter
     @Size(
-        min = Constants.TRAINING_STARTS_ON_MIN_LENGTH,
-        max = Constants.TRAINING_STARTS_ON_MAX_LENGTH,
-        message = "updatedOnMax must have between " + Constants.TRAINING_STARTS_ON_MIN_LENGTH + " and " + Constants.TRAINING_STARTS_ON_MAX_LENGTH + " characters"
+        min = Constants.DIET_STARTS_ON_MIN_LENGTH,
+        max = Constants.DIET_STARTS_ON_MAX_LENGTH,
+        message = "updatedOnMax must have between " + Constants.DIET_STARTS_ON_MIN_LENGTH + " and " + Constants.DIET_STARTS_ON_MAX_LENGTH + " characters"
     )
     @Pattern(regexp = Constants.ISO8601_FORMAT_REGEXP, message = "updatedOnMax must respect to the following pattern: " + Constants.ISO8601_FORMAT_REGEXP)
     private String updatedOnMax;
