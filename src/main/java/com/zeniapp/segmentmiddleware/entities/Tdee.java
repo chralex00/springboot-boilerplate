@@ -13,8 +13,8 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Document(collection = "diets")
-public class Diet {
+@Document(collection = "tdees")
+public class Tdee {
     @Id
     @Getter
     @Setter
@@ -31,40 +31,35 @@ public class Diet {
 
     @Getter
     @Setter
-    private List<String> tags;
-
-    @Getter
-    @Setter
-    private String goal;
-    
-    @Getter
-    @Setter
-    private String type;
-
-    @Getter
-    @Setter
-    private String startsOn; // ISO date string
-
-    @Getter
-    @Setter
-    private Integer duration; // expressed in weeks
+    private String performedOn; // ISO date string
 
     @Getter
     @Setter
     private Boolean isArchived;
-
+    
     @Getter
     @Setter
     private String accountId;
 
     @Getter
     @Setter
-    private List<DietActivity> dietForActivities;
+    private List<String> tags; // max 15 tags
+
+    @Getter
+    @Setter
+    private String idealWeightFormula;
     
     @Getter
     @Setter
-    private List<DietMeal> meals;
-    
+    private String basalMetabolismRateFormula;
+
+    @Getter
+    @Setter
+    private TdeePersonalInfo personalInfo;
+
+    @Getter
+    @Setter
+    private TdeeResult result;
     @Getter
     @Setter
     private String createdOn; // ISO date string

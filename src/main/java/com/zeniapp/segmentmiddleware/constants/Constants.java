@@ -39,6 +39,13 @@ public class Constants {
     public static final int DIET_GOAL_MAX_LENGTH = 128;
     public static final int FOOD_QUANTITY_MIN_VALUE = 1;
     public static final int FOOD_QUANTITY_MAX_VALUE = 2000;
+    public static final int MIN_AGE_VALUE = 5;
+    public static final int MAX_AGE_VALUE = 140;
+    public static final int MIN_HEIGHT_VALUE = 120;
+    public static final int MAX_HEIGHT_VALUE = 240;
+    public static final int MIN_WEIGHT_VALUE = 120;
+    public static final int MAX_WEIGHT_VALUE = 240;
+    public static final int TDEE_ACTIVITIES_MAX_LENGTH = 5;
 
     // Length Limits
     public static final int TRAINING_STARTS_ON_MIN_LENGTH = 1;
@@ -149,6 +156,24 @@ public class Constants {
     public static final int DIET_MEAL_COURSE_NOTES_MAX_LENGTH = 256;
     public static final int FOOD_QUANTITY_EXPRESSED_IN_MIN_LENGTH = 1;
     public static final int FOOD_QUANTITY_EXPRESSED_IN_MAX_LENGTH = 64;
+    public static final int TDEE_TITLE_MIN_LENGTH = 1;
+    public static final int TDEE_TITLE_MAX_LENGTH = 256;
+    public static final int TDEE_DESCRIPTION_MIN_LENGTH = 1;
+    public static final int TDEE_DESCRIPTION_MAX_LENGTH = 256;
+    public static final int TDEE_PERFORMED_ON_MIN_LENGTH = 1;
+    public static final int TDEE_PERFORMED_ON_MAX_LENGTH = 256;
+    public static final int IDEAL_WEIGHT_FORMULA_MIN_LENGTH = 1;
+    public static final int IDEAL_WEIGHT_FORMULA_MAX_LENGTH = 128;
+    public static final int BASAL_METABOLIC_RATE_FORMULA_MIN_LENGTH = 1;
+    public static final int BASAL_METABOLIC_RATE_FORMULA_MAX_LENGTH = 128;
+    public static final int ACTIVITY_LEVEL_MIN_LENGTH = 1;
+    public static final int ACTIVITY_LEVEL_MAX_LENGTH = 64;
+    public static final int BIOLOGICAL_GENDER_MIN_LENGTH = 1;
+    public static final int BIOLOGICAL_GENDER_MAX_LENGTH = 64;
+    public static final int CREATED_ON_MIN_LENGTH = 1;
+    public static final int CREATED_ON_MAX_LENGTH = 64;
+    public static final int UPDATED_ON_MIN_LENGTH = 1;
+    public static final int UPDATED_ON_MAX_LENGTH = 64;
 
     // Regular Expressions
     public static final String UUID_REGEXP = "^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$";
@@ -159,7 +184,7 @@ public class Constants {
     public static final String LAST_NAME_REGEXP = "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$";
     public static final String PASSWORD_REGEXP = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]*$";
     public static final String ROLE_REGEXP = "^(USER|ADMIN)$";
-    public static final String TRAINING_SORT_FIELDS_REGEXP = "^(title|type|startsOn|duration)$";
+    public static final String TRAINING_SORT_FIELDS_REGEXP = "^(title|type|startsOn|duration|createdOn|updatedOn)$";
     public static final String ACTIVITY_SORT_FIELDS_REGEXP = "^(name|type|mets)$";
     public static final String ACCOUNT_SORT_FIELDS_REGEXP = "^(email|username|firstName|lastName|createdOn|updatedOn)$";
     public static final String SESSION_SORT_FIELDS_REGEXP = "^(apiCounter|createdOn|lastActivityOn)$";
@@ -182,9 +207,14 @@ public class Constants {
     public static final String TIME_UNDER_TENSION_REGEXP = "^([1-9]{1,2}|EXP)-([0-9]{1,2})-([1-9]{1,2}|EXP)-([0-9]{1,2})$";
     public static final String INTENSITY_MEASURE_UNIT_REGEXP = "^(RPE|RM|PERCENTAGE|BUFFER)$";
     public static final String SET_TYPE_REGEXP = "^(WARM_UP|APPROACH_SET|LIGHT_SET|HEAVY_SET)$";
-    public static final String DIET_SORT_FIELDS_REGEXP = "^(title|goal|type|startsOn|duration)$";
+    public static final String DIET_SORT_FIELDS_REGEXP = "^(title|goal|type|startsOn|duration|createdOn|updatedOn)$";
     public static final String DIET_TYPE_REGEXP = "^(STANDARD_DIET|LOW_CALORIE|NORMAL_CALORIE|HIGH_CALORIE|LOW_PROTEIN|LOW_CARB|LOW_FAT|HIGH_PROTEIN|HIGH_CARB|HIGH_FAT|MEDITERRANEAN|KETOGENIC|INTERMITTENT_FASTING|DETOX|PALEO|ZONE|VEGAN|FRUCTARIAN|VEGETARIAN|RAW|WARRIOR|MEAL_REPLACEMENTS)$";
     public static final String DIET_MEAL_TYPE_REGEXP = "^(BREAKFAST|SNACK|LUNCH|DINNER|OTHER)$";
     public static final String DIET_MEAL_COURSE_TYPE_REGEXP = "^(STARTER|MAIN|SECOND|DESSERT|BITTER|OTHER)$";
     public static final String FOOD_QUANTITY_EXPRESSED_IN_REGEXP = "^(PORTIONS|GRAMS|KILOGRAM|LITER|MILLILITER|HECTOGRAM)$";
+    public static final String BASAL_METABOLIC_RATE_FORMULA_REGEXP = "^(MIFFLIN_ST_JEOR_EQUATION|HARRIS_BENEDICT_EQUATION|EUROPEAN_COMMISSION_LARN_BMR_TABLE)$";
+    public static final String IDEAL_WEIGHT_FORMULA_REGEXP = "^(HAMWI_EQUATION|DEVINE_EQUATION|ROBINSON_EQUATION|MILLER_EQUATION|CREFF_EQUATION|BROCA_EQUATION)$";
+    public static final String ACTIVITY_LEVEL_REGEXP = "^(SEDENTARY|LIGHT|MODERATE|HEAVY|VERY_HEAVY)$";
+    public static final String BIOLOGICAL_GENDER_REGEXP = "^(MALE|FEMALE|OTHER)$";
+    public static final String TDEE_SORT_FIELDS_REGEXP = "^(title|basalMetabolismRateFormula|idealWeightFormula|performedOn|createdOn|updatedOn)$";
 }
