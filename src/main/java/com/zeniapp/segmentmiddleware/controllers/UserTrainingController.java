@@ -222,6 +222,7 @@ public class UserTrainingController {
             Training trainingToUpdate = modelMapper.map(updateTrainingDto, Training.class);
             trainingToUpdate.setId(trainingFound.getId());
             trainingToUpdate.setAccountId(accountId);
+            trainingToUpdate.setCreatedOn(trainingFound.getCreatedOn());
             trainingToUpdate.setUpdatedOn(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").format(Calendar.getInstance().getTime()));
 
             Training trainingUpdated = this.trainingService.save(trainingToUpdate);

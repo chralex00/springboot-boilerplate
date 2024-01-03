@@ -210,6 +210,7 @@ public class AdminDietController {
 
             Diet dietToUpdate = modelMapper.map(updateDietDto, Diet.class);
             dietToUpdate.setId(dietFound.getId());
+            dietToUpdate.setCreatedOn(dietFound.getCreatedOn());
             dietToUpdate.setUpdatedOn(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").format(Calendar.getInstance().getTime()));
 
             Diet dietUpdated = this.dietService.save(dietToUpdate);

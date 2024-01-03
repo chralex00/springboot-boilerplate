@@ -211,6 +211,7 @@ public class AdminTdeeController {
 
             Tdee tdeeToUpdate = modelMapper.map(updateTdeeDto, Tdee.class);
             tdeeToUpdate.setId(tdeeFound.getId());
+            tdeeToUpdate.setCreatedOn(tdeeFound.getCreatedOn());
             tdeeToUpdate.setUpdatedOn(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").format(Calendar.getInstance().getTime()));
             tdeeToUpdate.setResult(TdeeUtils.createTdeeResultByTdee(tdeeToUpdate));
 

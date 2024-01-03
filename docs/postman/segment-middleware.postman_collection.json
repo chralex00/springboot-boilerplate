@@ -3895,7 +3895,7 @@
 										{
 											"key": "sortField",
 											"value": "title",
-											"description": "It can be title, type, startsOn, or duration",
+											"description": "It can be title, type, startsOn, duration, createdOn, or updatedOn",
 											"disabled": true
 										},
 										{
@@ -4117,7 +4117,7 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": "658d48255d4e14198bfb4527"
+											"value": "6595945064acb15fd274f7d9"
 										}
 									]
 								}
@@ -4328,7 +4328,7 @@
 										{
 											"key": "sortField",
 											"value": "title",
-											"description": "It can be title, type, startsOn, or duration",
+											"description": "It can be title, type, startsOn, duration, createdOn, or updatedOn",
 											"disabled": true
 										},
 										{
@@ -4766,7 +4766,7 @@
 										{
 											"key": "sortField",
 											"value": "title",
-											"description": "It can be title, type, startsOn, or duration",
+											"description": "It can be title, type, startsOn, duration, createdOn, or updatedOn",
 											"disabled": true
 										},
 										{
@@ -4988,7 +4988,7 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": "658d8ebda603d3111bd37b2d"
+											"value": "659594f864acb15fd274f7da"
 										}
 									]
 								}
@@ -5199,7 +5199,7 @@
 										{
 											"key": "sortField",
 											"value": "title",
-											"description": "It can be title, type, startsOn, or duration",
+											"description": "It can be title, type, startsOn, duration, createdOn, or updatedOn",
 											"disabled": true
 										},
 										{
@@ -5211,6 +5211,7 @@
 										{
 											"key": "title",
 											"value": "Test",
+											"description": "String between 1 and 256 characters",
 											"disabled": true
 										},
 										{
@@ -5461,6 +5462,877 @@
 										{
 											"key": "id",
 											"value": "658d94daae67d80cd00ed4ba"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "tdees",
+			"item": [
+				{
+					"name": "admin",
+					"item": [
+						{
+							"name": "count",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/admin/tdees/count",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"tdees",
+										"count"
+									],
+									"query": [
+										{
+											"key": "title",
+											"value": "Training 1",
+											"description": "String between 1 and 256 characters",
+											"disabled": true
+										},
+										{
+											"key": "weightGoal",
+											"value": "WEIGHT_INCREASE",
+											"description": "It can be WEIGHT_INCREASE, WEIGHT_LOSS, or MAINTENANCE",
+											"disabled": true
+										},
+										{
+											"key": "performedOnMin",
+											"value": "2023-01-20T00:00:00.114Z",
+											"description": "An ISO date string",
+											"disabled": true
+										},
+										{
+											"key": "performedOnMax",
+											"value": "2023-12-31T00:00:00.114Z",
+											"description": "An ISO date string",
+											"disabled": true
+										},
+										{
+											"key": "createdOnMin",
+											"value": "2023-01-20T00:00:00.114Z",
+											"description": "An ISO date string",
+											"disabled": true
+										},
+										{
+											"key": "createdOnMax",
+											"value": "2024-12-31T00:00:00.114Z",
+											"description": "An ISO date string",
+											"disabled": true
+										},
+										{
+											"key": "updatedOnMin",
+											"value": "2023-01-20T00:00:00.114Z",
+											"description": "An ISO date string",
+											"disabled": true
+										},
+										{
+											"key": "updatedOnMax",
+											"value": "2024-12-31T00:00:00.114Z",
+											"description": "An ISO date string",
+											"disabled": true
+										},
+										{
+											"key": "isArchived",
+											"value": "true",
+											"description": "Boolean value, it can be true, or false",
+											"disabled": true
+										},
+										{
+											"key": "tags",
+											"value": "Tag1,Tag2,Tag3",
+											"description": "List of strings, max 15 tags",
+											"disabled": true
+										},
+										{
+											"key": "accountId",
+											"value": "4e507b41-1ad3-4d8b-9a5b-134bd19e984b",
+											"description": "An accountId, a string in UUID format",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find many",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/admin/tdees",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"tdees"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "0",
+											"description": "Integer number, between 0 and 2147483647",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"description": "Integer and positive number, between 1 and 50",
+											"disabled": true
+										},
+										{
+											"key": "sortField",
+											"value": "title",
+											"description": "It can be title, basalMetabolismRateFormula, idealWeightFormula, performedOn, createdOn, or updatedOn",
+											"disabled": true
+										},
+										{
+											"key": "sortDirection",
+											"value": "desc",
+											"description": "It can be asc, or desc",
+											"disabled": true
+										},
+										{
+											"key": "title",
+											"value": "Test",
+											"description": "String between 1 and 256 characters",
+											"disabled": true
+										},
+										{
+											"key": "weightGoal",
+											"value": "WEIGHT_INCREASE",
+											"description": "It can be WEIGHT_INCREASE, WEIGHT_LOSS, or MAINTENANCE",
+											"disabled": true
+										},
+										{
+											"key": "performedOnMin",
+											"value": "2023-12-01T00%3A00%3A00.000%2B0100",
+											"description": "An ISO date string in YYYY-MM-DDThh:mm:ss.sss+ZZZZ format",
+											"disabled": true
+										},
+										{
+											"key": "performedOnMax",
+											"value": "2023-12-31T00%3A00%3A00.000%2B0100",
+											"description": "An ISO date string in YYYY-MM-DDThh:mm:ss.sss+ZZZZ format",
+											"disabled": true
+										},
+										{
+											"key": "createdOnMin",
+											"value": "2023-12-01T00%3A00%3A00.000%2B0100",
+											"description": "An ISO date string in YYYY-MM-DDThh:mm:ss.sss+ZZZZ format",
+											"disabled": true
+										},
+										{
+											"key": "createdOnMax",
+											"value": "2023-12-31T00%3A00%3A00.000%2B0100",
+											"description": "An ISO date string in YYYY-MM-DDThh:mm:ss.sss+ZZZZ format",
+											"disabled": true
+										},
+										{
+											"key": "updatedOnMin",
+											"value": "2023-12-01T00%3A00%3A00.000%2B0100",
+											"description": "An ISO date string in YYYY-MM-DDThh:mm:ss.sss+ZZZZ format",
+											"disabled": true
+										},
+										{
+											"key": "updatedOnMax",
+											"value": "2023-12-31T00%3A00%3A00.000%2B0100",
+											"description": "An ISO date string in YYYY-MM-DDThh:mm:ss.sss+ZZZZ format",
+											"disabled": true
+										},
+										{
+											"key": "isArchived",
+											"value": "true",
+											"description": "Boolean value, it can be true, or false",
+											"disabled": true
+										},
+										{
+											"key": "tags",
+											"value": "Tag1,Tag2,Tag3",
+											"description": "List of strings, max 15 tags",
+											"disabled": true
+										},
+										{
+											"key": "accountId",
+											"value": "4e507b41-1ad3-4d8b-9a5b-134bd19e984b",
+											"description": "An accountId, a string in UUID format",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/admin/tdees/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"tdees",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "65958e0bedb3457117c031c0"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Test #1\",\r\n    \"description\": \"A TDEE description.\",\r\n    \"weightGoal\": \"WEIGHT_INCREASE\",\r\n    \"performedOn\": \"2023-12-25T00:00:00.000+0100\",\r\n    \"isArchived\": false,\r\n    \"tags\": [\"Tag1\", \"Tag2\", \"Tag3\"],\r\n    \"accountId\": \"c4fc614b-05b4-46dd-b95a-2cbb09284c0f\",\r\n    \"idealWeightFormula\": \"BROCA\",\r\n    \"basalMetabolismRateFormula\": \"HARRIS_BENEDICT_EQUATION\",\r\n    \"personalInfo\": {\r\n        \"activityLevel\": \"HEAVY\",\r\n        \"biologicalGender\": \"MALE\",\r\n        \"height\": 164,\r\n        \"actualWeight\": 73.5,\r\n        \"firstName\": \"Christian Alessandro\",\r\n        \"lastName\": \"Atzeni\",\r\n        \"age\": 23,\r\n        \"activities\": []\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/admin/tdees",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"tdees"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Test #1\",\r\n    \"description\": \"A TDEE description.\",\r\n    \"weightGoal\": \"WEIGHT_INCREASE\",\r\n    \"performedOn\": \"2023-12-25T00:00:00.000+0100\",\r\n    \"isArchived\": false,\r\n    \"tags\": [\"Tag1\", \"Tag2\", \"Tag3\"],\r\n    \"accountId\": \"c4fc614b-05b4-46dd-b95a-2cbb09284c0f\",\r\n    \"idealWeightFormula\": \"BROCA\",\r\n    \"basalMetabolismRateFormula\": \"HARRIS_BENEDICT_EQUATION\",\r\n    \"personalInfo\": {\r\n        \"activityLevel\": \"HEAVY\",\r\n        \"biologicalGender\": \"MALE\",\r\n        \"height\": 164,\r\n        \"actualWeight\": 73.5,\r\n        \"firstName\": \"Christian Alessandro\",\r\n        \"lastName\": \"Atzeni\",\r\n        \"age\": 23,\r\n        \"activities\": [\r\n            {\r\n                \"name\": \"Bodybuilding\",\r\n                \"type\": \"DISCIPLINE\",\r\n                \"mets\": 5.5,\r\n                \"tags\": [\"Anaerobic\", \"Weights\", \"Body Recomp\"]\r\n            }\r\n        ]\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/admin/tdees/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"tdees",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "6595900464acb15fd274f7d7"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/admin/tdees/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"admin",
+										"tdees",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "65958e0bedb3457117c031c0"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "count",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/user/tdees/count",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"user",
+										"tdees",
+										"count"
+									],
+									"query": [
+										{
+											"key": "title",
+											"value": "Test 1",
+											"description": "String between 1 and 256 characters",
+											"disabled": true
+										},
+										{
+											"key": "weightGoal",
+											"value": "WEIGHT_INCREASE",
+											"description": "It can be WEIGHT_INCREASE, WEIGHT_LOSS, or MAINTENANCE",
+											"disabled": true
+										},
+										{
+											"key": "performedOnMin",
+											"value": "2023-01-20T00:00:00.114Z",
+											"description": "An ISO date string",
+											"disabled": true
+										},
+										{
+											"key": "performedOnMax",
+											"value": "2023-12-31T00:00:00.114Z",
+											"description": "An ISO date string",
+											"disabled": true
+										},
+										{
+											"key": "createdOnMin",
+											"value": "2023-01-20T00:00:00.114Z",
+											"description": "An ISO date string",
+											"disabled": true
+										},
+										{
+											"key": "createdOnMax",
+											"value": "2023-12-31T00:00:00.114Z",
+											"description": "An ISO date string",
+											"disabled": true
+										},
+										{
+											"key": "updatedOnMin",
+											"value": "2023-01-20T00:00:00.114Z",
+											"description": "An ISO date string",
+											"disabled": true
+										},
+										{
+											"key": "updatedOnMax",
+											"value": "2023-12-31T00:00:00.114Z",
+											"description": "An ISO date string",
+											"disabled": true
+										},
+										{
+											"key": "isArchived",
+											"value": "true",
+											"description": "Boolean value, it can be true, or false",
+											"disabled": true
+										},
+										{
+											"key": "tags",
+											"value": "Tag1,Tag2,Tag3",
+											"description": "List of strings, max 15 tags",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find many",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/user/tdees",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"user",
+										"tdees"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "0",
+											"description": "Integer number, between 0 and 2147483647",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"description": "Integer and positive number, between 1 and 50",
+											"disabled": true
+										},
+										{
+											"key": "sortField",
+											"value": "title",
+											"description": "It can be title, basalMetabolismRateFormula, idealWeightFormula, performedOn, createdOn, or updatedOn",
+											"disabled": true
+										},
+										{
+											"key": "sortDirection",
+											"value": "desc",
+											"description": "It can be asc, or desc",
+											"disabled": true
+										},
+										{
+											"key": "title",
+											"value": "Test",
+											"description": "String between 1 and 256 characters",
+											"disabled": true
+										},
+										{
+											"key": "weightGoal",
+											"value": "WEIGHT_INCREASE",
+											"description": "It can be WEIGHT_INCREASE, WEIGHT_LOSS, or MAINTENANCE",
+											"disabled": true
+										},
+										{
+											"key": "performedOnMin",
+											"value": "2023-12-01T00%3A00%3A00.000%2B0100",
+											"description": "An ISO date string in YYYY-MM-DDThh:mm:ss.sss+ZZZZ format",
+											"disabled": true
+										},
+										{
+											"key": "performedOnMax",
+											"value": "2023-12-31T00%3A00%3A00.000%2B0100",
+											"description": "An ISO date string in YYYY-MM-DDThh:mm:ss.sss+ZZZZ format",
+											"disabled": true
+										},
+										{
+											"key": "createdOnMin",
+											"value": "2023-12-01T00%3A00%3A00.000%2B0100",
+											"description": "An ISO date string in YYYY-MM-DDThh:mm:ss.sss+ZZZZ format",
+											"disabled": true
+										},
+										{
+											"key": "createdOnMax",
+											"value": "2023-12-31T00%3A00%3A00.000%2B0100",
+											"description": "An ISO date string in YYYY-MM-DDThh:mm:ss.sss+ZZZZ format",
+											"disabled": true
+										},
+										{
+											"key": "updatedOnMin",
+											"value": "2023-12-01T00%3A00%3A00.000%2B0100",
+											"description": "An ISO date string in YYYY-MM-DDThh:mm:ss.sss+ZZZZ format",
+											"disabled": true
+										},
+										{
+											"key": "updatedOnMax",
+											"value": "2023-12-31T00%3A00%3A00.000%2B0100",
+											"description": "An ISO date string in YYYY-MM-DDThh:mm:ss.sss+ZZZZ format",
+											"disabled": true
+										},
+										{
+											"key": "isArchived",
+											"value": "true",
+											"description": "Boolean value, it can be true, or false",
+											"disabled": true
+										},
+										{
+											"key": "tags",
+											"value": "Tag1,Tag2,Tag3",
+											"description": "List of strings, max 15 tags",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/user/tdees/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"user",
+										"tdees",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "6595936164acb15fd274f7d8"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Test #1\",\r\n    \"description\": \"A TDEE description.\",\r\n    \"weightGoal\": \"WEIGHT_INCREASE\",\r\n    \"performedOn\": \"2023-12-25T00:00:00.000+0100\",\r\n    \"isArchived\": false,\r\n    \"tags\": [\"Tag1\", \"Tag2\", \"Tag3\"],\r\n    \"accountId\": \"c4fc614b-05b4-46dd-b95a-2cbb09284c0f\",\r\n    \"idealWeightFormula\": \"BROCA\",\r\n    \"basalMetabolismRateFormula\": \"HARRIS_BENEDICT_EQUATION\",\r\n    \"personalInfo\": {\r\n        \"activityLevel\": \"HEAVY\",\r\n        \"biologicalGender\": \"MALE\",\r\n        \"height\": 164,\r\n        \"actualWeight\": 73.5,\r\n        \"firstName\": \"Christian Alessandro\",\r\n        \"lastName\": \"Atzeni\",\r\n        \"age\": 23,\r\n        \"activities\": []\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/user/tdees",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"user",
+										"tdees"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Test #1\",\r\n    \"description\": \"A TDEE description.\",\r\n    \"weightGoal\": \"WEIGHT_INCREASE\",\r\n    \"performedOn\": \"2023-12-25T00:00:00.000+0100\",\r\n    \"isArchived\": false,\r\n    \"tags\": [\"Tag1\", \"Tag2\", \"Tag3\"],\r\n    \"accountId\": \"c4fc614b-05b4-46dd-b95a-2cbb09284c0f\",\r\n    \"idealWeightFormula\": \"BROCA\",\r\n    \"basalMetabolismRateFormula\": \"HARRIS_BENEDICT_EQUATION\",\r\n    \"personalInfo\": {\r\n        \"activityLevel\": \"HEAVY\",\r\n        \"biologicalGender\": \"MALE\",\r\n        \"height\": 164,\r\n        \"actualWeight\": 73.5,\r\n        \"firstName\": \"Christian Alessandro\",\r\n        \"lastName\": \"Atzeni\",\r\n        \"age\": 23,\r\n        \"activities\": [\r\n            {\r\n                \"name\": \"Bodybuilding\",\r\n                \"type\": \"DISCIPLINE\",\r\n                \"mets\": 5.5,\r\n                \"tags\": [\"Anaerobic\", \"Weights\", \"Body Recomp\"]\r\n            }\r\n        ]\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/user/tdees/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"user",
+										"tdees",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "6595936164acb15fd274f7d8"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete one",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_KEY_HEADER_VALUE}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "{{API_KEY_HEADER_NAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{JWT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/user/tdees/:id",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"user",
+										"tdees",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "6595936164acb15fd274f7d8"
 										}
 									]
 								}
