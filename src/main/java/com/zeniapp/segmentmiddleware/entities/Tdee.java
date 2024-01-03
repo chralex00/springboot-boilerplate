@@ -55,6 +55,10 @@ public class Tdee {
 
     @Getter
     @Setter
+    private String weightGoal;
+
+    @Getter
+    @Setter
     private TdeePersonalInfo personalInfo;
 
     @Getter

@@ -12,6 +12,10 @@ import lombok.ToString;
 public class TdeeResultDto {
     @Getter
     @Setter
+    private Float idealBodyWeight;
+
+    @Getter
+    @Setter
     private Float totalEnergy;
 
     @Getter

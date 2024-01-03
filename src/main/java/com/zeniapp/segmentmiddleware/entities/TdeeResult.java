@@ -12,6 +12,10 @@ import lombok.ToString;
 public class TdeeResult {
     @Getter
     @Setter
+    private Float idealBodyWeight; // expressed in kg, it can be calculated, or inserted manually
+
+    @Getter
+    @Setter
     private Float totalEnergy; // expressed in kcal per day
 
     @Getter
@@ -32,13 +36,13 @@ public class TdeeResult {
 
     @Getter
     @Setter
-    private Float carbs; // expressed in grams per day
+    private Float carbs; // expressed in grams per kg of body weight
 
     @Getter
     @Setter
-    private Float proteins; // expressed in grams per day
+    private Float proteins; // expressed in grams per kg of body weight
 
     @Getter
     @Setter
-    private Float fats; // expressed in grams per day
+    private Float fats; // expressed in grams per kg of body weight
 }

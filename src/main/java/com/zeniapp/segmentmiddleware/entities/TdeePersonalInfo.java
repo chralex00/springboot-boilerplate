@@ -37,10 +37,6 @@ public class TdeePersonalInfo {
 
     @Getter
     @Setter
-    private Float idealWeight; // expressed in kg, it can be calculated, or inserted manually
-
-    @Getter
-    @Setter
     private String activityLevel;
 
     @Getter

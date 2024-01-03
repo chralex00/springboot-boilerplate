@@ -149,4 +149,14 @@ public class TdeeQueryParamsDto {
         message = "basalMetabolismRateFormula must have between " + Constants.STRING_FILTER_MIN_LENGTH + " and " + Constants.STRING_FILTER_MAX_LENGTH + " characters"
     )
     private String basalMetabolismRateFormula;
+
+    @Getter
+    @Setter
+    @Size(
+        min = Constants.STRING_FILTER_MIN_LENGTH,
+        max = Constants.STRING_FILTER_MAX_LENGTH,
+        message = "weightGoal must have between " + Constants.STRING_FILTER_MIN_LENGTH + " and " + Constants.STRING_FILTER_MAX_LENGTH + " characters"
+    )
+    @Pattern(regexp = Constants.BODY_WEIGHT_GOAL_REGEXP, message = "weightGoal must respect to the following pattern: " + Constants.BODY_WEIGHT_GOAL_REGEXP)
+    private String weightGoal;
 }

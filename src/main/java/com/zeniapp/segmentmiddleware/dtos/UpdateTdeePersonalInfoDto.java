@@ -78,12 +78,6 @@ public class UpdateTdeePersonalInfoDto {
 
     @Getter
     @Setter
-    @Min(value = Constants.MIN_HEIGHT_VALUE, message = "idealWeight must be greater than, or equal to " + Constants.MIN_WEIGHT_VALUE)
-    @Max(value = Constants.MAX_HEIGHT_VALUE, message = "idealWeight must be lower than, or equal to " + Constants.MAX_WEIGHT_VALUE)
-    private Float idealWeight; // nullable only if CreateTdeeDto.idealWeightFormula != null
-
-    @Getter
-    @Setter
     @NotNull(message = "activityLevel cannot be null")
     @NotBlank(message = "activityLevel cannot be an empty string")
     @Size(

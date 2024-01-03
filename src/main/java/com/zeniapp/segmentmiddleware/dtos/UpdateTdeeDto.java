@@ -85,13 +85,14 @@ public class UpdateTdeeDto {
     
     @Getter
     @Setter
+    @NotNull(message = "idealWeightFormula cannot be null")
     @NotBlank(message = "idealWeightFormula cannot be an empty string")
     @Size(
         min = Constants.IDEAL_WEIGHT_FORMULA_MIN_LENGTH,
         max = Constants.IDEAL_WEIGHT_FORMULA_MAX_LENGTH,
         message = "idealWeightFormula must have between " + Constants.IDEAL_WEIGHT_FORMULA_MIN_LENGTH + " and " + Constants.IDEAL_WEIGHT_FORMULA_MAX_LENGTH + " characters"
     )
-    private String idealWeightFormula; // nullable, the idealWeight can be inserted manually
+    private String idealWeightFormula;
     
     @Getter
     @Setter
@@ -103,4 +104,16 @@ public class UpdateTdeeDto {
         message = "basalMetabolismRateFormula must have between " + Constants.BASAL_METABOLIC_RATE_FORMULA_MIN_LENGTH + " and " + Constants.BASAL_METABOLIC_RATE_FORMULA_MAX_LENGTH + " characters"
     )
     private String basalMetabolismRateFormula;
+
+    @Getter
+    @Setter
+    @NotNull(message = "weightGoal cannot be null")
+    @NotBlank(message = "weightGoal cannot be an empty string")
+    @Size(
+        min = Constants.WEIGHT_GOAL_MIN_LENGTH,
+        max = Constants.WEIGHT_GOAL_MAX_LENGTH,
+        message = "weightGoal must have between " + Constants.WEIGHT_GOAL_MIN_LENGTH + " and " + Constants.WEIGHT_GOAL_MAX_LENGTH + " characters"
+    )
+    @Pattern(regexp = Constants.BODY_WEIGHT_GOAL_REGEXP, message = "weightGoal must respect to the following pattern: " + Constants.BODY_WEIGHT_GOAL_REGEXP)
+    private String weightGoal;
 }

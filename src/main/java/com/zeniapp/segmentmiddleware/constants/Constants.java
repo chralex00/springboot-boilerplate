@@ -174,6 +174,8 @@ public class Constants {
     public static final int CREATED_ON_MAX_LENGTH = 64;
     public static final int UPDATED_ON_MIN_LENGTH = 1;
     public static final int UPDATED_ON_MAX_LENGTH = 64;
+    public static final int WEIGHT_GOAL_MIN_LENGTH = 1;
+    public static final int WEIGHT_GOAL_MAX_LENGTH = 64;
 
     // Regular Expressions
     public static final String UUID_REGEXP = "^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$";
@@ -213,8 +215,9 @@ public class Constants {
     public static final String DIET_MEAL_COURSE_TYPE_REGEXP = "^(STARTER|MAIN|SECOND|DESSERT|BITTER|OTHER)$";
     public static final String FOOD_QUANTITY_EXPRESSED_IN_REGEXP = "^(PORTIONS|GRAMS|KILOGRAM|LITER|MILLILITER|HECTOGRAM)$";
     public static final String BASAL_METABOLIC_RATE_FORMULA_REGEXP = "^(MIFFLIN_ST_JEOR_EQUATION|HARRIS_BENEDICT_EQUATION|EUROPEAN_COMMISSION_LARN_BMR_TABLE)$";
-    public static final String IDEAL_WEIGHT_FORMULA_REGEXP = "^(HAMWI_EQUATION|DEVINE_EQUATION|ROBINSON_EQUATION|MILLER_EQUATION|CREFF_EQUATION|BROCA_EQUATION)$";
+    public static final String IDEAL_WEIGHT_FORMULA_REGEXP = "^(LORENZ_EQUATION|KEYS_EQUATION|BERTHEAN_EQUATION|HAMWI_EQUATION|DEVINE_EQUATION|ROBINSON_EQUATION|MILLER_EQUATION|BROCA_EQUATION)$";
     public static final String ACTIVITY_LEVEL_REGEXP = "^(SEDENTARY|LIGHT|MODERATE|HEAVY|VERY_HEAVY)$";
     public static final String BIOLOGICAL_GENDER_REGEXP = "^(MALE|FEMALE|OTHER)$";
     public static final String TDEE_SORT_FIELDS_REGEXP = "^(title|basalMetabolismRateFormula|idealWeightFormula|performedOn|createdOn|updatedOn)$";
+    public static final String BODY_WEIGHT_GOAL_REGEXP = "^(WEIGHT_LOSS|WEIGHT_INCREASE|MAINTENANCE)$";
 }

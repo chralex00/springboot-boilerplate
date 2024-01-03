@@ -37,10 +37,6 @@ public class TdeePersonalInfoDto {
 
     @Getter
     @Setter
-    private Float idealWeight;
-
-    @Getter
-    @Setter
     private String activityLevel;
 
     @Getter

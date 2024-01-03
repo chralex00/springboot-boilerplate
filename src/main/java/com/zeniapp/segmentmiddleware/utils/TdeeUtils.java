@@ -1,5 +1,7 @@
 package com.zeniapp.segmentmiddleware.utils;
 
+import java.util.Map;
+import java.util.HashMap;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
@@ -12,6 +14,11 @@ import com.zeniapp.segmentmiddleware.dtos.ErrorResponseDto;
 import com.zeniapp.segmentmiddleware.dtos.TdeeQueryParamsDto;
 import com.zeniapp.segmentmiddleware.entities.Tdee;
 import com.zeniapp.segmentmiddleware.entities.TdeeResult;
+import com.zeniapp.segmentmiddleware.enums.ActivityLevel;
+import com.zeniapp.segmentmiddleware.enums.BasalMetabolicRateFormula;
+import com.zeniapp.segmentmiddleware.enums.BiologicalGender;
+import com.zeniapp.segmentmiddleware.enums.BodyWeightGoal;
+import com.zeniapp.segmentmiddleware.enums.IdealWeightFormula;
 import com.zeniapp.segmentmiddleware.exceptions.WrongPayloadException;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
@@ -22,6 +29,10 @@ public class TdeeUtils {
 
         if (tdeeQueryParamsDto.getAccountId() != null) {
             query.addCriteria(Criteria.where("accountId").is(tdeeQueryParamsDto.getAccountId()));
+        }
+
+        if (tdeeQueryParamsDto.getWeightGoal() != null) {
+            query.addCriteria(Criteria.where("weightGoal").is(tdeeQueryParamsDto.getWeightGoal()));
         }
 
         if (tdeeQueryParamsDto.getTags() != null) {
@@ -37,7 +48,7 @@ public class TdeeUtils {
         }
 
         if (tdeeQueryParamsDto.getIdealWeightFormula() != null) {
-            query.addCriteria(Criteria.where("idealWeightFormula").regex(tdeeQueryParamsDto.getIdealWeightFormula(), "i"));
+            query.addCriteria(Criteria.where("idealBodyWeightFormula").regex(tdeeQueryParamsDto.getIdealWeightFormula(), "i"));
         }
 
         if (tdeeQueryParamsDto.getPerformedOnMin() != null && tdeeQueryParamsDto.getPerformedOnMax() != null) {
@@ -111,8 +122,216 @@ public class TdeeUtils {
     public static TdeeResult createTdeeResultByTdee(Tdee tdee) {
         TdeeResult result = new TdeeResult();
 
-        // to do
+        TdeeUtils.calculateIdealBodyWeight(tdee, result);
+        TdeeUtils.calculateBasalMetabolicRate(tdee, result);
+        TdeeUtils.calculateTotalDailyEnergyExpenditure(tdee, result);
+        TdeeUtils.calculateMacronutrient(tdee, result);
 
         return result;
+    }
+
+    private static void calculateIdealBodyWeight(Tdee tdee, TdeeResult result) {
+        String gender = tdee.getPersonalInfo().getBiologicalGender();
+        Float height = tdee.getPersonalInfo().getHeight();
+        Integer age = tdee.getPersonalInfo().getAge();
+
+        Float idealBodyWeightByBroca = 0.0f;
+        if (gender.equals(BiologicalGender.FEMALE.toString())) {
+            idealBodyWeightByBroca = height - 104;
+        }
+        else {
+            idealBodyWeightByBroca = height - 100;
+        }
+
+        Float idealBodyWeightByDevine = 0.0f;
+        if (gender.equals(BiologicalGender.FEMALE.toString())) {
+            idealBodyWeightByDevine = 45.5f + (2.3f * (height - 152.4f));
+        }
+        else {
+            idealBodyWeightByDevine = 50 + (2.3f * (height - 152.4f));
+        }
+
+        Float idealBodyWeightByHamwi = 0.0f;
+        if (gender.equals(BiologicalGender.FEMALE.toString())) {
+            Float inchOverFiveFeet = ((height - 152.4f) / 2.54f);
+            idealBodyWeightByHamwi = 45.5f + (2.2f * inchOverFiveFeet);
+        }
+        else {
+            Float inchOverFiveFeet = ((height - 152.4f) / 2.54f);
+            idealBodyWeightByHamwi = 48 + (2.7f * inchOverFiveFeet);
+        }
+
+        Float idealBodyWeightByMiller = 0.0f;
+        if (gender.equals(BiologicalGender.FEMALE.toString())) {
+            Float inchOverFiveFeet = ((height - 152.4f) / 2.54f);
+            idealBodyWeightByMiller = 53.1f + (1.36f * inchOverFiveFeet);
+        }
+        else {
+            Float inchOverFiveFeet = ((height - 152.4f) / 2.54f);
+            idealBodyWeightByMiller = 56.2f + (1.41f * inchOverFiveFeet);
+        }
+
+        Float idealBodyWeightByRobinson = 0.0f;
+        if (gender.equals(BiologicalGender.FEMALE.toString())) {
+            Float inchOverFiveFeet = ((height - 152.4f) / 2.54f);
+            idealBodyWeightByRobinson = 49 + (1.7f * inchOverFiveFeet);
+        }
+        else {
+            Float inchOverFiveFeet = ((height - 152.4f) / 2.54f);
+            idealBodyWeightByRobinson = 52 + (1.9f * inchOverFiveFeet);
+        }
+
+        Float idealBodyWeightByBerthean = 0.8f * (height - 100) + age / 2;
+
+        Float idealBodyWeightByLorenz = 0.0f;
+        if (gender.equals(BiologicalGender.FEMALE.toString())) {
+            idealBodyWeightByLorenz = height - 100 - (height - 150) / 2;
+        }
+        else {
+            idealBodyWeightByLorenz = height - 100 - (height - 150) / 4;
+        }
+
+        Float idealBodyWeightByKeys = 0.0f;
+        if (gender.equals(BiologicalGender.FEMALE.toString())) {
+            Float heighExpressedtInMeters = height / 100;
+            idealBodyWeightByKeys = heighExpressedtInMeters * heighExpressedtInMeters * 20.6f;
+        }
+        else {
+            Float heightExpressedInMeters = height / 100;
+            idealBodyWeightByKeys = heightExpressedInMeters * heightExpressedInMeters * 22.1f;
+        }
+
+        Map<String, Float> idealBodyWeightByFormula = new HashMap<String, Float>();
+        idealBodyWeightByFormula.put(IdealWeightFormula.BROCA_EQUATION.toString(), idealBodyWeightByBroca);
+        idealBodyWeightByFormula.put(IdealWeightFormula.DEVINE_EQUATION.toString(), idealBodyWeightByDevine);
+        idealBodyWeightByFormula.put(IdealWeightFormula.HAMWI_EQUATION.toString(), idealBodyWeightByHamwi);
+        idealBodyWeightByFormula.put(IdealWeightFormula.MILLER_EQUATION.toString(), idealBodyWeightByMiller);
+        idealBodyWeightByFormula.put(IdealWeightFormula.ROBINSON_EQUATION.toString(), idealBodyWeightByRobinson);
+        idealBodyWeightByFormula.put(IdealWeightFormula.BERTHEAN_EQUATION.toString(), idealBodyWeightByBerthean);
+        idealBodyWeightByFormula.put(IdealWeightFormula.LORENZ_EQUATION.toString(), idealBodyWeightByLorenz);
+        idealBodyWeightByFormula.put(IdealWeightFormula.KEYS_EQUATION.toString(), idealBodyWeightByKeys);
+
+        Float idealBodyWeight = idealBodyWeightByFormula.get(tdee.getIdealWeightFormula());
+        result.setIdealBodyWeight(idealBodyWeight);
+    }
+
+    private static void calculateBasalMetabolicRate(Tdee tdee, TdeeResult result) {
+        String gender = tdee.getPersonalInfo().getBiologicalGender();
+        Integer age = tdee.getPersonalInfo().getAge();
+        Float actualBodyWeight = tdee.getPersonalInfo().getActualWeight();
+        Float height = tdee.getPersonalInfo().getHeight();
+
+        Float basalMetabolicRateByEuropeanCommisionLarnBmrTable = 0.0f;
+        if (gender.equals(BiologicalGender.FEMALE.toString())) {
+            if (age >= 60) {
+                basalMetabolicRateByEuropeanCommisionLarnBmrTable = actualBodyWeight * 9.082f;
+            }
+            else if (age >= 30) {
+                basalMetabolicRateByEuropeanCommisionLarnBmrTable = actualBodyWeight * 8.126f;
+            }
+            else {
+                basalMetabolicRateByEuropeanCommisionLarnBmrTable = actualBodyWeight * 14.818f;
+            }
+        }
+        else {
+            if (age >= 60) {
+                basalMetabolicRateByEuropeanCommisionLarnBmrTable = actualBodyWeight * 11.171f;
+            }
+            else if (age >= 30) {
+                basalMetabolicRateByEuropeanCommisionLarnBmrTable = actualBodyWeight * 11.472f;
+            }
+            else {
+                basalMetabolicRateByEuropeanCommisionLarnBmrTable = actualBodyWeight * 15.057f;
+            }
+        }
+
+        Float basalMetabolicRateByHarrisBenedictEquation = 0.0f;
+        if (gender.equals(BiologicalGender.FEMALE.toString())) {
+            basalMetabolicRateByHarrisBenedictEquation = 655.1f + (9.563f * actualBodyWeight) + (1.850f * height) - (4.676f * age);
+        }
+        else {
+            basalMetabolicRateByHarrisBenedictEquation =  66.5f + (13.75f * actualBodyWeight) + (5.003f * height) - (6.75f * age);
+        }
+
+        Float basalMetabolicRateByMifflinStJeorEquation = 0.0f;
+        if (gender.equals(BiologicalGender.FEMALE.toString())) {
+            basalMetabolicRateByHarrisBenedictEquation = (10 * actualBodyWeight) + (6.25f * height) - (5 * age) - 161;
+        }
+        else {
+            basalMetabolicRateByHarrisBenedictEquation = (10 * actualBodyWeight) + (6.25f * height) - (5 * age) + 5;
+        }
+
+        Map<String, Float> basalMetabolicRateByFormula = new HashMap<String, Float>();
+        basalMetabolicRateByFormula.put(BasalMetabolicRateFormula.EUROPEAN_COMMISSION_LARN_BMR_TABLE.toString(), basalMetabolicRateByEuropeanCommisionLarnBmrTable);
+        basalMetabolicRateByFormula.put(BasalMetabolicRateFormula.HARRIS_BENEDICT_EQUATION.toString(), basalMetabolicRateByHarrisBenedictEquation);
+        basalMetabolicRateByFormula.put(BasalMetabolicRateFormula.MIFFLIN_ST_JEOR_EQUATION.toString(), basalMetabolicRateByMifflinStJeorEquation);
+
+        Float basalMetabolicRate = basalMetabolicRateByFormula.get(tdee.getBasalMetabolismRateFormula());
+        result.setBasalMetabolicRateEnergy(basalMetabolicRate);
+    }
+
+    private static void calculateTotalDailyEnergyExpenditure(Tdee tdee, TdeeResult result) {
+        Float basalMetabolicRate = result.getBasalMetabolicRateEnergy();
+
+        Map<String, Float> coefficientByActivityLevel = new HashMap<String, Float>();
+        coefficientByActivityLevel.put(ActivityLevel.SEDENTARY.toString(), 0.2f);
+        coefficientByActivityLevel.put(ActivityLevel.LIGHT.toString(), 0.3f);
+        coefficientByActivityLevel.put(ActivityLevel.MODERATE.toString(), 0.4f);
+        coefficientByActivityLevel.put(ActivityLevel.HEAVY.toString(), 0.6f);
+        coefficientByActivityLevel.put(ActivityLevel.VERY_HEAVY.toString(), 0.8f);
+
+        result.setThermicEffectOfActivityEnergy(result.getBasalMetabolicRateEnergy() * coefficientByActivityLevel.get(tdee.getPersonalInfo().getActivityLevel()));
+        result.setThermogenicEffectOfFoodEnergy(basalMetabolicRate * 0.1f);
+        result.setNonExerciseActivityThermogenesisEnergy(basalMetabolicRate * 0.15f);
+
+        Float totalEnergy = result.getBasalMetabolicRateEnergy() +
+            result.getThermogenicEffectOfFoodEnergy() +
+            result.getNonExerciseActivityThermogenesisEnergy() +
+            result.getThermicEffectOfActivityEnergy();
+        
+        if (tdee.getWeightGoal().equals(BodyWeightGoal.WEIGHT_INCREASE.toString())) {
+            totalEnergy *= 1.15f; // +15%
+        }
+        else if (tdee.getWeightGoal().equals(BodyWeightGoal.WEIGHT_LOSS.toString())) {
+            totalEnergy *= 0.85f; // -15%
+        }
+        
+        result.setTotalEnergy(totalEnergy);
+    }
+
+    private static void calculateMacronutrient(Tdee tdee, TdeeResult result) {
+        Float actualBodyWeight = tdee.getPersonalInfo().getActualWeight();
+        Float totalEnergy = result.getTotalEnergy();
+
+        if (tdee.getWeightGoal().equals(BodyWeightGoal.WEIGHT_INCREASE.toString())) {
+            result.setFats(1.5f * actualBodyWeight);
+            totalEnergy -= result.getFats() * 9;
+
+            result.setProteins(2 * actualBodyWeight);
+            totalEnergy -= result.getProteins() * 4;
+
+            result.setCarbs(totalEnergy / 4);
+            totalEnergy = 0f;
+        }
+        else if (tdee.getWeightGoal().equals(BodyWeightGoal.WEIGHT_LOSS.toString())) {
+            result.setFats(1 * actualBodyWeight);
+            totalEnergy -= result.getFats() * 9;
+
+            result.setCarbs(2.8f * actualBodyWeight);
+            totalEnergy -= result.getCarbs() * 4;
+
+            result.setProteins(totalEnergy / 4);
+            totalEnergy = 0f;
+        }
+        else {
+            result.setFats(1 * actualBodyWeight);
+            totalEnergy -= result.getFats() * 9;
+
+            result.setCarbs(3.6f * actualBodyWeight);
+            totalEnergy -= result.getCarbs() * 4;
+
+            result.setProteins(totalEnergy / 4);
+            totalEnergy = 0f;
+        }
     }
 }

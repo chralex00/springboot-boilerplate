@@ -63,14 +63,16 @@ public class AdminTdeeController {
         @RequestParam(required = false) List<String> tags,
         @RequestParam(required = false) String basalMetabolicRateFormula,
         @RequestParam(required = false) String idealWeightFormula,
-        @RequestParam(required = false) String accountId
+        @RequestParam(required = false) String accountId,
+        @RequestParam(required = false) String weightGoal
     ) {
         try {
             TdeeQueryParamsDto tdeeQueryParamsDto = new TdeeQueryParamsDto(
                 null, null, null, null,
                 title, isArchived, performedOnMin, performedOnMin,
                 createdOnMin, createdOnMax, updatedOnMin, updatedOnMax,
-                accountId, tags, idealWeightFormula, basalMetabolicRateFormula
+                accountId, tags, idealWeightFormula, basalMetabolicRateFormula,
+                weightGoal
             );
             
             TdeeUtils.validateTdeeQueryParamsDto(tdeeQueryParamsDto);
@@ -164,14 +166,16 @@ public class AdminTdeeController {
         @RequestParam(required = false) List<String> tags,
         @RequestParam(required = false) String basalMetabolicRateFormula,
         @RequestParam(required = false) String idealWeightFormula,
-        @RequestParam(required = false) String accountId
+        @RequestParam(required = false) String accountId,
+        @RequestParam(required = false) String weightGoal
     ) {
         try {
             TdeeQueryParamsDto tdeeQueryParamsDto = new TdeeQueryParamsDto(
                 offset, limit, sortField, sortDirection,
                 title, isArchived, performedOnMin, performedOnMin,
                 createdOnMin, createdOnMax, updatedOnMin, updatedOnMax,
-                accountId, tags, idealWeightFormula, basalMetabolicRateFormula
+                accountId, tags, idealWeightFormula, basalMetabolicRateFormula,
+                weightGoal
             );
             
             TdeeUtils.validateTdeeQueryParamsDto(tdeeQueryParamsDto);

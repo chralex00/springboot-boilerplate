@@ -46,6 +46,10 @@ public class TdeeDto {
     @Getter
     @Setter
     private String basalMetabolismRateFormula;
+    
+    @Getter
+    @Setter
+    private String weightGoal;
 
     @Getter
     @Setter
@@ -54,6 +58,7 @@ public class TdeeDto {
     @Getter
     @Setter
     private TdeeResultDto result;
+
     @Getter
     @Setter
     private String createdOn;
