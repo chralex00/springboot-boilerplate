@@ -26,6 +26,10 @@ public class TdeeDto {
     @Getter
     @Setter
     private String performedOn;
+    
+    @Getter
+    @Setter
+    private Boolean isExerciseActivityThermogenesisCalculatedByActivityLevel;
 
     @Getter
     @Setter

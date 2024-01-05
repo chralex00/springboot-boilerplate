@@ -59,4 +59,11 @@ public class CreateTdeeActivityDto  {
             message = "activity tag must have between " + Constants.STRING_FILTER_MIN_LENGTH + " and " + Constants.STRING_FILTER_MAX_LENGTH + " characters"
         )
     String> tags;
+    
+    @Getter
+    @Setter
+    @NotNull(message = "hours cannot be null")
+    @Min(value = Constants.MIN_HOURS_VALUE, message = "hours must be greater than, or equal to " + Constants.MIN_HOURS_VALUE)
+    @Max(value = Constants.MAX_HOURS_VALUE, message = "hours must be lower than, or equal to " + Constants.MAX_HOURS_VALUE)
+    private Float hours;
 }

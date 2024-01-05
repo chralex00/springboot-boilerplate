@@ -53,6 +53,10 @@ public class TdeeQueryParamsDto {
 
     @Getter
     @Setter
+    private Boolean isExerciseActivityThermogenesisCalculatedByActivityLevel;
+
+    @Getter
+    @Setter
     @Size(
         min = Constants.STRING_FILTER_MIN_LENGTH,
         max = Constants.STRING_FILTER_MAX_LENGTH,

@@ -26,4 +26,8 @@ public class TdeeActivityDto {
     @Getter
     @Setter
     private List<String> tags;
+
+    @Getter
+    @Setter
+    private Float hours;
 }

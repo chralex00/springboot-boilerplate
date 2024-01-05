@@ -13,6 +13,7 @@ import org.springframework.validation.ObjectError;
 import com.zeniapp.segmentmiddleware.dtos.ErrorResponseDto;
 import com.zeniapp.segmentmiddleware.dtos.TdeeQueryParamsDto;
 import com.zeniapp.segmentmiddleware.entities.Tdee;
+import com.zeniapp.segmentmiddleware.entities.TdeeActivity;
 import com.zeniapp.segmentmiddleware.entities.TdeeResult;
 import com.zeniapp.segmentmiddleware.enums.ActivityLevel;
 import com.zeniapp.segmentmiddleware.enums.BasalMetabolicRateFormula;
@@ -65,6 +66,10 @@ public class TdeeUtils {
         
         if (tdeeQueryParamsDto.getIsArchived() != null) {
             query.addCriteria(Criteria.where("isArchived").is(tdeeQueryParamsDto.getIsArchived()));
+        }
+
+        if (tdeeQueryParamsDto.getIsExerciseActivityThermogenesisCalculatedByActivityLevel() != null) {
+            query.addCriteria(Criteria.where("isExerciseActivityThermogenesisCalculatedByActivityLevel").is(tdeeQueryParamsDto.getIsExerciseActivityThermogenesisCalculatedByActivityLevel()));
         }
 
         if (tdeeQueryParamsDto.getCreatedOnMin() != null && tdeeQueryParamsDto.getCreatedOnMax() != null) {
@@ -272,15 +277,26 @@ public class TdeeUtils {
 
     private static void calculateTotalDailyEnergyExpenditure(Tdee tdee, TdeeResult result) {
         Float basalMetabolicRate = result.getBasalMetabolicRateEnergy();
+        Float actualBodyWeight = tdee.getPersonalInfo().getActualWeight();
 
-        Map<String, Float> coefficientByActivityLevel = new HashMap<String, Float>();
-        coefficientByActivityLevel.put(ActivityLevel.SEDENTARY.toString(), 0.2f);
-        coefficientByActivityLevel.put(ActivityLevel.LIGHT.toString(), 0.3f);
-        coefficientByActivityLevel.put(ActivityLevel.MODERATE.toString(), 0.4f);
-        coefficientByActivityLevel.put(ActivityLevel.HEAVY.toString(), 0.6f);
-        coefficientByActivityLevel.put(ActivityLevel.VERY_HEAVY.toString(), 0.8f);
+        if (tdee.getIsExerciseActivityThermogenesisCalculatedByActivityLevel()) {
+            Map<String, Float> coefficientByActivityLevel = new HashMap<String, Float>();
+            coefficientByActivityLevel.put(ActivityLevel.SEDENTARY.toString(), 0.2f);
+            coefficientByActivityLevel.put(ActivityLevel.LIGHT.toString(), 0.3f);
+            coefficientByActivityLevel.put(ActivityLevel.MODERATE.toString(), 0.4f);
+            coefficientByActivityLevel.put(ActivityLevel.HEAVY.toString(), 0.6f);
+            coefficientByActivityLevel.put(ActivityLevel.VERY_HEAVY.toString(), 0.8f);
 
-        result.setThermicEffectOfActivityEnergy(result.getBasalMetabolicRateEnergy() * coefficientByActivityLevel.get(tdee.getPersonalInfo().getActivityLevel()));
+            result.setThermicEffectOfActivityEnergy(result.getBasalMetabolicRateEnergy() * coefficientByActivityLevel.get(tdee.getPersonalInfo().getActivityLevel()));
+        }
+        else {
+            Float exerciseActivityThermogenesis = 0.0f;
+            for (TdeeActivity tdeeActivity : tdee.getPersonalInfo().getActivities()) {
+                exerciseActivityThermogenesis += (tdeeActivity.getMets() * 3.5f * (actualBodyWeight / 200)) * (tdeeActivity.getHours() * 60);
+            }
+            result.setThermicEffectOfActivityEnergy(exerciseActivityThermogenesis);
+        }
+
         result.setThermogenicEffectOfFoodEnergy(basalMetabolicRate * 0.1f);
         result.setNonExerciseActivityThermogenesisEnergy(basalMetabolicRate * 0.15f);
 

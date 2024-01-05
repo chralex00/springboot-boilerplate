@@ -26,4 +26,8 @@ public class TdeeActivity { // partial type of the Activity entity
     @Getter
     @Setter
     private List<String> tags;
+
+    @Getter
+    @Setter
+    private Float hours; // from 1 to 24 hous
 }

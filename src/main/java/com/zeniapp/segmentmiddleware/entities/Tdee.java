@@ -35,6 +35,10 @@ public class Tdee {
 
     @Getter
     @Setter
+    private Boolean isExerciseActivityThermogenesisCalculatedByActivityLevel;
+
+    @Getter
+    @Setter
     private Boolean isArchived;
     
     @Getter
@@ -64,6 +68,7 @@ public class Tdee {
     @Getter
     @Setter
     private TdeeResult result;
+
     @Getter
     @Setter
     private String createdOn; // ISO date string

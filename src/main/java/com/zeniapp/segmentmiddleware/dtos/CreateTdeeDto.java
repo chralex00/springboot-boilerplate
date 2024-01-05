@@ -51,6 +51,11 @@ public class CreateTdeeDto {
 
     @Getter
     @Setter
+    @NotNull(message = "isExerciseActivityThermogenesisCalculatedByActivityLevel cannot be null")
+    private Boolean isExerciseActivityThermogenesisCalculatedByActivityLevel;
+
+    @Getter
+    @Setter
     @NotNull(message = "isArchived cannot be null")
     private Boolean isArchived;
     

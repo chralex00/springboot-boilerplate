@@ -60,6 +60,7 @@ public class AdminTdeeController {
         @RequestParam(required = false) String updatedOnMin,
         @RequestParam(required = false) String updatedOnMax,
         @RequestParam(required = false) Boolean isArchived,
+        @RequestParam(required = false) Boolean isExerciseActivityThermogenesisCalculatedByActivityLevel,
         @RequestParam(required = false) List<String> tags,
         @RequestParam(required = false) String basalMetabolicRateFormula,
         @RequestParam(required = false) String idealWeightFormula,
@@ -69,8 +70,8 @@ public class AdminTdeeController {
         try {
             TdeeQueryParamsDto tdeeQueryParamsDto = new TdeeQueryParamsDto(
                 null, null, null, null,
-                title, isArchived, performedOnMin, performedOnMin,
-                createdOnMin, createdOnMax, updatedOnMin, updatedOnMax,
+                title, isArchived, isExerciseActivityThermogenesisCalculatedByActivityLevel,
+                performedOnMin, performedOnMin, createdOnMin, createdOnMax, updatedOnMin, updatedOnMax,
                 accountId, tags, idealWeightFormula, basalMetabolicRateFormula,
                 weightGoal
             );
@@ -163,6 +164,7 @@ public class AdminTdeeController {
         @RequestParam(required = false) String updatedOnMin,
         @RequestParam(required = false) String updatedOnMax,
         @RequestParam(required = false) Boolean isArchived,
+        @RequestParam(required = false) Boolean isExerciseActivityThermogenesisCalculatedByActivityLevel,
         @RequestParam(required = false) List<String> tags,
         @RequestParam(required = false) String basalMetabolicRateFormula,
         @RequestParam(required = false) String idealWeightFormula,
@@ -172,8 +174,8 @@ public class AdminTdeeController {
         try {
             TdeeQueryParamsDto tdeeQueryParamsDto = new TdeeQueryParamsDto(
                 offset, limit, sortField, sortDirection,
-                title, isArchived, performedOnMin, performedOnMin,
-                createdOnMin, createdOnMax, updatedOnMin, updatedOnMax,
+                title, isArchived, isExerciseActivityThermogenesisCalculatedByActivityLevel,
+                performedOnMin, performedOnMin, createdOnMin, createdOnMax, updatedOnMin, updatedOnMax,
                 accountId, tags, idealWeightFormula, basalMetabolicRateFormula,
                 weightGoal
             );
