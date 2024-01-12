@@ -63,7 +63,7 @@ public class Constants {
     public static final int INTENSITY_MIN_LENGTH = 1;
     public static final int INTENSITY_MAX_LENGTH = 64;
     public static final int TRAINING_SESSION_EXECUTION_NOTES_MIN_LENGTH = 0;
-    public static final int TRAINING_SESSION_EXECUTION_NOTES_MAX_LENGTH = 128;
+    public static final int TRAINING_SESSION_EXECUTION_NOTES_MAX_LENGTH = 256;
     public static final int ESTIMATED_STARTING_TIME_MIN_LENGTH = 4;
     public static final int ESTIMATED_STARTING_TIME_MAX_LENGTH = 4;
     public static final int ESTIMATED_DURATION_MIN_LENGTH = 4;
@@ -145,7 +145,7 @@ public class Constants {
     public static final int DIET_TYPE_MIN_LENGTH = 1;
     public static final int DIET_TYPE_MAX_LENGTH = 64;
     public static final int DIET_MEAL_TITLE_MIN_LENGTH = 1;
-    public static final int DIET_MEAL_TITLE_MAX_LENGTH = 128;
+    public static final int DIET_MEAL_TITLE_MAX_LENGTH = 256;
     public static final int DIET_MEAL_COURSE_TYPE_MIN_LENGTH = 1;
     public static final int DIET_MEAL_COURSE_TYPE_MAX_LENGTH = 64;
     public static final int DIET_STARTS_ON_MIN_LENGTH = 1;
@@ -161,9 +161,9 @@ public class Constants {
     public static final int TDEE_TITLE_MIN_LENGTH = 1;
     public static final int TDEE_TITLE_MAX_LENGTH = 256;
     public static final int TDEE_DESCRIPTION_MIN_LENGTH = 1;
-    public static final int TDEE_DESCRIPTION_MAX_LENGTH = 256;
+    public static final int TDEE_DESCRIPTION_MAX_LENGTH = 1024;
     public static final int TDEE_PERFORMED_ON_MIN_LENGTH = 1;
-    public static final int TDEE_PERFORMED_ON_MAX_LENGTH = 256;
+    public static final int TDEE_PERFORMED_ON_MAX_LENGTH = 64;
     public static final int IDEAL_WEIGHT_FORMULA_MIN_LENGTH = 1;
     public static final int IDEAL_WEIGHT_FORMULA_MAX_LENGTH = 128;
     public static final int BASAL_METABOLIC_RATE_FORMULA_MIN_LENGTH = 1;

@@ -22,9 +22,9 @@ public class UpdateDietMealDto {
     @NotNull(message = "title cannot be null")
     @NotBlank(message = "title cannot be an empty string")
     @Size(
-        min = Constants.DIET_SESSION_TITLE_MIN_LENGTH,
-        max = Constants.DIET_SESSION_TITLE_MAX_LENGTH,
-        message = "title must have between " + Constants.DIET_SESSION_TITLE_MIN_LENGTH + " and " + Constants.DIET_SESSION_TITLE_MAX_LENGTH + " characters"
+        min = Constants.DIET_MEAL_TITLE_MIN_LENGTH,
+        max = Constants.DIET_MEAL_TITLE_MAX_LENGTH,
+        message = "title must have between " + Constants.DIET_MEAL_TITLE_MIN_LENGTH + " and " + Constants.DIET_MEAL_TITLE_MAX_LENGTH + " characters"
     )
     private String title;
 
