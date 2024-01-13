@@ -45,11 +45,11 @@ public class TdeeUtils {
         }
 
         if (tdeeQueryParamsDto.getBasalMetabolismRateFormula() != null) {
-            query.addCriteria(Criteria.where("basalMetabolismRateFormula").regex(tdeeQueryParamsDto.getBasalMetabolismRateFormula(), "i"));
+            query.addCriteria(Criteria.where("basalMetabolismRateFormula").is(tdeeQueryParamsDto.getBasalMetabolismRateFormula()));
         }
 
         if (tdeeQueryParamsDto.getIdealWeightFormula() != null) {
-            query.addCriteria(Criteria.where("idealBodyWeightFormula").regex(tdeeQueryParamsDto.getIdealWeightFormula(), "i"));
+            query.addCriteria(Criteria.where("idealWeightFormula").is(tdeeQueryParamsDto.getIdealWeightFormula()));
         }
 
         if (tdeeQueryParamsDto.getPerformedOnMin() != null && tdeeQueryParamsDto.getPerformedOnMax() != null) {

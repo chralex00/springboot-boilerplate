@@ -62,7 +62,7 @@ public class AdminTdeeController {
         @RequestParam(required = false) Boolean isArchived,
         @RequestParam(required = false) Boolean isExerciseActivityThermogenesisCalculatedByActivityLevel,
         @RequestParam(required = false) List<String> tags,
-        @RequestParam(required = false) String basalMetabolicRateFormula,
+        @RequestParam(required = false) String basalMetabolismRateFormula,
         @RequestParam(required = false) String idealWeightFormula,
         @RequestParam(required = false) String accountId,
         @RequestParam(required = false) String weightGoal
@@ -72,7 +72,7 @@ public class AdminTdeeController {
                 null, null, null, null,
                 title, isArchived, isExerciseActivityThermogenesisCalculatedByActivityLevel,
                 performedOnMin, performedOnMin, createdOnMin, createdOnMax, updatedOnMin, updatedOnMax,
-                accountId, tags, idealWeightFormula, basalMetabolicRateFormula,
+                accountId, tags, idealWeightFormula, basalMetabolismRateFormula,
                 weightGoal
             );
             
@@ -166,7 +166,7 @@ public class AdminTdeeController {
         @RequestParam(required = false) Boolean isArchived,
         @RequestParam(required = false) Boolean isExerciseActivityThermogenesisCalculatedByActivityLevel,
         @RequestParam(required = false) List<String> tags,
-        @RequestParam(required = false) String basalMetabolicRateFormula,
+        @RequestParam(required = false) String basalMetabolismRateFormula,
         @RequestParam(required = false) String idealWeightFormula,
         @RequestParam(required = false) String accountId,
         @RequestParam(required = false) String weightGoal
@@ -176,7 +176,7 @@ public class AdminTdeeController {
                 offset, limit, sortField, sortDirection,
                 title, isArchived, isExerciseActivityThermogenesisCalculatedByActivityLevel,
                 performedOnMin, performedOnMin, createdOnMin, createdOnMax, updatedOnMin, updatedOnMax,
-                accountId, tags, idealWeightFormula, basalMetabolicRateFormula,
+                accountId, tags, idealWeightFormula, basalMetabolismRateFormula,
                 weightGoal
             );
             
