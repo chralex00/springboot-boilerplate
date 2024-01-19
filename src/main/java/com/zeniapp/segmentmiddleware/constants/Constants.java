@@ -45,7 +45,7 @@ public class Constants {
     public static final int MAX_HEIGHT_VALUE = 240;
     public static final int MIN_WEIGHT_VALUE = 20;
     public static final int MAX_WEIGHT_VALUE = 320;
-    public static final int TDEE_ACTIVITIES_MAX_LENGTH = 5;
+    public static final int TDEE_ACTIVITIES_MAX_LENGTH = 50;
     public static final int MIN_HOURS_VALUE = 1;
     public static final int MAX_HOURS_VALUE = 24;
 
