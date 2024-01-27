@@ -64,10 +64,10 @@ public class Constants {
     public static final int INTENSITY_MAX_LENGTH = 64;
     public static final int TRAINING_SESSION_EXECUTION_NOTES_MIN_LENGTH = 0;
     public static final int TRAINING_SESSION_EXECUTION_NOTES_MAX_LENGTH = 256;
-    public static final int ESTIMATED_STARTING_TIME_MIN_LENGTH = 4;
-    public static final int ESTIMATED_STARTING_TIME_MAX_LENGTH = 4;
-    public static final int ESTIMATED_DURATION_MIN_LENGTH = 4;
-    public static final int ESTIMATED_DURATION_MAX_LENGTH = 4;
+    public static final int ESTIMATED_STARTING_TIME_MIN_LENGTH = 5;
+    public static final int ESTIMATED_STARTING_TIME_MAX_LENGTH = 5;
+    public static final int ESTIMATED_DURATION_MIN_LENGTH = 5;
+    public static final int ESTIMATED_DURATION_MAX_LENGTH = 5;
     public static final int TRAINING_TITLE_MIN_LENGTH = 1;
     public static final int TRAINING_TITLE_MAX_LENGTH = 256;
     public static final int TRAINING_DESCRIPTION_MIN_LENGTH = 0;
