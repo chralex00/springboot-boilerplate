@@ -207,7 +207,7 @@ public class Constants {
     public static final String TRAINING_TYPE_REGEXP = "^(SPLIT_ROUTINE|TOTAL_BODY|OTHER)$";
     public static final String ESTIMATED_EFFORT_LEVEL_REGEXP = "^(SLIGHT|LOW|MEDIUM|HIGH|AT_THE_LIMIT|EXTREME)$";
     public static final String ESTIMATED_DURATION_REGEXP = "^([01]\\d|2[0-3]):?([0-5]\\d)$";
-    public static final String ESTIMATED_STARTING_TIME_REGEXP = "^([01]\\\\d|2[0-3]):?([0-5]\\\\d)$";
+    public static final String ESTIMATED_STARTING_TIME_REGEXP = "^([01]\\d|2[0-3]):?([0-5]\\d)$";
     public static final String TIME_UNDER_TENSION_REGEXP = "^([1-9]{1,2}|EXP)-([0-9]{1,2})-([1-9]{1,2}|EXP)-([0-9]{1,2})$";
     public static final String INTENSITY_MEASURE_UNIT_REGEXP = "^(RPE|RM|PERCENTAGE|BUFFER)$";
     public static final String SET_TYPE_REGEXP = "^(WARM_UP|APPROACH_SET|LIGHT_SET|HEAVY_SET)$";
