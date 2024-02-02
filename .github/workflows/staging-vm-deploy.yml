@@ -25,4 +25,5 @@ jobs:
           docker stop segment-middleware && \
           docker rm segment-middleware && \
           docker rmi segment-middleware && \
+          git pull && \
           docker-compose up -d
