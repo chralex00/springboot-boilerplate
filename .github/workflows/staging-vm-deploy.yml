@@ -21,4 +21,8 @@ jobs:
         password: ${{ secrets.STAGING_VM_PASSWORD }}
         port: ${{ secrets.STAGING_VM_PORT }}
         script: |
-          mkdir hello-world-from-github-pipeline
+          cd ./segment-middleware && \
+          docker stop segment-middleware && \
+          docker rm segment-middleware && \
+          docker rmi segment-middleware && \
+          docker-compose up -d
