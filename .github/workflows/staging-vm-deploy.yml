@@ -7,8 +7,8 @@ on:
 
 jobs:
   deploy:
+    environment: Staging # the github environment
     runs-on: ubuntu-latest
-
     steps:
     - name: Check out code
       uses: actions/checkout@v2
