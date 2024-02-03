@@ -8,6 +8,7 @@ import java.util.Set;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.http.HttpStatus;
+import org.springframework.lang.NonNull;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import com.zeniapp.segmentmiddleware.dtos.ErrorResponseDto;
@@ -25,7 +26,8 @@ import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 
 public class TdeeUtils {
-    public static Query getQueryByTdeeQyeryParamsDto(TdeeQueryParamsDto tdeeQueryParamsDto) {
+    @SuppressWarnings("null")
+    public static @NonNull Query getQueryByTdeeQyeryParamsDto(TdeeQueryParamsDto tdeeQueryParamsDto) {
         Query query = new Query();
 
         if (tdeeQueryParamsDto.getAccountId() != null) {

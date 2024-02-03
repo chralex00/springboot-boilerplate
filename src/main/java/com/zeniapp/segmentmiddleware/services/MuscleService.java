@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 import com.zeniapp.segmentmiddleware.daos.MuscleDao;
 import com.zeniapp.segmentmiddleware.dtos.MuscleQueryParamsDto;
@@ -38,7 +39,7 @@ public class MuscleService {
         }
     }
 
-    public Muscle save(Muscle muscle) throws Exception {
+    public Muscle save(@NonNull Muscle muscle) throws Exception {
         try {
             return this.muscleDao.save(muscle);
         }

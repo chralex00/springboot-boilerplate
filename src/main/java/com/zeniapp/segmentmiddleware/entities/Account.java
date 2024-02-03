@@ -3,6 +3,7 @@ package com.zeniapp.segmentmiddleware.entities;
 import java.sql.Timestamp;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.lang.NonNull;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,6 +27,7 @@ public class Account {
     @Column(name = "id", columnDefinition = "VARCHAR(64)", updatable = false, unique = true)
     @Setter
     @Getter
+    @NonNull
     private String id;
 
     @Column(name = "email", columnDefinition = "VARCHAR(256)", updatable = true, unique = true)

@@ -1,11 +1,13 @@
 package com.zeniapp.segmentmiddleware.services;
 
+import java.util.Set;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 import com.zeniapp.segmentmiddleware.daos.TdeeDao;
 import com.zeniapp.segmentmiddleware.dtos.TdeeQueryParamsDto;
@@ -37,7 +39,7 @@ public class TdeeService {
         }
     }
 
-    public Tdee save(Tdee tdee) throws Exception {
+    public Tdee save(@NonNull Tdee tdee) throws Exception {
         try {
             return this.tdeeDao.save(tdee);
         }
@@ -48,7 +50,7 @@ public class TdeeService {
         }
     }
 
-    public Optional<Tdee> findOne(String id) throws Exception {
+    public Optional<Tdee> findOne(@NonNull String id) throws Exception {
         try {
             return this.tdeeDao.findById(id);
         }
@@ -100,12 +102,23 @@ public class TdeeService {
         }
     }
 
-    public void deleteOne(String id) throws Exception {
+    public void deleteOne(@NonNull String id) throws Exception {
         try {
             this.tdeeDao.deleteById(id);
         }
         catch (Exception exception) {
             TdeeService.log.error("error occurred deleting the tdee");
+            TdeeService.log.error("error message is " + exception.getMessage());
+            throw exception;
+        }
+    }
+
+    public void deleteMany(@NonNull Set<String> ids) throws Exception {
+        try {
+            this.tdeeDao.deleteAllById(ids);
+        }
+        catch (Exception exception) {
+            TdeeService.log.error("error occurred deleting many tdees");
             TdeeService.log.error("error message is " + exception.getMessage());
             throw exception;
         }

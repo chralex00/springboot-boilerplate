@@ -3,6 +3,7 @@ package com.zeniapp.segmentmiddleware.services;
 import java.util.Optional;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 import com.zeniapp.segmentmiddleware.daos.AccountDao;
 import com.zeniapp.segmentmiddleware.dtos.AccountQueryParamsDto;
@@ -47,7 +48,7 @@ public class AccountService {
         }
     }
 
-    public Account save(Account account) throws Exception {
+    public Account save(@NonNull Account account) throws Exception {
         try {
             return this.accountDao.save(account);
         }
@@ -129,6 +130,17 @@ public class AccountService {
         }
         catch (Exception exception) {
             AccountService.log.error("error occurred retrieving the account by identifier (username, or email)");
+            AccountService.log.error("error message is " + exception.getMessage());
+            throw exception;
+        }
+    }
+
+    public void deleteOne(@NonNull String id) throws Exception {
+        try {
+            this.accountDao.deleteById(id);
+        }
+        catch (Exception exception) {
+            AccountService.log.error("error occurred retrieving the account");
             AccountService.log.error("error message is " + exception.getMessage());
             throw exception;
         }

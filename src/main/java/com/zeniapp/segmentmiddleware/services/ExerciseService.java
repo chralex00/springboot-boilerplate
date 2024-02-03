@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 import com.zeniapp.segmentmiddleware.daos.ExerciseDao;
 import com.zeniapp.segmentmiddleware.dtos.ExerciseQueryParamsDto;
@@ -38,7 +39,7 @@ public class ExerciseService {
         }
     }
 
-    public Exercise save(Exercise exercise) throws Exception {
+    public Exercise save(@NonNull Exercise exercise) throws Exception {
         try {
             return this.exerciseDao.save(exercise);
         }

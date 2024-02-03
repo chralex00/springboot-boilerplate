@@ -2,10 +2,12 @@ package com.zeniapp.segmentmiddleware.services;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 import com.zeniapp.segmentmiddleware.daos.DietDao;
 import com.zeniapp.segmentmiddleware.dtos.DietQueryParamsDto;
@@ -37,7 +39,7 @@ public class DietService {
         }
     }
 
-    public Diet save(Diet diet) throws Exception {
+    public Diet save(@NonNull Diet diet) throws Exception {
         try {
             return this.dietDao.save(diet);
         }
@@ -48,7 +50,7 @@ public class DietService {
         }
     }
 
-    public Optional<Diet> findOne(String id) throws Exception {
+    public Optional<Diet> findOne(@NonNull String id) throws Exception {
         try {
             return this.dietDao.findById(id);
         }
@@ -100,12 +102,23 @@ public class DietService {
         }
     }
 
-    public void deleteOne(String id) throws Exception {
+    public void deleteOne(@NonNull String id) throws Exception {
         try {
             this.dietDao.deleteById(id);
         }
         catch (Exception exception) {
             DietService.log.error("error occurred deleting the diet");
+            DietService.log.error("error message is " + exception.getMessage());
+            throw exception;
+        }
+    }
+
+    public void deleteMany(@NonNull Set<String> ids) throws Exception {
+        try {
+            this.dietDao.deleteAllById(ids);
+        }
+        catch (Exception exception) {
+            DietService.log.error("error occurred deleting many diets");
             DietService.log.error("error message is " + exception.getMessage());
             throw exception;
         }

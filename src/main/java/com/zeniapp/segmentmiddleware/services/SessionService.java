@@ -3,6 +3,7 @@ package com.zeniapp.segmentmiddleware.services;
 import java.util.Optional;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 import com.zeniapp.segmentmiddleware.daos.SessionDao;
 import com.zeniapp.segmentmiddleware.dtos.SessionQueryParamsDto;
@@ -47,7 +48,7 @@ public class SessionService {
         }
     }
 
-    public Session save(Session session) throws Exception {
+    public Session save(@NonNull Session session) throws Exception {
         try {
             return this.sessionDao.save(session);
         }
@@ -58,7 +59,7 @@ public class SessionService {
         }
     }
 
-    public Optional<Session> findOne(String id) throws Exception {
+    public Optional<Session> findOne(@NonNull String id) throws Exception {
         try {
             return this.sessionDao.findById(id);
         }
@@ -101,7 +102,7 @@ public class SessionService {
         }
     }
 
-    public void deleteOne(String id) throws Exception {
+    public void deleteOne(@NonNull String id) throws Exception {
         try {
             this.sessionDao.deleteById(id);
         }

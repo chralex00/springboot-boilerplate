@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 import com.zeniapp.segmentmiddleware.daos.ActivityDao;
 import com.zeniapp.segmentmiddleware.dtos.ActivityQueryParamsDto;
@@ -22,7 +23,7 @@ public class ActivityService {
     @Autowired
     private MongoTemplate mongoTemplate;
 
-    public Long count(ActivityQueryParamsDto activityQueryParamsDto) throws Exception {
+    public Long count(@NonNull ActivityQueryParamsDto activityQueryParamsDto) throws Exception {
         try {
             Query query = ActivityUtils.getQueryByActivityQyeryParamsDto(activityQueryParamsDto);
 
@@ -37,7 +38,7 @@ public class ActivityService {
         }
     }
 
-    public Activity save(Activity activity) throws Exception {
+    public Activity save(@NonNull Activity activity) throws Exception {
         try {
             return this.activityDao.save(activity);
         }
@@ -70,7 +71,7 @@ public class ActivityService {
         }
     }
 
-    public List<Activity> findMany(ActivityQueryParamsDto activityQueryParamsDto) throws Exception {
+    public List<Activity> findMany(@NonNull ActivityQueryParamsDto activityQueryParamsDto) throws Exception {
         try {
             Query query = ActivityUtils.getQueryByActivityQyeryParamsDto(activityQueryParamsDto);
 

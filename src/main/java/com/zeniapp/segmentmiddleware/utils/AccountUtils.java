@@ -34,6 +34,10 @@ public class AccountUtils {
             predicates.add(criteriaBuilder.equal(root.get("isConfirmed"), accountQueryParamsDto.getIsConfirmed()));
         }
 
+        if (accountQueryParamsDto.getIsDeleted() != null) {
+            predicates.add(criteriaBuilder.equal(root.get("isDeleted"), accountQueryParamsDto.getIsDeleted()));
+        }
+
         if (accountQueryParamsDto.getEmail() != null) {
             predicates.add(criteriaBuilder.like(root.get("email"), "%" + accountQueryParamsDto.getEmail() + "%"));
         }

@@ -70,7 +70,7 @@ public class AdminAccountController {
             AccountQueryParamsDto accountQueryParamsDto = new AccountQueryParamsDto(
                 null, null, null, null,
                 email, username, firstName, lastName,
-                isConfirmed, isBlocked, createdOnMin, createdOnMax,
+                isConfirmed, isBlocked, false, createdOnMin, createdOnMax,
                 updatedOnMin, updatedOnMax, role
             );
             
@@ -166,7 +166,7 @@ public class AdminAccountController {
             AccountQueryParamsDto accountQueryParamsDto = new AccountQueryParamsDto(
                 offset, limit, sortField, sortDirection,
                 email, username, firstName, lastName,
-                isConfirmed, isBlocked, createdOnMin,
+                isConfirmed, isBlocked, false, createdOnMin,
                 createdOnMax, updatedOnMin, updatedOnMax,
                 role
             );

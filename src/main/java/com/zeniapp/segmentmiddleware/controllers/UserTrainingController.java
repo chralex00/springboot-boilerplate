@@ -2,6 +2,7 @@ package com.zeniapp.segmentmiddleware.controllers;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -252,7 +253,7 @@ public class UserTrainingController {
 
             this.trainingService.deleteOne(trainingToDelete.getId());
 
-            return new ResponseEntity<>(null, HttpStatus.OK);
+            return new ResponseEntity<>(new HashMap<String, String>(), HttpStatus.OK);
         }
         catch (ResourceNotFoundException resourceNotFoundException) {
             return new ResponseEntity<ErrorResponseDto>(resourceNotFoundException.getErrorResponseDto(), HttpStatus.NOT_FOUND);

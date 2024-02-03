@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.lang.NonNull;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -50,13 +51,13 @@ public class UserAuthGuard extends OncePerRequestFilter {
     private SessionService sessionService;
 
     @Override
-    protected boolean shouldNotFilter(HttpServletRequest request) {
+    protected boolean shouldNotFilter(@NonNull HttpServletRequest request) {
         RequestMatcher adminAccountPathMatcher = new NegatedRequestMatcher(new AntPathRequestMatcher("/api/v1/user/**"));
         return adminAccountPathMatcher.matches(request);
     }
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull FilterChain filterChain) throws ServletException, IOException {
         try {
             String jwt = request.getHeader("Authorization");
             Map<String, Object> claims = JwtUtils.decodeJwt(jwt, this.jwtSecret, new String[] { "sessionId" });

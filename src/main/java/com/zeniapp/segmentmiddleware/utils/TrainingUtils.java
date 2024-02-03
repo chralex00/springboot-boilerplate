@@ -6,6 +6,7 @@ import java.util.Set;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.http.HttpStatus;
+import org.springframework.lang.NonNull;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import com.zeniapp.segmentmiddleware.dtos.ErrorResponseDto;
@@ -15,7 +16,8 @@ import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 
 public class TrainingUtils {
-    public static Query getQueryByTrainingQyeryParamsDto(TrainingQueryParamsDto trainingQueryParamsDto) {
+    @SuppressWarnings("null")
+    public static @NonNull Query getQueryByTrainingQyeryParamsDto(TrainingQueryParamsDto trainingQueryParamsDto) {
         Query query = new Query();
 
         if (trainingQueryParamsDto.getAccountId() != null) {

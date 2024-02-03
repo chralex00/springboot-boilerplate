@@ -7,6 +7,7 @@ import java.util.Set;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.http.HttpStatus;
+import org.springframework.lang.NonNull;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import com.zeniapp.segmentmiddleware.dtos.ActivityQueryParamsDto;
@@ -18,7 +19,8 @@ import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 
 public class ActivityUtils {
-    public static Query getQueryByActivityQyeryParamsDto(ActivityQueryParamsDto activityQueryParamsDto) {
+    @SuppressWarnings("null")
+    public static @NonNull Query getQueryByActivityQyeryParamsDto(@NonNull ActivityQueryParamsDto activityQueryParamsDto) {
         Query query = new Query();
         
         query.addCriteria(Criteria.where("isDeleted").is(false));

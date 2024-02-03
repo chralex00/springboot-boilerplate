@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 import com.zeniapp.segmentmiddleware.daos.FoodDao;
 import com.zeniapp.segmentmiddleware.dtos.FoodQueryParamsDto;
@@ -38,7 +39,7 @@ public class FoodService {
         }
     }
 
-    public Food save(Food food) throws Exception {
+    public Food save(@NonNull Food food) throws Exception {
         try {
             return this.foodDao.save(food);
         }

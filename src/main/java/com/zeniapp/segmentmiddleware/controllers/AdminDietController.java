@@ -2,11 +2,13 @@ package com.zeniapp.segmentmiddleware.controllers;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.NonNull;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -128,7 +130,7 @@ public class AdminDietController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> findOne(@PathVariable String id) {
+    public ResponseEntity<?> findOne(@PathVariable @NonNull String id) {
         try {
             Diet dietFound = this.dietService.findOne(id).orElseThrow(ResourceNotFoundException::new);
 
@@ -198,7 +200,7 @@ public class AdminDietController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateOne(@PathVariable String id, @Valid @RequestBody UpdateDietDto updateDietDto, BindingResult bindingResult) {
+    public ResponseEntity<?> updateOne(@PathVariable @NonNull String id, @Valid @RequestBody UpdateDietDto updateDietDto, BindingResult bindingResult) {
         try {
             DietUtils.validateCreateOrUpdateDietDto(bindingResult);
             
@@ -234,13 +236,13 @@ public class AdminDietController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteOne(@PathVariable String id) {
+    public ResponseEntity<?> deleteOne(@PathVariable @NonNull String id) {
         try {
             Diet dietToDelete = this.dietService.findOne(id).orElseThrow(ResourceNotFoundException::new);
 
             this.dietService.deleteOne(dietToDelete.getId());
 
-            return new ResponseEntity<>(null, HttpStatus.OK);
+            return new ResponseEntity<>(new HashMap<String, String>(), HttpStatus.OK);
         }
         catch (ResourceNotFoundException resourceNotFoundException) {
             return new ResponseEntity<ErrorResponseDto>(resourceNotFoundException.getErrorResponseDto(), HttpStatus.NOT_FOUND);

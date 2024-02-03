@@ -2,10 +2,12 @@ package com.zeniapp.segmentmiddleware.services;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 import com.zeniapp.segmentmiddleware.daos.TrainingDao;
 import com.zeniapp.segmentmiddleware.dtos.TrainingQueryParamsDto;
@@ -37,7 +39,7 @@ public class TrainingService {
         }
     }
 
-    public Training save(Training training) throws Exception {
+    public Training save(@NonNull Training training) throws Exception {
         try {
             return this.trainingDao.save(training);
         }
@@ -48,7 +50,7 @@ public class TrainingService {
         }
     }
 
-    public Optional<Training> findOne(String id) throws Exception {
+    public Optional<Training> findOne(@NonNull String id) throws Exception {
         try {
             return this.trainingDao.findById(id);
         }
@@ -100,12 +102,23 @@ public class TrainingService {
         }
     }
 
-    public void deleteOne(String id) throws Exception {
+    public void deleteOne(@NonNull String id) throws Exception {
         try {
             this.trainingDao.deleteById(id);
         }
         catch (Exception exception) {
             TrainingService.log.error("error occurred deleting the training");
+            TrainingService.log.error("error message is " + exception.getMessage());
+            throw exception;
+        }
+    }
+
+    public void deleteMany(@NonNull Set<String> ids) throws Exception {
+        try {
+            this.trainingDao.deleteAllById(ids);
+        }
+        catch (Exception exception) {
+            TrainingService.log.error("error occurred deleting many trainings");
             TrainingService.log.error("error message is " + exception.getMessage());
             throw exception;
         }

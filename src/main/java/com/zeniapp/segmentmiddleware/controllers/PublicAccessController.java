@@ -137,7 +137,7 @@ public class PublicAccessController {
 
             this.sessionService.deleteOne(sessionId);
 
-            return new ResponseEntity<Object>(null, HttpStatus.OK);
+            return new ResponseEntity<>(new HashMap<String, String>(), HttpStatus.OK);
         }
         catch (Exception exception) {
             PublicAccessController.log.error("error occurred during the logout");
@@ -178,7 +178,7 @@ public class PublicAccessController {
             
             this.accountService.save(this.modelMapper.map(accountToCreate, Account.class));
 
-            return new ResponseEntity<Object>(null, HttpStatus.CREATED);
+            return new ResponseEntity<>(new HashMap<String, String>(), HttpStatus.CREATED);
         }
         catch (WrongPayloadException wrongPayloadException) {
             return new ResponseEntity<ErrorResponseDto>(wrongPayloadException.getErrorResponseDto(), HttpStatus.BAD_REQUEST);

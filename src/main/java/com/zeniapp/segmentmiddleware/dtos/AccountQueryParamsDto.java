@@ -83,6 +83,10 @@ public class AccountQueryParamsDto {
 
     @Getter
     @Setter
+    private Boolean isDeleted;
+
+    @Getter
+    @Setter
     @Min(value = 0, message = "createdOnMin must be greater than, or equal to " + Constants.MIN_TIMESTAMP_VALUE)
     @Max(value = Long.MAX_VALUE, message = "createdOnMin must be greater than, or equal to " + Constants.MAX_TIMESTAMP_VALUE)
     private Long createdOnMin;
