@@ -3,6 +3,9 @@ server.port=8081
 service.version=tobemodified
 service.name=segment-middleware
 
+crons.account-deletion.enable=true
+crons.account-deletion.cron-expression=*/10 * * * * *
+
 security.api-key-http-header-name=tobemodified
 security.api-key-http-header-value=tobemodified
 security.password-hashing.secret=tobemodified

@@ -34,6 +34,14 @@ public class Configs implements WebMvcConfigurer {
     @Value("${service.name:}")
     @Getter
     private String serviceName;
+    
+    @Value("${crons.account-deletion.enable:}")
+    @Getter
+    private Boolean cronsAccountDeletionEnable;
+
+    @Value("${crons.account-deletion.cron-expression:}")
+    @Getter
+    private String cronsAccountDeletionCronExpression;
 
     @Value("${security.api-key-http-header-name:}")
     @Getter
@@ -111,7 +119,16 @@ public class Configs implements WebMvcConfigurer {
 
         if (this.serviceName == null ||
             this.serviceName.length() == 0) {
-            errorMessages.add("service.name is a required environment");
+            errorMessages.add("service.name is a required environment variable");
+        }
+
+        if (this.cronsAccountDeletionEnable == null) {
+            errorMessages.add("crons.account-deletion.enable is a required environment variable");
+        }
+
+        if (this.cronsAccountDeletionCronExpression == null ||
+            this.cronsAccountDeletionCronExpression.length() == 0) {
+            errorMessages.add("crons.account-deletion.cron-expression is a required environment variable");
         }
 
         if (this.securityApiKeyHttpHeaderName == null ||
