@@ -14,8 +14,8 @@ The `application.properties` file must contain the following application propert
 - `server.port`: the service port, preferably a number between 8090 and 8099.
 - `service.version`: the service name. It must be the same as <artifactId /> in the pom.xml file.
 - `service.name`: the service version. It must be the same as <version /> in the pom.xml file.
-- `crons.account-deletion.enable`: `true` to enabling the account deletion cronjob. It's a boolean env var.
-- `crons.account-deletion.cron-expression`: to specify the cron expresion, like `*/10 * * * * *` (every 10 seconds).
+- `crons.account-deletion.cron-expression`: to specify the cron expresion of the AccountDeletionCron, like `*/10 * * * * *` (every 10 seconds). To disable the AccountDeletionCron, use the `-` value.
+- `crons.account-deletion.data-structure-to-delete-max-limit`: to specify the maximum number of diets, trainings and TDEEs to delete in a single cron run. For example: 10, 20, 50, or 100.
 - `security.api-key-http-header-name`: the HTTP header name of the API Key.
 - `security.api-key-http-header-value`: the HTTP header value of the API Key.
 - `security.password-hashing.secret`: the hash secret, used for the password encryption.

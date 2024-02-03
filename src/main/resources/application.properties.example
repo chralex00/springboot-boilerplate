@@ -3,8 +3,8 @@ server.port=8081
 service.version=tobemodified
 service.name=segment-middleware
 
-crons.account-deletion.enable=true
 crons.account-deletion.cron-expression=*/10 * * * * *
+crons.account-deletion.data-structure-to-delete-max-limit=50
 
 security.api-key-http-header-name=tobemodified
 security.api-key-http-header-value=tobemodified

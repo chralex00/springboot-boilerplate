@@ -34,14 +34,14 @@ public class Configs implements WebMvcConfigurer {
     @Value("${service.name:}")
     @Getter
     private String serviceName;
-    
-    @Value("${crons.account-deletion.enable:}")
-    @Getter
-    private Boolean cronsAccountDeletionEnable;
 
     @Value("${crons.account-deletion.cron-expression:}")
     @Getter
     private String cronsAccountDeletionCronExpression;
+
+    @Value("${crons.account-deletion.data-structure-to-delete-max-limit:}")
+    @Getter
+    private Integer cronsAccountDeletionDataStructureToDeleteMaxLimit;
 
     @Value("${security.api-key-http-header-name:}")
     @Getter
@@ -122,13 +122,15 @@ public class Configs implements WebMvcConfigurer {
             errorMessages.add("service.name is a required environment variable");
         }
 
-        if (this.cronsAccountDeletionEnable == null) {
-            errorMessages.add("crons.account-deletion.enable is a required environment variable");
-        }
-
         if (this.cronsAccountDeletionCronExpression == null ||
             this.cronsAccountDeletionCronExpression.length() == 0) {
             errorMessages.add("crons.account-deletion.cron-expression is a required environment variable");
+        }
+
+        if (this.cronsAccountDeletionDataStructureToDeleteMaxLimit == null ||
+            this.cronsAccountDeletionDataStructureToDeleteMaxLimit < 1 ||
+            this.cronsAccountDeletionDataStructureToDeleteMaxLimit > 1000) {
+            errorMessages.add("crons.account-deletion.data-structure-to-delete-max-limit is a required integer environment variable between 1 and 1000");
         }
 
         if (this.securityApiKeyHttpHeaderName == null ||

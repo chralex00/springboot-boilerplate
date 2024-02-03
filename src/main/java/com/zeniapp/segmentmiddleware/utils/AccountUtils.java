@@ -24,7 +24,13 @@ import jakarta.validation.Validation;
 public class AccountUtils {
     public static List<Predicate> getPredicatesByAccountQyeryParamsDto(CriteriaBuilder criteriaBuilder, Root<Account> root, AccountQueryParamsDto accountQueryParamsDto) throws DuplicateFieldsException {
         List<Predicate> predicates = new ArrayList<Predicate>();
-        predicates.add(criteriaBuilder.equal(root.get("isDeleted"), false));
+
+        if (accountQueryParamsDto.getIsDeleted() != null) {
+            predicates.add(criteriaBuilder.equal(root.get("isDeleted"), accountQueryParamsDto.getIsDeleted()));
+        }
+        else {
+            predicates.add(criteriaBuilder.equal(root.get("isDeleted"), false));
+        }
 
         if (accountQueryParamsDto.getIsBlocked() != null) {
             predicates.add(criteriaBuilder.equal(root.get("isBlocked"), accountQueryParamsDto.getIsBlocked()));
@@ -32,10 +38,6 @@ public class AccountUtils {
 
         if (accountQueryParamsDto.getIsConfirmed() != null) {
             predicates.add(criteriaBuilder.equal(root.get("isConfirmed"), accountQueryParamsDto.getIsConfirmed()));
-        }
-
-        if (accountQueryParamsDto.getIsDeleted() != null) {
-            predicates.add(criteriaBuilder.equal(root.get("isDeleted"), accountQueryParamsDto.getIsDeleted()));
         }
 
         if (accountQueryParamsDto.getEmail() != null) {
