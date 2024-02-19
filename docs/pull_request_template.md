@@ -1,19 +1,16 @@
-### PR CHECKLIST
-I have:
-- [ ] Reviewed the code
-- [ ] Wrote and updated (if the changes required it) and ran the unit tests
-- [ ] Updated the Postman Doc (if one or more APIs have been added)
+# Pull Request Review
 
-Furthermore, I made sure that:
-- [ ] The PR isn't a duplicate
-- [ ] The build works fine
-- [ ] The application launches correctly without docker
-- [ ] The application launches correctly with docker
+## Summary
+Type a summary here...
 
-### CHANGES RECAP
+## Type of change
+- [ ] Bug fix (non-breaking change which fixes an issue)
+- [ ] New feature (non-breaking change which adds functionality)
+- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
+- [ ] This change requires a documentation update
 
-### VERSIONING
-
-The current version is: 
-
-The new version is: 
+## Checklist
+- [ ] I did a review of my code
+- [ ] I added and ran the unit tests (only in case of new business logic)
+- [ ] I performed a test coverage, passed successfully (only in case of new business logic)
+- [ ] My code works under docker

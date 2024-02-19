@@ -1,0 +1,29 @@
+{
+	"info": {
+		"_postman_id": "9f737b91-69c5-4f2e-81c2-d9501c809786",
+		"name": "springboot-boilerplate",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10313594",
+		"_collection_link": "https://speeding-trinity-4448.postman.co/workspace/springboot-boilerplate~d15cbb5b-6de0-4483-8900-3fca50b59f82/collection/10313594-9f737b91-69c5-4f2e-81c2-d9501c809786?action=share&source=collection_link&creator=10313594"
+	},
+	"item": [
+		{
+			"name": "Healthcheck",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/healthcheck",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"healthcheck"
+					]
+				},
+				"description": "Return 200 OK with the service name and the current service version."
+			},
+			"response": []
+		}
+	]
+}

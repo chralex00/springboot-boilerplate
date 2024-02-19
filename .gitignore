@@ -6,10 +6,6 @@ target/
 !**/src/test/**/target/
 .mvn/
 
-### Docker Volumes ###
-mysqlData/
-mongoData/
-
 ### STS ###
 .apt_generated
 .classpath

@@ -2,11 +2,11 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Spring Boot-SegmentMiddlewareApplication<segment-middleware>",
+            "name": "Spring Boot-SpringBootBoilerplateApplication<springboot-boilerplate>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
-            "mainClass": "com.zeniapp.segmentmiddleware.SegmentMiddlewareApplication",
-            "projectName": "segment-middleware",
+            "mainClass": "com.zeniapp.springbootboilerplate.SpringBootBoilerplateApplication",
+            "projectName": "springboot-boilerplate",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }

@@ -8,5 +8,5 @@ RUN mvn clean install -D maven.test.skip=true && ls -l
 
 FROM openjdk:19-alpine3.16 as prod
 WORKDIR /app
-COPY --from=build /app/target/segment-middleware.jar /app
-ENTRYPOINT ["java","-jar","./segment-middleware.jar"]
+COPY --from=build /app/target/springboot-boilerplate.jar /app
+ENTRYPOINT ["java","-jar","./springboot-boilerplate.jar"]

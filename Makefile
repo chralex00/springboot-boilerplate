@@ -1,24 +1,20 @@
 include .env
 
-up_dev:
-	docker-compose -f docker-compose-development.yml up -d
+clean:
+	mvn clean
 
-down_dev:
-	docker-compose -f docker-compose-development.yml down
-	docker rmi mysql:5.7
-	docker rmi phpmyadmin/phpmyadmin
-	docker rmi mongo
-	docker rmi mongo-express
+run:
+	mvn clean spring-boot:run
 
-build:
+docker-build:
 	docker build -t ${DOCKER_SERVICE_IMAGE_NAME} .
 
-up:
+docker-up:
 	docker-compose up -d
 
-down:
+docker-down:
 	docker-compose down
 	docker rmi ${DOCKER_SERVICE_IMAGE_NAME}
 
-logs:
-	docker logs -f ${DOCKER_SERVICE_CONTAINER_NAME} --tail=500
+docker-logs:
+	docker logs -f ${DOCKER_SERVICE_CONTAINER_NAME} --tail=50
